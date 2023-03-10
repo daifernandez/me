@@ -8,8 +8,13 @@ const activity = [
     type: "comment",
     experience: { where: "Henry", title: "FullStack Web Developer" },
     imageUrl: avatarHenry,
-    job: "PawCare - Proyecto Final. En el cual trabajé junto a 6 compañeros utilizando la metodología Scrum para crear una página web para servicio de guardería de mascotas. La página debía tener las siguientes funcionalidades: búsqueda, filtros combinados, ordenamientos, autenticación local y de terceros, pasarela de pagos, deploy, panel de administrador, valoraciones, comentarios y notificaciones vía email.",
-    obs: "Las tecnologías utilizadas fueron: JavaScript, React, Redux, Bootstrap , NodeJS, Express, Google login, MercadoPago, Auth0, Cloudinary, distintas librerías y frameworks. ",
+    title: "Pawcare",
+    description:
+      "Proyecto Final. En el cual trabajé junto a 6 compañeros utilizando la metodología Scrum para crear una página web para servicio de guardería de mascotas.",
+    Funcionalidades:
+      "búsqueda, filtros combinados, ordenamientos, autenticación local y de terceros, pasarela de pagos, deploy, panel de administrador, valoraciones, comentarios y notificaciones vía email.",
+    tecnologies:
+      "JavaScript, React, Redux, Bootstrap , NodeJS, Express, Google login, MercadoPago, Auth0, Cloudinary, distintas librerías y frameworks.",
     date: "3 semanas",
   },
   {
@@ -17,8 +22,13 @@ const activity = [
     type: "comment",
     experience: { where: "Henry", title: "FullStack Web Developer" },
     imageUrl: avatarHenry,
-    job: "GameStream - Proyecto Individual destinado a la creación de una página web, consumiendo una API con información sobre videojuegos. El proyecto debía contar con las funcionalidades de búsquedas, filtrados, ordenamientos y creación de actividades.",
-    obs: "Las tecnologías utilizadas fueron: JavaScript, React, Redux, CSS, NodeJS, Express, Sequelize y PostgreSQL.",
+    title: "GameStream",
+    description:
+      "Proyecto Individual destinado a la creación de una página web, consumiendo una API con información sobre videojuegos.",
+    Funcionalidades:
+      "búsquedas, filtrados, ordenamientos y creación de actividades",
+    tecnologies:
+      "JavaScript, React, Redux, CSS, NodeJS, Express, Sequelize y PostgreSQL.",
     date: "2 semanas",
   },
   {
@@ -26,8 +36,11 @@ const activity = [
     type: "comment",
     experience: { where: "Medicus S.A.", title: "Auxiliar en Odontología" },
     imageUrl: avatarMed,
-    job: "Tareas realizadas: Manejo de liquidación de prestadores, historia clínica de pacientes con auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental a ultilizar en distintas especialidad. Coordinación con laboratorios. Preparación del paciente. Manejo y preparación del área en quirófano con asistencia en técnica a 4 manos. Organización y sanidad en área clínica.",
-    obs: "Aptitudes: Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Programación de citas",
+    description: "",
+    Funcionalidades:
+      "Tareas realizadas: Manejo de liquidación de prestadores, historia clínica de pacientes con auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental a ultilizar en distintas especialidad. Coordinación con laboratorios. Preparación del paciente. Manejo y preparación del área en quirófano con asistencia en técnica a 4 manos. Organización y sanidad en área clínica.",
+    aptitudes:
+      "Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Programación de citas",
     date: "5 años 9 meses",
   },
   {
@@ -35,8 +48,11 @@ const activity = [
     type: "assigne",
     experience: { where: "Odontologia del Hacer", title: "Asistente Dental" },
     imageUrl: avatarOH,
-    job: "Tareas realizadas: Manejo de fichas, anotación y auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental. Coordinación con proveedores, laboratorios. Preparación del paciente. Liquidación a prepagas. Coordinacion de turnos. Asistencia a profesionales en técnica a 4 manos. Revelado de radiografías periapicales. Organización y sanidad en área clínica.",
-    obs: "Aptitudes: Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Asistencia de administración · Programación de citas",
+    description: "",
+    Funcionalidades:
+      "Tareas realizadas: Manejo de fichas, anotación y auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental. Coordinación con proveedores, laboratorios. Preparación del paciente. Liquidación a prepagas. Coordinacion de turnos. Asistencia a profesionales en técnica a 4 manos. Revelado de radiografías periapicales. Organización y sanidad en área clínica.",
+    aptitudes:
+      "Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Asistencia de administración · Programación de citas",
     date: "6 años 5 meses",
   },
 ];
@@ -73,8 +89,40 @@ export default function Experience() {
                       </p>
                     </div>
                     <div className="mt-2 text-sm text-gray-700">
-                      <p>{activityItem.job}</p>
-                      <p>{activityItem.obs}</p>
+                      {activityItem.title && (
+                        <p className="text-gray-900 font-medium">
+                          {activityItem.title}
+                        </p>
+                      )}
+                      <p>{activityItem.description}</p>
+                      {activityItem.Funcionalidades && (
+                        <>
+                          <p className="text-gray-500 mt-3">Funcionalidades:</p>
+                          <p className="text-gray-500">
+                            {activityItem.Funcionalidades}
+                          </p>
+                        </>
+                      )}
+
+                      <p className="text-gray-500 mt-2">{activityItem.obs}</p>
+                      {activityItem.tecnologies && (
+                        <>
+                          <p className="text-gray-500">
+                            Tecnologías utilizadas:
+                          </p>
+                          <p className="text-gray-500">
+                            {activityItem.tecnologies}
+                          </p>
+                        </>
+                      )}
+                      {activityItem.aptitudes && (
+                        <>
+                          <p className="text-gray-500 mt-3">Aptitudes:</p>
+                          <p className="text-gray-500">
+                            {activityItem.aptitudes}
+                          </p>
+                        </>
+                      )}
                     </div>
                   </div>
                 </>
