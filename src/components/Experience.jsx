@@ -11,7 +11,7 @@ const activity = [
     title: "Pawcare",
     description:
       "Proyecto Final. En el cual trabajé junto a 6 compañeros utilizando la metodología Scrum para crear una página web para servicio de guardería de mascotas.",
-    Funcionalidades:
+    funcionalidades:
       "búsqueda, filtros combinados, ordenamientos, autenticación local y de terceros, pasarela de pagos, deploy, panel de administrador, valoraciones, comentarios y notificaciones vía email.",
     tecnologies:
       "JavaScript, React, Redux, Bootstrap , NodeJS, Express, Google login, MercadoPago, Auth0, Cloudinary, distintas librerías y frameworks.",
@@ -25,7 +25,7 @@ const activity = [
     title: "GameStream",
     description:
       "Proyecto Individual destinado a la creación de una página web, consumiendo una API con información sobre videojuegos.",
-    Funcionalidades:
+    funcionalidades:
       "búsquedas, filtrados, ordenamientos y creación de actividades",
     tecnologies:
       "JavaScript, React, Redux, CSS, NodeJS, Express, Sequelize y PostgreSQL.",
@@ -37,7 +37,7 @@ const activity = [
     experience: { where: "Medicus S.A.", title: "Auxiliar en Odontología" },
     imageUrl: avatarMed,
     description: "",
-    Funcionalidades:
+    funcionalidades:
       "Tareas realizadas: Manejo de liquidación de prestadores, historia clínica de pacientes con auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental a ultilizar en distintas especialidad. Coordinación con laboratorios. Preparación del paciente. Manejo y preparación del área en quirófano con asistencia en técnica a 4 manos. Organización y sanidad en área clínica.",
     aptitudes:
       "Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Programación de citas",
@@ -49,7 +49,7 @@ const activity = [
     experience: { where: "Odontologia del Hacer", title: "Asistente Dental" },
     imageUrl: avatarOH,
     description: "",
-    Funcionalidades:
+    funcionalidades:
       "Tareas realizadas: Manejo de fichas, anotación y auditado. Bioseguridad y esterilización. Manejo y preparación de materiales e instrumental. Coordinación con proveedores, laboratorios. Preparación del paciente. Liquidación a prepagas. Coordinacion de turnos. Asistencia a profesionales en técnica a 4 manos. Revelado de radiografías periapicales. Organización y sanidad en área clínica.",
     aptitudes:
       "Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Asistencia de administración · Programación de citas",
@@ -95,11 +95,11 @@ export default function Experience() {
                         </p>
                       )}
                       <p>{activityItem.description}</p>
-                      {activityItem.Funcionalidades && (
+                      {activityItem.funcionalidades && (
                         <>
                           <p className="text-gray-500 mt-3">Funcionalidades:</p>
                           <p className="text-gray-500">
-                            {activityItem.Funcionalidades}
+                            {activityItem.funcionalidades}
                           </p>
                         </>
                       )}
