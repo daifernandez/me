@@ -2,9 +2,9 @@ import { RocketLaunchIcon } from "@heroicons/react/20/solid";
 import avatar from "../img/profile.jpg";
 import background from "../img/background.jpg";
 
-const profile = {
-  name: "Daiana Fernandez",
-};
+// const profile = {
+//   name: "Daiana Fernandez",
+// };
 
 export default function Header() {
   return (
@@ -43,11 +43,11 @@ export default function Header() {
             </div>
           </div>
         </div>
-        <div className="mt-6 hidden min-w-0 flex-1 sm:block md:hidden">
+        {/* <div className="mt-6 hidden min-w-0 flex-1 sm:block md:hidden">
           <h1 className="truncate text-2xl font-bold text-gray-900">
             {profile.name}
           </h1>
-        </div>
+        </div> */}
       </div>
     </div>
   );
