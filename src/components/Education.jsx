@@ -174,7 +174,11 @@ export default function Education() {
                 </p>
               </div>
               <div className="relative mt-8 flex items-center gap-x-4 mb-8">
-                <AcademicCapIcon className="h-10 w-10 rounded-full bg-gray-50" />
+                <AcademicCapIcon
+                  stroke="#9e9e9e"
+                  fill="none"
+                  className="h-10 w-10 rounded-full bg-white-40"
+                />
                 <div className="text-sm leading-6">
                   <p className="font-semibold text-lg text-indigo-600">
                     <span className="absolute inset-0 " />
