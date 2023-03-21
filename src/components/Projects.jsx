@@ -2,6 +2,7 @@ import gamestream from "../img/GameStream.png";
 import pawcare from "../img/PawCare.png";
 import avatarPC from "../img/avatarPC.png";
 import avatarGS from "../img/avatarGS.png";
+import { useHistory } from "react-router-dom";
 
 const posts = [
   {
@@ -36,6 +37,7 @@ const posts = [
 ];
 
 export default function Projects() {
+  const redirect = useHistory();
   return (
     <div className="bg-white py-20 sm:py-30">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -81,10 +83,16 @@ export default function Projects() {
                 </div>
               </div>
               <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                <a href={post.href}>
+                <button
+                  onClick={
+                    post.title === "GameStream"
+                      ? () => redirect.push("/projects/gamestream")
+                      : () => redirect.push("/projects/pawcare")
+                  }
+                >
                   <span className="absolute inset-0" />
                   {post.title}
-                </a>
+                </button>
               </h3>
             </article>
           ))}
