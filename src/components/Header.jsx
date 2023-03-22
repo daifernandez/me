@@ -1,5 +1,5 @@
 import { RocketLaunchIcon } from "@heroicons/react/20/solid";
-import avatar from "../img/profile.jpg";
+import avatar from "../img/mac.png";
 import background from "../img/background.jpg";
 import { useHistory } from "react-router-dom";
 
@@ -25,7 +25,7 @@ export default function Header() {
         <div className="mx-auto max-w-2xl text-center lg:max-w-7xl">
           <div className="flex">
             <img
-              className="h-24 w-24 rounded-full ring-4 ring-white sm:h-32 sm:w-32"
+              className="h-24 w-24 rounded-full ring-white sm:h-32 sm:w-32 lg:h-40 lg:w-40"
               src={avatar}
               alt=""
             />
