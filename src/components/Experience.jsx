@@ -59,12 +59,12 @@ const activity = [
 
 export default function Experience() {
   return (
-    <div className="flow-root mt-20 justify-center ml-5 mr-5 mb-5">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <ul className="-mb-8">
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-4xl px-10 lg:px-20">
+        <ul className="-mb-8 space-y-16 ">
           {activity.map((activityItem, activityItemIdx) => (
             <li key={activityItem.id}>
-              <div className="relative pb-8">
+              <div className="relative pb-10">
                 {activityItemIdx !== activity.length - 1 ? (
                   <span
                     className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"

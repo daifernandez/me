@@ -38,7 +38,7 @@ export default function AboutMe() {
                   Soy Daiana Fernandez
                 </h3>
                 <p className="text-lg text-gray-700">
-                  Desarrollador Web FullStack de Buenos Aires, Argentina 🚀.
+                  Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀.
                 </p>
               </div>
               <div>
