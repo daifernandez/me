@@ -1,6 +1,7 @@
 import Footer from "./Footer";
 import background from "../img/background.jpg";
 import avatar from "../img/hello.png";
+import Social from "./Social";
 
 export default function AboutMe() {
   return (
@@ -72,21 +73,20 @@ export default function AboutMe() {
                   en el campo del desarrollo web. Si tienes un proyecto
                   interesante o una posición disponible, ¡no dudes en
                   contactarme!
-                </p>
-                <div className="text-center md:text-left mt-20 mb-5">
+                </p>{" "}
+                <Social />
+                {/* <div className="text-center md:text-right mt-10 mb-5">
                   <a
                     href="#contact"
                     className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 "
                   >
                     Contáctame
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
         </section>
-
-        <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
       </div>
       <Footer />
     </div>
