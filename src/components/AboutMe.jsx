@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import background from "../img/background.jpg";
-import avatar from "../img/hello.png";
+import avatar from "../img/me.jpg";
 import Social from "./Social";
 import { DocumentCheckIcon } from "@heroicons/react/20/solid";
 
@@ -30,7 +30,7 @@ export default function AboutMe() {
                 <img
                   src={avatar}
                   alt="Foto de perfil"
-                  className="w-84 h-64 rounded-full mx-auto md:mx-0 mb-6 mt-10 aspect-[6/5]  object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-66"
+                  className="w-64 h-64 rounded-full mx-auto md:mx-0 mb-6 mt-10 aspect-[6/5] object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5"
                 />
                 <h2 className="text-base text-indigo-600 font-semibold tracking-wide">
                   ¡Hola Mundo!
