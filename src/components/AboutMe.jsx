@@ -2,7 +2,7 @@ import Footer from "./Footer";
 import background from "../img/background.jpg";
 import avatar from "../img/hello.png";
 import Social from "./Social";
-import { DocumentCheckIcon, RocketLaunchIcon } from "@heroicons/react/20/solid";
+import { DocumentCheckIcon } from "@heroicons/react/20/solid";
 
 export default function AboutMe() {
   return (
@@ -58,8 +58,9 @@ export default function AboutMe() {
               </div>
               <div>
                 <p className="text-lg text-gray-700">
-                  Me apasiona la tecnología y disfruto aprendiendo nuevas
-                  habilidades y enfrentando desafíos emocionantes.
+                  Me considero una entusiasta de la tecnología que disfruta
+                  aprendiendo nuevas habilidades y enfrentando desafíos
+                  emocionantes.
                 </p>
                 <p className="text-lg text-gray-700">
                   Tengo experiencia en tecnologías como Javascript, NodeJS,
