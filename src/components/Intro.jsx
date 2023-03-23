@@ -1,7 +1,10 @@
 import React from "react";
 import Social from "./Social";
+import { useHistory } from "react-router-dom";
+import { RocketLaunchIcon } from "@heroicons/react/20/solid";
 
 export default function Intro() {
+  const redirect = useHistory();
   return (
     <div className="bg-white py-12 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -20,6 +23,21 @@ export default function Intro() {
             alguna pregunta o quieres saber más sobre mi trabajo, no dudes en
             contactarme.
           </p>
+          <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
+            <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+              <button
+                type="button"
+                className="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                onClick={() => redirect.push("/dai")}
+              >
+                <RocketLaunchIcon
+                  className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+                <span>+ Sobre Mi</span>
+              </button>
+            </div>
+          </div>
           <Social />
         </div>
       </div>
