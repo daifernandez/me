@@ -2,6 +2,7 @@ import Footer from "./Footer";
 import background from "../img/background.jpg";
 import avatar from "../img/hello.png";
 import Social from "./Social";
+import { DocumentCheckIcon, RocketLaunchIcon } from "@heroicons/react/20/solid";
 
 export default function AboutMe() {
   return (
@@ -19,7 +20,7 @@ export default function AboutMe() {
           className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
           aria-hidden="true"
         />
-        <section id="about" className="px-6 py-12 bg-gray-50">
+        <section id="cv" className="px-6 py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto">
             <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
               Sobre mi
@@ -40,6 +41,20 @@ export default function AboutMe() {
                 <p className="text-lg text-gray-700">
                   Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀.
                 </p>
+                <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:space-x-6 sm:pb-1">
+                  <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                    >
+                      <DocumentCheckIcon
+                        className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
+                        aria-hidden="true"
+                      />
+                      <span>Mi Curriculum</span>
+                    </button>
+                  </div>
+                </div>
               </div>
               <div>
                 <p className="text-lg text-gray-700">
