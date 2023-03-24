@@ -72,8 +72,7 @@ export default function Social() {
         </svg>
       </a>
       <a
-        // todo: redireccionar a la pagina de contacto
-        href="https://www.linkedin.com/in/daifernandez/"
+        href={(window.location.href = "mailto:dtama.fernandez@gmail.com")}
         target="_blank"
         rel="noopener noreferrer"
         class="flex flex-row mt-5 transform transition duration-500 ease-in-out hover:scale-110"
