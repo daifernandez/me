@@ -127,6 +127,16 @@ const technologiesName = {
     icon: null,
   },
 };
+function TechnologyItem({ technology }) {
+  const technologyName = technology.toLowerCase().replace(/\s/g, "");
+  const technologyIcon = technologiesName[technologyName].icon;
+  return (
+    <li className="flex items-center py-1">
+      {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
+      <span className="text-indigo-800">{technology}</span>
+    </li>
+  );
+}
 
 export default function ProjectDetails() {
   const { name } = useParams();
@@ -157,36 +167,16 @@ export default function ProjectDetails() {
               >
                 {project.description}
               </p>
-              {/* <p className="mt-6 text-base leading-7 text-gray-600">
-                {project.technologies.map((technology) => (
-                  <span className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800 mr-2">
-                    {technology}
-                  </span>
-                ))}
-              </p> */}
-              <div>
-                <h2 className="text-lg font-medium text-gray-900 mb-4 mt-5">
-                  Tecnologias utilizadas:
+              <section className="mt-5">
+                <h2 className="text-lg font-medium text-gray-900 mb-4">
+                  Tecnologías utilizadas
                 </h2>
-                <ul className="list-disc list-inside">
-                  {project.technologies.map((technology) => (
-                    <li
-                      key={technology}
-                      className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium  text-indigo-800 mr-2"
-                    >
-                      <span className="mr-2">
-                        {technologiesName[
-                          technology.toLowerCase().replace(/\s/g, "")
-                        ].icon &&
-                          technologiesName[
-                            technology.toLowerCase().replace(/\s/g, "")
-                          ].icon}
-                      </span>
-                      <span>{technology}</span>
-                    </li>
+                <ul className="list-disc list-inside grid grid-cols-3 gap-4">
+                  {project.technologies.sort().map((technology) => (
+                    <TechnologyItem key={technology} technology={technology} />
                   ))}
                 </ul>
-              </div>
+              </section>
 
               <div className="mt-10 flex">
                 <a
