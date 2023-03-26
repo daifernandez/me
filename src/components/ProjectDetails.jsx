@@ -171,7 +171,7 @@ export default function ProjectDetails() {
                 <h2 className="text-lg font-medium text-gray-900 mb-4">
                   Tecnologías utilizadas
                 </h2>
-                <ul className="list-disc list-inside grid grid-cols-3 gap-4">
+                <ul className="list-disc list-inside grid grid-cols-3 gap-1">
                   {project.technologies.sort().map((technology) => (
                     <TechnologyItem key={technology} technology={technology} />
                   ))}
