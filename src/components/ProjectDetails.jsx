@@ -9,6 +9,20 @@ import PCipad from "./ImgProjects/PCipad.png";
 import PCipad1 from "./ImgProjects/PCipad1.png";
 import PCweb from "./ImgProjects/PCweb.png";
 import PCmobile from "./ImgProjects/PCmobile.png";
+import {
+  SiJavascript,
+  SiReact,
+  SiRedux,
+  SiCss3,
+  SiExpress,
+  SiSequelize,
+  SiPostgresql,
+  SiBootstrap,
+  SiGoogle,
+  SiAuth0,
+  SiMercadopago,
+  SiNodedotjs,
+} from "@icons-pack/react-simple-icons";
 
 const projects = {
   pawcare: {
@@ -22,7 +36,7 @@ const projects = {
       "Bootstrap",
       "NodeJS",
       "Express",
-      "Google login",
+      "Google Login",
       "MercadoPago",
       "Auth0",
       "Cloudinary",
@@ -56,6 +70,61 @@ const projects = {
     ],
     images: [GSipad, GSipad2, GSweb, GSmobile],
     link: "https://gamestream.dev/",
+  },
+};
+
+const technologiesName = {
+  javascript: {
+    name: "JavaScript",
+    icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+  },
+  react: {
+    name: "React",
+    icon: <SiReact title="React" color="default" size={24} />,
+  },
+  redux: {
+    name: "Redux",
+    icon: <SiRedux title="Redux" color="default" size={24} />,
+  },
+  css: {
+    name: "CSS",
+    icon: <SiCss3 title="CSS" color="default" size={24} />,
+  },
+  nodejs: {
+    name: "NodeJS",
+    icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+  },
+  express: {
+    name: "Express",
+    icon: <SiExpress title="Express" color="default" size={24} />,
+  },
+  sequelize: {
+    name: "Sequelize",
+    icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+  },
+  postgresql: {
+    name: "PostgreSQL",
+    icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+  },
+  bootstrap: {
+    name: "Bootstrap",
+    icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+  },
+  googlelogin: {
+    name: "Google login",
+    icon: <SiGoogle title="Google login" color="default" size={20} />,
+  },
+  mercadopago: {
+    name: "MercadoPago",
+    icon: <SiMercadopago title="MercadoPago" color="default" size={24} />,
+  },
+  auth0: {
+    name: "Auth0",
+    icon: <SiAuth0 title="Auth0" color="default" size={24} />,
+  },
+  cloudinary: {
+    name: "Cloudinary",
+    icon: null,
   },
 };
 
@@ -103,13 +172,15 @@ export default function ProjectDetails() {
                   {project.technologies.map((technology) => (
                     <li
                       key={technology}
-                      className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800 mr-2"
+                      className="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium  text-indigo-800 mr-2"
                     >
                       <span className="mr-2">
-                        {/* <img
-                          src="../icons/javascript.svg"
-                          className="h-4 w-4"
-                        /> */}
+                        {technologiesName[
+                          technology.toLowerCase().replace(/\s/g, "")
+                        ].icon &&
+                          technologiesName[
+                            technology.toLowerCase().replace(/\s/g, "")
+                          ].icon}
                       </span>
                       <span>{technology}</span>
                     </li>
