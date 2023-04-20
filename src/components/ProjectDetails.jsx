@@ -23,6 +23,7 @@ import {
   SiMercadopago,
   SiNodedotjs,
 } from "@icons-pack/react-simple-icons";
+import ReactPlayer from "react-player";
 
 const projects = {
   pawcare: {
@@ -48,16 +49,6 @@ const projects = {
     name: "GameStream",
     description:
       "Proyecto individual desarrollado dentro de Henry Bootcamp que consiste en el desarrollo de una pagina web utilizando React para el Front End y Redux como state management, con el propósito de crear una pequeña aplicación en donde se podrá obtener detalles de videojuegos. Todos los componentes fueron desarrollados con CSS sin uso de librerías externas. Consume datos de una API (“RAWG”) a través de un Back End desarrollado en Node.JS utilizando Express, agregando nuevas funcionalidades",
-    features: [
-      " -Barra de búsquedas, por nombre.",
-      " -Aplicación de filtros y ordenamientos (orden alfabético, filtros por rating, plataformas, géneros, etc )",
-      " -Creación de nuevos detalles de Videojuegos.",
-      " -Paginado.",
-      " -Detalle de cada Videojuego, con recomentaciones en base a género.",
-      " -Diseño y estilos con (CSS)",
-      " -Landing page.",
-      " -Sitio Responsive",
-    ],
     technologies: [
       "JavaScript",
       "React",
@@ -220,23 +211,14 @@ export default function ProjectDetails() {
                 </div>
               </div>
             </div>
-            {project.features?.length > 0 && (
-              <section aria-labelledby="features-heading">
-                <h4
-                  id="features-heading"
-                  className="text-lg font-medium text-gray-900 mb-4 mt-5"
-                >
-                  Algunas Funcionalidades:
-                </h4>
-                <ul className="border border-gray-200 rounded-md divide-y divide-gray-200">
-                  {project.features.map?.((feature, index) => (
-                    <li key={index} className="px-4 py-3 text-sm">
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            )}
+
+            <div className="flex items-center justify-center h-screen p-4">
+              <ReactPlayer
+                url="https://vimeo.com/803296822"
+                controls={true}
+                className="w-full"
+              />
+            </div>
           </div>
         </div>
       </div>
