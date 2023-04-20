@@ -212,8 +212,14 @@ export default function ProjectDetails() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-2xl mx-auto">
             {project.video && (
-              <div className="flex items-center justify-center h-screen p-4">
+              <div className="flex items-center justify-center h-96 md:h-full p-4">
                 <ReactPlayer
                   url="https://vimeo.com/803296822"
                   controls={true}
@@ -224,6 +230,7 @@ export default function ProjectDetails() {
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );
