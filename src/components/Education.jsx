@@ -5,7 +5,7 @@ const timeline = [
     id: 11,
     content: "Curso de",
     target: "Desarrollo de Aplicaciones para Apple Watch",
-    date: "Jun. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -13,7 +13,7 @@ const timeline = [
     id: 10,
     content: "Curso ",
     target: "Profesional de Git y GitHub",
-    date: "May. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -21,7 +21,7 @@ const timeline = [
     id: 9,
     content: "Curso de",
     target: "SwiftUI: Porteo y Ciclo de Vida de Aplicaciónes",
-    date: "Mar. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -29,7 +29,7 @@ const timeline = [
     id: 8,
     content: "Curso de",
     target: "Desarrollo de Aplicaciones iOS con Swift",
-    date: "Feb. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -37,7 +37,7 @@ const timeline = [
     id: 7,
     content: "Curso de",
     target: "Programación orientada a objetos en Swift",
-    date: "Ene. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -45,7 +45,7 @@ const timeline = [
     id: 6,
     content: "Curso de",
     target: "Programación orientada a objetos: POO",
-    date: "Ene. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -53,7 +53,7 @@ const timeline = [
     id: 5,
     content: "Curso de",
     target: "SwiftUI desde Cero",
-    date: "Ene. 2022",
+    date: "2022",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -61,7 +61,7 @@ const timeline = [
     id: 4,
     content: "Curso de",
     target: "Programación en Swift: Funciones",
-    date: "Nov. 2021",
+    date: "2021",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -69,7 +69,7 @@ const timeline = [
     id: 3,
     content: "Curso de",
     target: "Programación en Swift",
-    date: "Oct. 2021",
+    date: "2021",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -77,7 +77,7 @@ const timeline = [
     id: 2,
     content: "Curso de",
     target: "Programación Estruturada",
-    date: "Oct. 2021",
+    date: "2021",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -85,7 +85,7 @@ const timeline = [
     id: 1,
     content: "Curso de",
     target: "Introducción a Swift",
-    date: "Oct. 2021",
+    date: "2021",
     icon: CheckIcon,
     iconBackground: "bg-emerald-400",
   },
@@ -98,51 +98,47 @@ function classNames(...classes) {
 const posts = [
   {
     id: 1,
-    title: "Henry",
-    where: "FullStack Developer",
+    where: "Henry",
     description:
       "Modalidad Full-time con mas de 800 horas en tecnologías como Javascript, NodeJS, React, Redux y ExpressJS",
-    date: "Feb. 2023",
+    date: "2023",
     category: { title: "Tecnología" },
-    author: {
+    title: {
       name: "Full Stack Web Developer",
       role: "",
     },
   },
   {
     id: 2,
-    title: "Platzi",
-    where: "",
+    where: "Platzi",
     description: "Ruta de Aprendizaje de Desarrollo de Aplicaciones iOS",
-    date: "Jun. 2022",
+    date: "2022",
     category: { title: "Tecnología" },
-    author: {
-      name: "Apple FullStack Developer",
+    title: {
+      name: "Apple FullStack Developer - iOS Mobile Developer",
       role: "iOS Mobile Developer",
     },
   },
   {
     id: 3,
-    title: "Universidad Complutense de Madrid",
-    where: "Google Activate",
+    where: "Universidad Complutense de Madrid - Google Activate",
     description: "Curso de Desarrollo de Apps Móviles",
     date: "2021",
     category: { title: "Tecnología" },
-    author: {
+    title: {
       name: "Curso de Desarrollo de Apps Moviles",
       role: "",
     },
   },
   {
     id: 4,
-    title: "Ateneo Argentino de Odontología",
-    where: "Universidad de Favaloro, Buenos Aires, Argentina",
+    where: "Ateneo Argentino de Odontología | Universidad de Favaloro",
     description: "Caracter teórico con prácticas en clínica y evaluación",
     date: "2010",
     category: { title: "Salud" },
-    author: {
+    title: {
       name: "Auxiliar de Odontología",
-      role: "Universidad de Favaloro, Buenos Aires, Argentina",
+      role: "",
     },
   },
 ];
@@ -175,9 +171,9 @@ export default function Education() {
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-lg text-indigo-600">
                       <span className="absolute inset-0 " />
-                      {post.author.name}
+                      {post.title.name}
                     </p>
-                    <p className="text-gray-600">{post.title}</p>
+                    <p className="text-gray-600">{post.where}</p>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3">
