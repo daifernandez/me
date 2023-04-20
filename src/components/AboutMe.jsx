@@ -89,7 +89,8 @@ export default function AboutMe() {
                   en el campo del desarrollo web. Si tienes un proyecto
                   interesante o una posición disponible, ¡no dudes en
                   contactarme!
-                </p>{" "}
+                </p>
+              
                 <Social />
                 {/* <div className="text-center md:text-right mt-10 mb-5">
                   <a

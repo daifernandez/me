@@ -165,37 +165,24 @@ export default function Education() {
                 {post.category.title}
               </div>
 
-              <div className="group relative">
-                <h4 className="mt-4  text-lg font-semibold leading-5 text-gray-600">
-                  <span className="absolute inset-0" />
-                  {post.title}
-                </h4>
-                <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3">
-                  {post.description}
-                </p>
-              </div>
-              <div className="bg-white shadow-lg rounded m-8 p-8 flex md:bg-orange">
-                <div className="w-1/3 hidden sm:block">
-                  <img
-                    src="https://i.ibb.co/0nQqZ1t/IMG-20210908-134000.jpg"
-                    alt="Henry"
-                    
-                  />
-                </div>
+              <div className="group relative mb-8">
                 <div className="relative mt-8 flex items-center gap-x-4 mb-8 px-3">
                   <AcademicCapIcon
                     stroke="#9e9e9e"
                     fill="none"
-                    className="h-10 w-10 rounded-full bg-white-40"
+                    className="h-8 w-8 rounded-full bg-white-40"
                   />
                   <div className="text-sm leading-6">
                     <p className="font-semibold text-lg text-indigo-600">
                       <span className="absolute inset-0 " />
                       {post.author.name}
                     </p>
-                    <p className="text-gray-600">{post.author.role}</p>
+                    <p className="text-gray-600">{post.title}</p>
                   </div>
                 </div>
+                <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3">
+                  {post.description}
+                </p>
               </div>
 
               {post.title === "Platzi" ? (
