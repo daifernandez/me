@@ -181,7 +181,7 @@ export default function Education() {
                 </p>
               </div>
 
-              {post.title === "Platzi" ? (
+              {post.title.role === "iOS Mobile Developer" ? (
                 <div className="flow-root mb-10">
                   <ul className="-mb-8">
                     {timeline.map((event, eventIdx) => (
