@@ -44,6 +44,7 @@ const projects = {
     ],
     images: [PCipad, PCipad1, PCweb, PCmobile],
     link: "https://pawcare.vercel.app",
+    video: true,
   },
   gamestream: {
     name: "GameStream",
@@ -211,14 +212,15 @@ export default function ProjectDetails() {
                 </div>
               </div>
             </div>
-
-            <div className="flex items-center justify-center h-screen p-4">
-              <ReactPlayer
-                url="https://vimeo.com/803296822"
-                controls={true}
-                className="w-full"
-              />
-            </div>
+            {project.video && (
+              <div className="flex items-center justify-center h-screen p-4">
+                <ReactPlayer
+                  url="https://vimeo.com/803296822"
+                  controls={true}
+                  className="w-full"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
