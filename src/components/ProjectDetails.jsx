@@ -163,11 +163,16 @@ export default function ProjectDetails() {
                 <h2 className="text-lg font-medium text-gray-900 mb-4">
                   Tecnologías utilizadas
                 </h2>
-                <ul className="list-disc list-inside grid grid-cols-3 gap-1">
+                <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
                   {project.technologies.sort().map((technology) => (
-                    <TechnologyItem key={technology} technology={technology} />
+                    <div
+                      key={technology}
+                      className="bg-black bg-opacity-5 backdrop-blur-md rounded-md p-2"
+                    >
+                      <TechnologyItem technology={technology} />
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
 
               <div className="mt-10 flex">
@@ -230,7 +235,6 @@ export default function ProjectDetails() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );
