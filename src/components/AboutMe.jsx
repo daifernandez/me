@@ -6,23 +6,23 @@ import { DocumentCheckIcon } from "@heroicons/react/20/solid";
 
 export default function AboutMe() {
   return (
-    <div className="bg-white">
+    <div className="bg-white dark:bg-slate-900">
       <div aria-hidden="true" className="relative">
         <img
           className="h-32 w-full object-cover lg:h-48"
           src={background}
           alt=""
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-white" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900" />
       </div>
       <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
         <div
-          className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
+          className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white  dark:bg-slate-900 shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 sm:-mr-80 lg:-mr-96"
           aria-hidden="true"
         />
-        <section id="cv" className="px-6 py-12 bg-gray-50">
+        <section id="cv" className="px-6 py-12 bg-gray-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-base text-indigo-600 font-semibold tracking-wide uppercase">
+            <h2 className="text-base text-indigo-700 font-semibold tracking-wide uppercase">
               Sobre mi
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -32,13 +32,13 @@ export default function AboutMe() {
                   alt="Foto de perfil"
                   className="w-64 h-64 rounded-full mx-auto md:mx-0 mb-6 mt-10 aspect-[6/5] object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5"
                 />
-                <h2 className="text-base text-indigo-600 font-semibold tracking-wide">
+                <h2 className="text-base text-indigo-700 font-semibold tracking-wide">
                   ¡Hola Mundo!
                 </h2>
-                <h3 className="text-2xl font-bold mb-2">
+                <h3 className="text-2xl font-bold mb-2 dark:text-white">
                   Soy Daiana Fernandez
                 </h3>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700 dark:text-gray-500">
                   Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀.
                 </p>
                 {/* <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:space-x-6 sm:pb-1">
@@ -57,34 +57,34 @@ export default function AboutMe() {
                 </div> */}
               </div>
               <div>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   Me considero una entusiasta de la tecnología que disfruta
                   aprendiendo nuevas habilidades y enfrentando desafíos
                   emocionantes.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   Tengo experiencia en tecnologías como Javascript, NodeJS,
                   React, Redux y ExpressJS. Me enorgullece decir que he
                   trabajado en proyectos desafiantes y emocionantes, lo que me
                   ha permitido desarrollar habilidades creativas para resolver
                   problemas.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   Además, tengo experiencia en el campo de la asistencia dental.
                   Durante varios años trabajé en clínicas dentales donde aprendí
                   habilidades valiosas como la atención al detalle, la empatía y
                   la comunicación efectiva con los pacientes.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   Soy una persona adaptable y tengo facilidad para el trabajo en
                   equipo, siempre enfocado en aprender nuevas experiencias y
                   habilidades.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   En mi tiempo libre, disfruto pasar tiempo con mi familia y me
                   encantan todo tipo de animales 💕.
                 </p>
-                <p className="text-lg text-gray-700">
+                <p className="text-lg text-gray-700  dark:text-gray-500">
                   Actualmente estoy buscando nuevas oportunidades emocionantes
                   en el campo del desarrollo web. Si tienes un proyecto
                   interesante o una posición disponible, ¡no dudes en
