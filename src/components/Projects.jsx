@@ -41,7 +41,7 @@ const posts = [
 export default function Projects() {
   const redirect = useHistory();
   return (
-    <div className="bg-white py-20 sm:py-30">
+    <div className="bg-white dark:bg-slate-900 py-20 sm:py-30">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <h3 className="text-base font-semibold leading-5 text-indigo-600">

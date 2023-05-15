@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 export default function Home() {
   return (
-    <div>
+    <div className="bg-white dark:bg-slate-900">
       <Header />
       <Intro />
       <Options />

@@ -5,14 +5,14 @@ export default function Header() {
 
   return (
     <div>
-      <div className="bg-white">
+      <div className="bg-white dark:bg-slate-900">
         <div aria-hidden="true" className="relative">
           <img
             className="h-32 w-full object-cover lg:h-48"
             src={background}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900" />
         </div>
       </div>
       <div className="relative mx-auto -mt-12 max-w-7xl px-4 pb-1 sm:px-6 sm:pb-1 lg:px-8">
