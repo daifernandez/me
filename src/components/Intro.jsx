@@ -27,7 +27,7 @@ export default function Intro() {
               <button
                 type="button"
                 className="inline-flex justify-center rounded-md bg-white dark:bg-indigo-700 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-indigo-600 dark:ring-slate-500 "
-                onClick={() => redirect.push("/dai")}
+                onClick={() => redirect.push("/me")}
               >
                 <RocketLaunchIcon
                   className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400 dark:text-white"
