@@ -59,7 +59,7 @@ const activity = [
 
 export default function Experience() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-10 lg:px-20">
         <ul className="-mb-8 space-y-16 ">
           {activity.map((activityItem, activityItemIdx) => (
@@ -67,7 +67,7 @@ export default function Experience() {
               <div className="relative pb-10">
                 {activityItemIdx !== activity.length - 1 ? (
                   <span
-                    className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200"
+                    className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200 dark:bg-slate-700"
                     aria-hidden="true"
                   />
                 ) : null}
@@ -75,21 +75,21 @@ export default function Experience() {
                   <>
                     <div className="relative">
                       <img
-                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white"
+                        className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white dark:ring-slate-700"
                         src={activityItem.imageUrl}
                         alt=""
                       />
                     </div>
                     <div className="min-w-0 flex-1">
                       <div>
-                        <div className="text-sm">
+                        <div className="text-sm dark:text-white">
                           {activityItem.experience.title}
                         </div>
-                        <p className="mt-0.5 text-sm text-gray-500">
+                        <p className="mt-0.5 text-sm text-gray-500 ">
                           {activityItem.experience.where} - {activityItem.date}
                         </p>
                       </div>
-                      <div className="mt-2 text-sm text-gray-700">
+                      <div className="mt-2 text-sm text-gray-700 dark:text-gray-400">
                         {activityItem.title && (
                           <p className="text-gray-900 font-medium">
                             {activityItem.title}
