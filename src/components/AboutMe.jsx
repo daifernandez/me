@@ -1,6 +1,6 @@
 import Footer from "./Footer";
 import background from "../img/background.jpg";
-import avatar from "../img/me.jpg";
+import avatar from "../img/me3.jpg";
 import Social from "./Social";
 import { DocumentCheckIcon } from "@heroicons/react/20/solid";
 

@@ -17,11 +17,10 @@ export default function Intro() {
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Hola mi nombre es Daiana, soy desarrolladora web fullstack. En este
-            Portfolio, encontrarás algunos de mis proyectos más recientes y
-            emocionantes. Me enorgullece compartir mi trabajo y espero que
-            puedas encontrar algo que te inspire o te resulte útil. Si tienes
-            alguna pregunta o quieres saber más sobre mi trabajo, no dudes en
-            contactarme.
+            Portfolio, encontrarás algunos de mis proyectos más recientes. Me
+            enorgullece compartir mi trabajo y espero que puedas encontrar algo
+            que te inspire o te resulte útil. Si tienes alguna pregunta o
+            quieres saber más sobre mi trabajo, no dudes en contactarme.
           </p>
           <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
             <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
