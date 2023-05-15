@@ -26,7 +26,7 @@ export default function Intro() {
             <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
               <button
                 type="button"
-                className="inline-flex justify-center rounded-md bg-white dark:bg-indigo-700 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-indigo-600 dark:ring-slate-700 "
+                className="inline-flex justify-center rounded-md bg-white dark:bg-indigo-700 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:hover:bg-indigo-600 dark:ring-slate-500 "
                 onClick={() => redirect.push("/dai")}
               >
                 <RocketLaunchIcon
