@@ -125,7 +125,7 @@ function TechnologyItem({ technology }) {
   return (
     <li className="flex items-center py-1">
       {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
-      <span className="text-indigo-800">{technology}</span>
+      <span className="text-indigo-800 dark:text-indigo-100">{technology}</span>
     </li>
   );
 }
@@ -136,21 +136,21 @@ export default function ProjectDetails() {
 
   return (
     <div>
-      <div className="bg-white">
+      <div className="bg-white dark:bg-slate-900">
         <div aria-hidden="true" className="relative">
           <img
             className="h-32 w-full object-cover lg:h-48"
             src={background}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900" />
         </div>
       </div>
-      <div className="overflow-hidden bg-white py-32">
+      <div className="overflow-hidden bg-white dark:bg-slate-900 py-32">
         <div className="mx-auto max-w-7xl px-6 lg:flex lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
             <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
                 {project.name}
               </h2>
               <p
@@ -159,8 +159,8 @@ export default function ProjectDetails() {
               >
                 {project.description}
               </p>
-              <section className="mt-5">
-                <h2 className="text-lg font-medium text-gray-900 mb-4">
+              <section className="mt-12">
+                <h2 className="text-lg font-medium text-gray-900 dark:text-indigo-600 mb-4">
                   Tecnologías utilizadas
                 </h2>
                 <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
@@ -175,10 +175,10 @@ export default function ProjectDetails() {
                 </div>
               </section>
 
-              <div className="mt-10 flex">
+              <div className="mt-12 flex">
                 <a
                   href={project.link}
-                  className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
                   Visita la App <span aria-hidden="true">&rarr;</span>
                 </a>
