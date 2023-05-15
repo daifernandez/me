@@ -220,7 +220,7 @@ export default function ProjectDetails() {
           </div>
         </div>
       </div>
-      <div className="bg-white">
+      <div className="bg-white dark:bg-slate-900">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             {project.video && (
