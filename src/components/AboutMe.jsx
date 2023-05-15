@@ -41,7 +41,7 @@ export default function AboutMe() {
                 <p className="text-lg text-gray-700">
                   Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀.
                 </p>
-                <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:space-x-6 sm:pb-1">
+                {/* <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:space-x-6 sm:pb-1">
                   <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
                     <button
                       type="button"
@@ -54,7 +54,7 @@ export default function AboutMe() {
                       Descargar CV
                     </button>
                   </div>
-                </div>
+                </div> */}
               </div>
               <div>
                 <p className="text-lg text-gray-700">
