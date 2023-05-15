@@ -145,10 +145,10 @@ const posts = [
 
 export default function Education() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {posts.map((post) => (
-          <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1">
+          <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700">
             <article
               key={post.id}
               className="flex max-w-xl flex-col items-start justify-between"
@@ -157,8 +157,7 @@ export default function Education() {
                 <time dateTime={post.datetime} className="text-gray-500">
                   {post.date}
                 </time>
-
-                {post.category.title}
+                <div className="dark:text-gray-500">{post.category.title}</div>
               </div>
 
               <div className="group relative mb-8">
@@ -192,18 +191,18 @@ export default function Education() {
                               <span
                                 className={classNames(
                                   event.iconBackground,
-                                  "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white"
+                                  "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white dark:ring-slate-700"
                                 )}
                               >
                                 <event.icon
-                                  className="h-5 w-5 text-white"
+                                  className="h-5 w-5 text-white "
                                   aria-hidden="true"
                                 />
                               </span>
                             </div>
                             <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                               <div>
-                                <p className="font-medium text-gray-900">
+                                <p className="font-medium text-gray-900 dark:text-slate-500">
                                   {event.target}
                                 </p>
                               </div>
