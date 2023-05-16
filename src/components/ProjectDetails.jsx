@@ -154,7 +154,7 @@ export default function ProjectDetails() {
                 {project.name}
               </h2>
               <p
-                className="mt-6 text-xl leading-8 text-gray-600"
+                className="mt-6 text-xl leading-8 text-gray-600 dark:text-gray-400"
                 style={{ textAlign: "justify" }}
               >
                 {project.description}
