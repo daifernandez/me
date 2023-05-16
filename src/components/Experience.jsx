@@ -85,7 +85,7 @@ export default function Experience() {
                         <div className="text-sm dark:text-white">
                           {activityItem.experience.title}
                         </div>
-                        <p className="mt-0.5 text-sm text-gray-500 ">
+                        <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-500">
                           {activityItem.experience.where} - {activityItem.date}
                         </p>
                       </div>
@@ -98,30 +98,30 @@ export default function Experience() {
                         <p>{activityItem.description}</p>
                         {activityItem.funcionalidades && (
                           <>
-                            <p className="text-gray-500 mt-3">
+                            <p className="text-gray-500 mt-3 dark:text-gray-400">
                               Funcionalidades:
                             </p>
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 dark:text-gray-400">
                               {activityItem.funcionalidades}
                             </p>
                           </>
                         )}
 
-                        <p className="text-gray-500 mt-2">{activityItem.obs}</p>
+                        <p className="text-gray-500 mt-2 dark:text-gray-400">{activityItem.obs}</p>
                         {activityItem.tecnologies && (
                           <>
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 dark:text-gray-400">
                               Tecnologías utilizadas:
                             </p>
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 dark:text-gray-400">
                               {activityItem.tecnologies}
                             </p>
                           </>
                         )}
                         {activityItem.aptitudes && (
                           <>
-                            <p className="text-gray-500 mt-3">Aptitudes:</p>
-                            <p className="text-gray-500">
+                            <p className="text-gray-500 mt-3 dark:text-gray-400">Aptitudes:</p>
+                            <p className="text-gray-500 dark:text-gray-400">
                               {activityItem.aptitudes}
                             </p>
                           </>

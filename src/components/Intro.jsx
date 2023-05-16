@@ -15,7 +15,7 @@ export default function Intro() {
           <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
             FullStack Web Developer
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
             Hola mi nombre es Daiana, soy desarrolladora web fullstack. En este
             Portfolio, encontrarás algunos de mis proyectos más recientes. Me
             enorgullece compartir mi trabajo y espero que puedas encontrar algo

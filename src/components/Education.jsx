@@ -172,10 +172,10 @@ export default function Education() {
                       <span className="absolute inset-0 " />
                       {post.title.name}
                     </p>
-                    <p className="text-gray-600">{post.where}</p>
+                    <p className="text-gray-600 dark:text-gray-400">{post.where}</p>
                   </div>
                 </div>
-                <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3">
+                <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3 dark:text-gray-400">
                   {post.description}
                 </p>
               </div>
@@ -202,11 +202,11 @@ export default function Education() {
                             </div>
                             <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                               <div>
-                                <p className="font-medium text-gray-900 dark:text-slate-500">
+                                <p className="font-medium text-gray-900 dark:text-gray-400">
                                   {event.target}
                                 </p>
                               </div>
-                              <div className="whitespace-nowrap text-right text-sm text-gray-500">
+                              <div className="whitespace-nowrap text-right text-sm text-gray-500 dark:text-gray-400">
                                 <time dateTime={event.datetime}>
                                   {event.date}
                                 </time>
