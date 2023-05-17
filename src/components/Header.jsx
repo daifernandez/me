@@ -1,5 +1,6 @@
 import avatar from "../img/mac.png";
 import background from "../img/background.jpg";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Header() {
 
@@ -22,8 +23,13 @@ export default function Header() {
               className="h-24 w-24 rounded-full ring-white sm:h-32 sm:w-32 lg:h-40 lg:w-40"
               src={avatar}
               alt=""
-            />
+            /><div className="mt-6 flex min-w-0 flex-1 items-center justify-end space-x-6 pb-1">
+            <div className="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0">
+             {/* <DarkModeToggle/> */}
+            </div>
           </div>
+          </div>
+          
         </div>
       </div>
     </div>
