@@ -27,11 +27,11 @@ export default function Intro() {
             <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
               <button
                 type="button"
-                className="inline-flex justify-center rounded-md bg-white dark:bg-slate-800 px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:ring-slate-500 "
+                className="flex rounded-full py-3 bg-gray-100 px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-400 dark:ring-white/10 justify-center dark:bg-slate-800 text-slate-700  ring-inset ring-gray-300 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:ring-slate-500 "
                 onClick={() => redirect.push("/me")}
               >
                 <RocketLaunchIcon
-                  className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400 dark:text-white"
+                  className="-ml-0.5 mr-1.5 h-5 w-5  text-slate-400 dark:text-white"
                   aria-hidden="true"
                 />
                 <span className="dark:text-white">+ Sobre Mi</span>
