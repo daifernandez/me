@@ -25,7 +25,7 @@ export default function Header() {
             />
             <div className="mt-6 flex min-w-0 flex-1 items-center justify-end space-x-6 pb-1">
               <div className="mt-6 flex flex-col justify-stretch space-y-3 sm:flex-row sm:space-x-4 sm:space-y-0">
-                {/* <DarkModeToggle /> */}
+                <DarkModeToggle />
               </div>
             </div>
           </div>
