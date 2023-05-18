@@ -136,15 +136,15 @@ export default function DarkModeToggle() {
   });
 
   return (
-    <section className=" pt-8 dark:text-gray-100 dark:bg-slate-900 duration-100">
-      <div className="fixed top-5 right-10 duration-100 dark:bg-slate-800 bg-gray-100 rounded">
+    <section className="pt-8 dark:text-gray-100 dark:bg-slate-900 duration-100">
+      <div className="right-10 duration-100 dark:bg-slate-800 bg-gray-200 rounded-2xl">
         {options?.map((option) => (
           <button
             key={option.text}
             onClick={() => setTheme(option.text)}
             className={`w-8 h-8 leading-9 text-xl rounded-full m-1 text-slate-400 ${
               theme === option.text &&
-              "bg-indigo-800 text-slate-100 dark:bg-slate-100 dark:text-indigo-700"
+              "bg-indigo-600 text-slate-100 dark:bg-slate-100 dark:text-indigo-600"
             }`}
           >
             <ion-icon name={option.icon}></ion-icon>
