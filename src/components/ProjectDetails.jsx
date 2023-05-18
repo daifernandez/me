@@ -119,6 +119,7 @@ const technologiesName = {
     icon: null,
   },
 };
+
 function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
