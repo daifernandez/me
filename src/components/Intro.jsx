@@ -22,7 +22,8 @@ export default function Intro() {
             que te inspire o te resulte útil. Si tienes alguna pregunta o
             quieres saber más sobre mi trabajo, no dudes en contactarme.
           </p>
-          <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-end sm:space-x-6 sm:pb-1">
+          <Social />
+          <div className="mt-12 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1">
             <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
               <button
                 type="button"
@@ -37,7 +38,7 @@ export default function Intro() {
               </button>
             </div>
           </div>
-          <Social />
+          
         </div>
       </div>
     </div>
