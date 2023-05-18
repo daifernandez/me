@@ -143,7 +143,8 @@ export default function DarkModeToggle() {
             key={option.text}
             onClick={() => setTheme(option.text)}
             className={`w-8 h-8 leading-9 text-xl rounded-full m-1 text-slate-400 ${
-              theme === option.text && "text-sky-500"
+              theme === option.text &&
+              "bg-indigo-800 text-slate-100 dark:bg-slate-100 dark:text-indigo-700"
             }`}
           >
             <ion-icon name={option.icon}></ion-icon>
