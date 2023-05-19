@@ -81,8 +81,6 @@ export default function Tech() {
           <Popover.Panel className="z-10 mt-5 flex w-screen max-w-max">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-5">
-                {/* mostrar tecnologias */}
-                {/* mostrar solo iconos */}
                 <ul className="grid grid-cols-2 gap-1 md:grid-cols-3  lg:grid-cols-3">
                   {Object.keys(technologiesName).map((technology) => (
                     <TechnologyItem key={technology} technology={technology} />
