@@ -1,9 +1,8 @@
 import React from "react";
 import Header from "./Header";
-import Intro from "./Intro";
 import Options from "./Options";
 import Footer from "./Footer";
-import ScrollToTop from "./ScrollToTop";
+import Intro from "./intro";
 
 export default function Home() {
   return (
