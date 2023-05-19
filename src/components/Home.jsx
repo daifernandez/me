@@ -3,6 +3,7 @@ import Header from "./Header";
 import Intro from "./Intro";
 import Options from "./Options";
 import Footer from "./Footer";
+import ScrollToTop from "./ScrollToTop";
 
 export default function Home() {
   return (

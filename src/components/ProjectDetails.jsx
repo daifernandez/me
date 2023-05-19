@@ -24,6 +24,7 @@ import {
   SiNodedotjs,
 } from "@icons-pack/react-simple-icons";
 import ReactPlayer from "react-player";
+import ScrollToTop from "./ScrollToTop";
 
 const projects = {
   pawcare: {
@@ -137,6 +138,7 @@ export default function ProjectDetails() {
 
   return (
     <div>
+      <ScrollToTop />
       <div className="bg-white dark:bg-slate-900">
         <div aria-hidden="true" className="relative">
           <img

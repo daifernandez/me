@@ -2,11 +2,13 @@ import Footer from "./Footer";
 import background from "../img/background.jpg";
 import avatar from "../img/me3.jpg";
 import Social from "./Social";
-import { DocumentCheckIcon } from "@heroicons/react/20/solid";
+import ScrollToTop from "./ScrollToTop";
+// import { DocumentCheckIcon } from "@heroicons/react/20/solid";
 
 export default function AboutMe() {
   return (
     <div className="bg-white dark:bg-slate-900">
+      <ScrollToTop />
       <div aria-hidden="true" className="relative">
         <img
           className="h-32 w-full object-cover lg:h-48"
