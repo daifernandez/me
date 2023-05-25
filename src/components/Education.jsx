@@ -168,7 +168,7 @@ export default function Education() {
                     className="h-8 w-8 rounded-full bg-white-40"
                   />
                   <div className="text-sm leading-6">
-                    <p className="font-semibold text-lg text-indigo-600">
+                    <p className="font-semibold text-lg text-indigo-500">
                       <span className="absolute inset-0 " />
                       {post.title.name}
                     </p>
