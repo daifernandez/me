@@ -94,14 +94,6 @@ export default function AboutMe() {
                 </p>
               
                 <Social />
-                {/* <div className="text-center md:text-right mt-10 mb-5">
-                  <a
-                    href="#contact"
-                    className="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 "
-                  >
-                    Contáctame
-                  </a>
-                </div> */}
               </div>
             </div>
           </div>
