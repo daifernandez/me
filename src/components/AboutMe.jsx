@@ -59,40 +59,39 @@ export default function AboutMe() {
                 </div> */}
               </div>
               <div>
-                <p className="text-lg text-gray-700  dark:text-gray-400">
+                {/* <p className="text-lg text-gray-700  dark:text-gray-400">
                   Me considero una entusiasta de la tecnología que disfruta
                   aprendiendo nuevas habilidades y enfrentando desafíos
                   emocionantes.
-                </p>
+                </p> */}
                 <p className="text-lg text-gray-700  dark:text-gray-400">
-                  Tengo experiencia en tecnologías como Javascript, NodeJS,
-                  React, Redux y ExpressJS. Me enorgullece decir que he
-                  trabajado en proyectos desafiantes y emocionantes, lo que me
-                  ha permitido desarrollar habilidades creativas para resolver
-                  problemas.
+                  {/* Tengo experiencia en tecnologías como Javascript, NodeJS,
+                  React, Redux y ExpressJS.*/}{" "}
+                  Me enorgullece decir que he trabajado en proyectos desafiantes
+                  y emocionantes, lo que me ha permitido desarrollar habilidades
+                  creativas para resolver problemas.
                 </p>
                 <p className="text-lg text-gray-700  dark:text-gray-400">
                   Además, tengo experiencia en el campo de la asistencia dental.
                   Durante varios años trabajé en clínicas dentales donde aprendí
                   habilidades valiosas como la atención al detalle, la empatía y
-                  la comunicación efectiva con los pacientes.
+                  la comunicación efectiva.
                 </p>
                 <p className="text-lg text-gray-700  dark:text-gray-400">
                   Soy una persona adaptable y tengo facilidad para el trabajo en
                   equipo, siempre enfocado en aprender nuevas experiencias y
                   habilidades.
                 </p>
-                <p className="text-lg text-gray-700  dark:text-gray-400">
+                {/* <p className="text-lg text-gray-700  dark:text-gray-400">
                   En mi tiempo libre, disfruto pasar tiempo con mi familia y me
                   encantan todo tipo de animales 💕.
-                </p>
+                </p> */}
                 <p className="text-lg text-gray-700  dark:text-gray-400">
-                  Actualmente estoy buscando nuevas oportunidades emocionantes
-                  en el campo del desarrollo web. Si tienes un proyecto
-                  interesante o una posición disponible, ¡no dudes en
-                  contactarme!
+                  Actualmente estoy buscando nuevas oportunidades laborales en
+                  el campo del desarrollo web. Si tienes un proyecto interesante
+                  o una posición disponible, ¡no dudes en contactarme!
                 </p>
-              
+
                 <Social />
               </div>
             </div>
