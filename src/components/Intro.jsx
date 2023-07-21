@@ -16,8 +16,7 @@ export default function Intro() {
             FullStack Web Developer
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-            Hola mi nombre es Daiana, soy desarrolladora web fullstack. En este
-            Portfolio, encontrarás algunos de mis proyectos más recientes. Me
+            Hola mi nombre es Daiana, soy desarrolladora web fullstack. Aquí encontrarás algunos de mis proyectos más recientes. Me
             enorgullece compartir mi trabajo y espero que puedas encontrar algo
             que te inspire o te resulte útil. Si tienes alguna pregunta o
             quieres saber más sobre mi trabajo, no dudes en contactarme.
