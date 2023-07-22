@@ -14,49 +14,87 @@ import {
   SiTailwindcss,
 } from "@icons-pack/react-simple-icons";
 
-const technologiesName = {
-  javascript: {
-    icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+// tipos de categorias
+const technologiesTypes = {
+  frontend: {
+    javascript: {
+      icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+    },
+    react: {
+      icon: <SiReact title="React" color="default" size={24} />,
+    },
+    redux: {
+      icon: <SiRedux title="Redux" color="default" size={24} />,
+    },
+    css: {
+      icon: <SiCss3 title="CSS" color="default" size={24} />,
+    },
+    bootstrap: {
+      icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+    },
+    tailwindcss: {
+      icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
+    },
   },
-  react: {
-    icon: <SiReact title="React" color="default" size={24} />,
-  },
-  redux: {
-    icon: <SiRedux title="Redux" color="default" size={24} />,
-  },
-  css: {
-    icon: <SiCss3 title="CSS" color="default" size={24} />,
-  },
-  nodejs: {
-    icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
-  },
-  express: {
-    icon: <SiExpress title="Express" color="default" size={24} />,
-  },
-  sequelize: {
-    icon: <SiSequelize title="Sequelize" color="default" size={24} />,
-  },
-  postgresql: {
-    icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
-  },
-  bootstrap: {
-    icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
-  },
-  tailwindcss: {
-    icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
+  backend: {
+    nodejs: {
+      icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+    },
+    express: {
+      icon: <SiExpress title="Express" color="default" size={24} />,
+    },
+    sequelize: {
+      icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+    },
+    postgresql: {
+      icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+    },
   },
 };
 
-function TechnologyItem({ technology }) {
-  const technologyName = technology.toLowerCase().replace(/\s/g, "");
-  const technologyIcon = technologiesName[technologyName].icon;
-  return (
-    <li className="flex items-center py-1">
-      {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
-      <span className="text-indigo-800 dark:text-indigo-100">{technology}</span>
-    </li>
-  );
-}
+// const technologiesName = {
+//   javascript: {
+//     icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+//   },
+//   react: {
+//     icon: <SiReact title="React" color="default" size={24} />,
+//   },
+//   redux: {
+//     icon: <SiRedux title="Redux" color="default" size={24} />,
+//   },
+//   css: {
+//     icon: <SiCss3 title="CSS" color="default" size={24} />,
+//   },
+//   nodejs: {
+//     icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+//   },
+//   express: {
+//     icon: <SiExpress title="Express" color="default" size={24} />,
+//   },
+//   sequelize: {
+//     icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+//   },
+//   postgresql: {
+//     icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+//   },
+//   bootstrap: {
+//     icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+//   },
+//   tailwindcss: {
+//     icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
+//   },
+// };
+
+// function TechnologyItem({ technology }) {
+//   const technologyName = technology.toLowerCase().replace(/\s/g, "");
+//   const technologyIcon = technologiesName[technologyName].icon;
+//   return (
+//     <li className="flex items-center py-1">
+//       {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
+//       <span className="text-indigo-800 dark:text-indigo-100">{technology}</span>
+//     </li>
+//   );
+// }
 
 export default function Tech() {
   return (
@@ -81,10 +119,43 @@ export default function Tech() {
           <Popover.Panel className="z-10 mt-5 flex w-screen max-w-max">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-5">
-                <ul className="grid grid-cols-2 gap-1 md:grid-cols-3  lg:grid-cols-3">
-                  {Object.keys(technologiesName).map((technology) => (
+                <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
+                  <ul>
+                    {/* {Object.keys(technologiesName).map((technology) => (
                     <TechnologyItem key={technology} technology={technology} />
-                  ))}
+                  ))} */}
+
+                    {Object.keys(technologiesTypes.frontend).map(
+                      (technology) => (
+                        <li className="flex items-center py-1">
+                          {technologiesTypes.frontend[technology].icon && (
+                            <span className="mr-2">
+                              {technologiesTypes.frontend[technology].icon}
+                            </span>
+                          )}
+                          <span className="text-indigo-800 dark:text-indigo-100">
+                            {technology}
+                          </span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                  <ul>
+                    {Object.keys(technologiesTypes.backend).map(
+                      (technology) => (
+                        <li className="flex items-center py-1">
+                          {technologiesTypes.backend[technology].icon && (
+                            <span className="mr-2">
+                              {technologiesTypes.backend[technology].icon}
+                            </span>
+                          )}
+                          <span className="text-indigo-800 dark:text-indigo-100">
+                            {technology}
+                          </span>
+                        </li>
+                      )
+                    )}
+                  </ul>
                 </ul>
               </div>
             </div>
