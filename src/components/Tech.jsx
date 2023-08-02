@@ -52,49 +52,35 @@ const technologiesTypes = {
   },
 };
 
-// const technologiesName = {
-//   javascript: {
-//     icon: <SiJavascript title="JavaScript" color="default" size={24} />,
-//   },
-//   react: {
-//     icon: <SiReact title="React" color="default" size={24} />,
-//   },
-//   redux: {
-//     icon: <SiRedux title="Redux" color="default" size={24} />,
-//   },
-//   css: {
-//     icon: <SiCss3 title="CSS" color="default" size={24} />,
-//   },
-//   nodejs: {
-//     icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
-//   },
-//   express: {
-//     icon: <SiExpress title="Express" color="default" size={24} />,
-//   },
-//   sequelize: {
-//     icon: <SiSequelize title="Sequelize" color="default" size={24} />,
-//   },
-//   postgresql: {
-//     icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
-//   },
-//   bootstrap: {
-//     icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
-//   },
-//   tailwindcss: {
-//     icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
-//   },
-// };
+// Función para renderizar las tecnologías
+function renderTechnologies(technologies) {
+  return (
+    <ul>
+      {Object.keys(technologies).map((technology) => (
+        <li className="flex items-center py-1" key={technology}>
+          {technologies[technology].icon && (
+            <span className="mr-2">{technologies[technology].icon}</span>
+          )}
+          <span className="text-indigo-800 dark:text-indigo-100">
+            {technology}
+          </span>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-// function TechnologyItem({ technology }) {
-//   const technologyName = technology.toLowerCase().replace(/\s/g, "");
-//   const technologyIcon = technologiesName[technologyName].icon;
-//   return (
-//     <li className="flex items-center py-1">
-//       {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
-//       <span className="text-indigo-800 dark:text-indigo-100">{technology}</span>
-//     </li>
-//   );
-// }
+// Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
+function TechnologiesComponent({ technologiesTypes, type }) {
+  return (
+    <div>
+      <h3 className="font-bold text-indigo-500 dark:text-white mb-4">
+        {type.charAt(0).toUpperCase() + type.slice(1)}
+      </h3>
+      {renderTechnologies(technologiesTypes[type])}
+    </div>
+  );
+}
 
 export default function Tech() {
   return (
@@ -119,43 +105,30 @@ export default function Tech() {
           <Popover.Panel className="z-10 mt-5 flex w-screen max-w-max">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-5">
-                <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
-                  <ul>
-                    {/* {Object.keys(technologiesName).map((technology) => (
-                    <TechnologyItem key={technology} technology={technology} />
-                  ))} */}
+                {/* <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
+                  <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
+                    <h2>Frontend</h2>
 
-                    {Object.keys(technologiesTypes.frontend).map(
-                      (technology) => (
-                        <li className="flex items-center py-1">
-                          {technologiesTypes.frontend[technology].icon && (
-                            <span className="mr-2">
-                              {technologiesTypes.frontend[technology].icon}
-                            </span>
-                          )}
-                          <span className="text-indigo-800 dark:text-indigo-100">
-                            {technology}
-                          </span>
-                        </li>
-                      )
-                    )}
+                    <TechnologiesComponent
+                      technologiesTypes={technologiesTypes.frontend}
+                    />
                   </ul>
-                  <ul>
-                    {Object.keys(technologiesTypes.backend).map(
-                      (technology) => (
-                        <li className="flex items-center py-1">
-                          {technologiesTypes.backend[technology].icon && (
-                            <span className="mr-2">
-                              {technologiesTypes.backend[technology].icon}
-                            </span>
-                          )}
-                          <span className="text-indigo-800 dark:text-indigo-100">
-                            {technology}
-                          </span>
-                        </li>
-                      )
-                    )}
+                  <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
+                    <h2>Backend</h2>
+                    <TechnologiesComponent
+                      technologiesTypes={technologiesTypes.backend}
+                    />
                   </ul>
+                </ul> */}
+                <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
+                  <TechnologiesComponent
+                    technologiesTypes={technologiesTypes}
+                    type="frontend"
+                  />
+                  <TechnologiesComponent
+                    technologiesTypes={technologiesTypes}
+                    type="backend"
+                  />
                 </ul>
               </div>
             </div>
