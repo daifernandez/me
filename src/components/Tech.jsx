@@ -19,35 +19,45 @@ const technologiesTypes = {
   frontend: {
     javascript: {
       icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+      title: "JavaScript",
     },
     react: {
       icon: <SiReact title="React" color="default" size={24} />,
+      title: "React",
     },
     redux: {
       icon: <SiRedux title="Redux" color="default" size={24} />,
+      title: "Redux",
     },
     css: {
       icon: <SiCss3 title="CSS" color="default" size={24} />,
+      title: "CSS",
     },
     bootstrap: {
       icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+      title: "Bootstrap",
     },
     tailwindcss: {
       icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
+      title: "TailwindCSS",
     },
   },
   backend: {
     nodejs: {
       icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+      title: "NodeJS",
     },
     express: {
       icon: <SiExpress title="Express" color="default" size={24} />,
+      title: "Express",
     },
     sequelize: {
       icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+      title: "Sequelize",
     },
     postgresql: {
       icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+      title: "PostgreSQL",
     },
   },
 };
@@ -61,8 +71,8 @@ function renderTechnologies(technologies) {
           {technologies[technology].icon && (
             <span className="mr-2">{technologies[technology].icon}</span>
           )}
-          <span className="text-indigo-800 dark:text-indigo-100">
-            {technology}
+          <span className="text-indigo-800 dark:text-indigo-100  mx-2 ">
+            {technologies[technology].title}
           </span>
         </li>
       ))}
