@@ -83,7 +83,7 @@ function renderTechnologies(technologies) {
 // Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
-    <div className="bg-white bg-opacity-70 backdrop-filter backdrop-blur-md rounded-lg shadow-md p-4 items-center dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white">
+    <div className="bg-white bg-opacity-80 backdrop-filter backdrop-blur-md rounded-lg shadow-md p-4 items-center dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white">
       <h3 className="font-medium dark:text-white mt-1 p-3 items-center">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </h3>
