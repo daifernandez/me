@@ -113,7 +113,7 @@ export default function Tech() {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel className="z-10 mt-5 flex w-full max-w-screen-sm">
-            <div className="w-full flex-auto overflow-hidden rounded-3xl dark:bg-slate-800 bg-gray-100 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-5">
                 <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
                   <TechnologiesComponent

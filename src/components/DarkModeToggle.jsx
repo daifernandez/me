@@ -63,7 +63,7 @@ export default function DarkModeToggle() {
 
   return (
     <section className="pt-8 dark:text-gray-100 dark:bg-slate-900 duration-100">
-      <div className="right-10 duration-100 dark:bg-slate-800 bg-gray-100 rounded-2xl">
+      <div className="right-10 duration-100 dark:bg-slate-800 bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-2xl">
         {options?.map((option) => (
           <button
             key={option.text}
