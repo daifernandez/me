@@ -83,8 +83,8 @@ function renderTechnologies(technologies) {
 // Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
-    <div className="bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-3xl shadow-md p-4 items-center dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
-      <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl shadow-md  dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+    <div className="bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-3xl shadow-md p-4 items-center dark:bg-slate-700  dark:bg-opacity-5 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+      <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </h3>
       {renderTechnologies(technologiesTypes[type])}
@@ -99,7 +99,7 @@ export default function Tech() {
       <Popover className="relative ">
         <Popover.Button
           type="button"
-          className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600  dark:bg-slate-800 "
         >
           <span>Tecnologias</span>
         </Popover.Button>
@@ -113,7 +113,7 @@ export default function Tech() {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel className="z-10 mt-5 flex w-full max-w-screen-sm">
-            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
+            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5  dark:bg-slate-800 ">
               <div className="p-5">
                 <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
                   <TechnologiesComponent
