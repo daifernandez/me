@@ -84,7 +84,7 @@ function renderTechnologies(technologies) {
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
     <div className="bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-3xl shadow-md p-4 items-center dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
-      <h3 className="font-medium dark:text-white mt-1 p-3 items-center">
+      <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl shadow-md  dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </h3>
       {renderTechnologies(technologiesTypes[type])}
@@ -114,7 +114,7 @@ export default function Tech() {
         >
           <Popover.Panel className="z-10 mt-5 flex w-full max-w-screen-sm">
             <div className="w-full flex-auto overflow-hidden rounded-3xl dark:bg-slate-800 bg-gray-100 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
-              <div className="p-5 ">
+              <div className="p-5">
                 <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
                   <TechnologiesComponent
                     technologiesTypes={technologiesTypes}
