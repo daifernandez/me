@@ -65,13 +65,13 @@ const technologiesTypes = {
 // Función para renderizar las tecnologías
 function renderTechnologies(technologies) {
   return (
-    <ul>
+    <ul className="p-3 items-center">
       {Object.keys(technologies).map((technology) => (
         <li className="flex items-center py-1" key={technology}>
           {technologies[technology].icon && (
             <span className="mr-2">{technologies[technology].icon}</span>
           )}
-          <span className="dark:text-indigo-100 mx-2">
+          <span className="text-indigo-900 dark:text-indigo-100 mx-2">
             {technologies[technology].title}
           </span>
         </li>
@@ -83,8 +83,8 @@ function renderTechnologies(technologies) {
 // Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
-    <div>
-      <h3 className="font-medium dark:text-white mb-4">
+    <div className="bg-white bg-opacity-10 backdrop-filter backdrop-blur-md rounded-lg shadow-md p-4 items-center dark:bg-slate-400 dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white">
+      <h3 className="font-medium dark:text-white mt-1 p-3 items-center">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </h3>
       {renderTechnologies(technologiesTypes[type])}
@@ -115,21 +115,6 @@ export default function Tech() {
           <Popover.Panel className="z-10 mt-5 flex w-screen max-w-max">
             <div className="w-screen max-w-md flex-auto overflow-hidden rounded-3xl bg-white dark:bg-slate-800 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5">
               <div className="p-5">
-                {/* <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
-                  <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
-                    <h2>Frontend</h2>
-
-                    <TechnologiesComponent
-                      technologiesTypes={technologiesTypes.frontend}
-                    />
-                  </ul>
-                  <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
-                    <h2>Backend</h2>
-                    <TechnologiesComponent
-                      technologiesTypes={technologiesTypes.backend}
-                    />
-                  </ul>
-                </ul> */}
                 <ul className="grid grid-cols-2 gap-1 md:grid-cols-2  lg:grid-cols-2">
                   <TechnologiesComponent
                     technologiesTypes={technologiesTypes}
