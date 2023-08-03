@@ -99,7 +99,7 @@ export default function Tech() {
       <Popover className="relative ">
         <Popover.Button
           type="button"
-          className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600  dark:bg-slate-800 "
+          className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600  dark:bg-slate-800 dark:bg-opacity-60"
         >
           <span>Tecnologias</span>
         </Popover.Button>
@@ -113,7 +113,7 @@ export default function Tech() {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel className="z-10 mt-5 flex w-full max-w-screen-sm">
-            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5  dark:bg-slate-800 ">
+            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5  dark:bg-slate-800 dark:bg-opacity-60">
               <div className="p-5">
                 <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
                   <TechnologiesComponent

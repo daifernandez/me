@@ -170,7 +170,7 @@ export default function ProjectDetails() {
                   {project.technologies.sort().map((technology) => (
                     <div
                       key={technology}
-                      className=" bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-md p-2"
+                      className=" bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-md p-2  dark:bg-slate-800 dark:bg-opacity-60"
                     >
                       <TechnologyItem technology={technology} />
                     </div>
