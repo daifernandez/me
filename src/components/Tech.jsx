@@ -71,7 +71,7 @@ function renderTechnologies(technologies) {
           {technologies[technology].icon && (
             <span className="mr-2">{technologies[technology].icon}</span>
           )}
-          <span className="text-indigo-800 dark:text-indigo-100  mx-2 ">
+          <span className="dark:text-indigo-100 mx-2">
             {technologies[technology].title}
           </span>
         </li>
@@ -84,7 +84,7 @@ function renderTechnologies(technologies) {
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
     <div>
-      <h3 className="font-bold text-indigo-500 dark:text-white mb-4">
+      <h3 className="font-medium dark:text-white mb-4">
         {type.charAt(0).toUpperCase() + type.slice(1)}
       </h3>
       {renderTechnologies(technologiesTypes[type])}
