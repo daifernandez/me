@@ -9,7 +9,10 @@ export default function AboutMe() {
   return (
     <div className="bg-white dark:bg-slate-900">
       <ScrollToTop />
-      <div aria-hidden="true" className="animate-fade-down animate-once animate-ease-linear relative">
+      <div
+        aria-hidden="true"
+        className="animate-fade-down animate-once animate-ease-linear relative"
+      >
         <img
           className="h-32 w-full object-cover lg:h-48"
           src={background}
@@ -27,7 +30,7 @@ export default function AboutMe() {
             <h2 className="text-base text-indigo-700 font-semibold tracking-wide uppercase">
               Sobre mi
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="animate-fade animate-once animate-duration-1000 animate-ease-in grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="text-center md:text-left">
                 <img
                   src={avatar}
