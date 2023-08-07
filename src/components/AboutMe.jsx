@@ -9,7 +9,7 @@ export default function AboutMe() {
   return (
     <div className="bg-white dark:bg-slate-900">
       <ScrollToTop />
-      <div aria-hidden="true" className="relative">
+      <div aria-hidden="true" className="animate-fade-down animate-once animate-ease-linear relative">
         <img
           className="h-32 w-full object-cover lg:h-48"
           src={background}
