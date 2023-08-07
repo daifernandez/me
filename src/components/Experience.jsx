@@ -59,7 +59,7 @@ const activity = [
 
 export default function Experience() {
   return (
-    <div className="bg-white dark:bg-slate-900 py-24 sm:py-32">
+    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-10 lg:px-20">
         <ul className="-mb-8 space-y-16 ">
           {activity.map((activityItem, activityItemIdx) => (

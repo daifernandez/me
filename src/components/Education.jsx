@@ -145,7 +145,7 @@ const posts = [
 
 export default function Education() {
   return (
-    <div className="bg-white dark:bg-slate-900 py-24 sm:py-32">
+    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {posts.map((post) => (
           <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700">
@@ -172,7 +172,9 @@ export default function Education() {
                       <span className="absolute inset-0 " />
                       {post.title.name}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-400">{post.where}</p>
+                    <p className="text-gray-600 dark:text-gray-400">
+                      {post.where}
+                    </p>
                   </div>
                 </div>
                 <p className="mt-4 text-sm leading-6 text-gray-600 line-clamp-3 dark:text-gray-400">
