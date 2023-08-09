@@ -196,7 +196,7 @@ export default function ProjectDetails() {
                 <img
                   src={project.images[0]}
                   alt=""
-                  className="aspect-[5/7] w-[30rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                  className="aspect-[5/7] w-[30rem] max-w-none rounded-2xl object-cover"
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
