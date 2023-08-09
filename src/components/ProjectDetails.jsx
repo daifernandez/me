@@ -140,7 +140,10 @@ export default function ProjectDetails() {
     <div>
       <ScrollToTop />
       <div className="bg-white dark:bg-slate-900">
-        <div aria-hidden="true" className="animate-fade-down animate-once animate-ease-linear relative">
+        <div
+          aria-hidden="true"
+          className="animate-fade-down animate-once animate-ease-linear relative"
+        >
           <img
             className="h-32 w-full object-cover lg:h-48"
             src={background}
@@ -153,7 +156,7 @@ export default function ProjectDetails() {
         <div className="animate-fade animate-once animate-duration-1000 animate-ease-in mx-auto max-w-7xl px-6 lg:flex lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
             <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-              <h2 className="animate-fade-up text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl">
+              <h2 className="animate-fade-up text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl hover:animate-pulse">
                 {project.name}
               </h2>
               <p
@@ -223,7 +226,7 @@ export default function ProjectDetails() {
           </div>
         </div>
       </div>
-      <div className="bg-white dark:bg-slate-900">
+      <div className="bg-white dark:bg-slate-900 animate-jump-in animate-once animate-ease-in">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="max-w-2xl mx-auto">
             {project.video && (
