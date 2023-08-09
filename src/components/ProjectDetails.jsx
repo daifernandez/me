@@ -196,7 +196,7 @@ export default function ProjectDetails() {
                 <img
                   src={project.images[0]}
                   alt=""
-                  className="aspect-[5/7] w-[30rem]"
+                  className="aspect-[5/7] w-[30rem] rounded-xl"
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
@@ -204,7 +204,7 @@ export default function ProjectDetails() {
                   <img
                     src={project.images[1]}
                     alt=""
-                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem]"
+                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem] rounded-xl"
                   />
                 </div>
                 <div className="flex w-60 sm:w-96 flex-auto justify-end lg:w-auto lg:flex-none">
@@ -218,7 +218,7 @@ export default function ProjectDetails() {
                   <img
                     src={project.images[3]}
                     alt=""
-                    className="aspect-[/3] w-[5rem] sm:w-[8rem]"
+                    className="aspect-[/3] w-[5rem] sm:w-[8rem] rounded-2xl"
                   />
                 </div>
               </div>
