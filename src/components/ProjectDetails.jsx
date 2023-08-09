@@ -192,11 +192,11 @@ export default function ProjectDetails() {
             </div>
 
             <div className="flex flex-wrap items-start justify-end gap-6 sm:gap-8 lg:contents">
-              <div className="w-0 flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
+              <div className="w-0 flex flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
                 <img
                   src={project.images[0]}
                   alt=""
-                  className="aspect-[5/7] w-[30rem] max-w-none rounded-2xl object-cover"
+                  className="aspect-[5/7] w-[30rem] rounded-2xl"
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
@@ -204,21 +204,21 @@ export default function ProjectDetails() {
                   <img
                     src={project.images[1]}
                     alt=""
-                    className="aspect-[5/7] w-[20rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                    className="aspect-[5/7] w-[20rem] rounded-2xl"
                   />
                 </div>
                 <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
                   <img
                     src={project.images[2]}
                     alt=""
-                    className="aspect-[7/] w-[45rem] max-w-none flex-none rounded-2xl bg-gray-50 object-cover"
+                    className="aspect-[7/] w-[45rem] rounded-2xl"
                   />
                 </div>
-                <div className="hidden sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
+                <div className="sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
                   <img
                     src={project.images[3]}
                     alt=""
-                    className="aspect-[/3] w-[10rem] max-w-none rounded-2xl bg-gray-50 object-cover"
+                    className="aspect-[/3] w-[10rem] rounded-2xl"
                   />
                 </div>
               </div>
