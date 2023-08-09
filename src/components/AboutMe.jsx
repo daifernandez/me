@@ -61,7 +61,7 @@ export default function AboutMe() {
                   </div>
                 </div> */}
               </div>
-              <div>
+              <div className="animate-fade-left">
                 {/* <p className="text-lg text-gray-700  dark:text-gray-400">
                   Me considero una entusiasta de la tecnología que disfruta
                   aprendiendo nuevas habilidades y enfrentando desafíos
