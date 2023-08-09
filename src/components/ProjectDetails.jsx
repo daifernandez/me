@@ -200,14 +200,14 @@ export default function ProjectDetails() {
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-                <div className="order-first flex w-64 flex-none justify-end self-end lg:w-auto">
+                <div className="order-first flex sm:w-64 flex-none justify-end self-end lg:w-auto">
                   <img
                     src={project.images[1]}
                     alt=""
-                    className="aspect-[5/7] w-[20rem]"
+                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem]"
                   />
                 </div>
-                <div className="flex w-96 flex-auto justify-end lg:w-auto lg:flex-none">
+                <div className="flex w-60 sm:w-96 flex-auto justify-end lg:w-auto lg:flex-none">
                   <img
                     src={project.images[2]}
                     alt=""
@@ -218,7 +218,7 @@ export default function ProjectDetails() {
                   <img
                     src={project.images[3]}
                     alt=""
-                    className="aspect-[/3] w-[10rem]"
+                    className="aspect-[/3] w-[5rem] sm:w-[8rem]"
                   />
                 </div>
               </div>
