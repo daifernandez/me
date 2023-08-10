@@ -33,19 +33,6 @@ export default function Intro() {
             <Tech />
           </div>
           <div className="mt-12 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1">
-            {/* <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
-              <button
-                type="button"
-                className="flex rounded py-3 bg-white px-3 text-sm font-medium shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-400 dark:ring-white/10 justify-center dark:bg-slate-800 text-slate-700  ring-inset ring-gray-300 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:ring-slate-500 "
-                onClick={() => redirect.push("/me")}
-              >
-                <RocketLaunchIcon
-                  className="-ml-0.5 mr-1.5 h-5 w-5  text-slate-400 dark:text-white"
-                  aria-hidden="true"
-                />
-                <span className="dark:text-white">+ Sobre Mi</span>
-              </button>
-            </div> */}
           </div>
         </div>
       </div>
