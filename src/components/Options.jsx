@@ -37,7 +37,7 @@ export default function Options() {
         <span className="flex rounded-full py-3 mb-3 dark:bg-slate-800 bg-indigo-100/20 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10">
           <button
             type="button"
-            className={`px-5 dark:hover:text-indigo-500 ${
+            className={`px-5 ${
               content === "Projects"
                 ? "text-indigo-600 dark:text-indigo-500 font-medium"
                 : "hover:animate-bounce"
@@ -48,7 +48,7 @@ export default function Options() {
           </button>
           <button
             type="button"
-            className={`px-5 dark:hover:text-indigo-500 ${
+            className={`px-5 ${
               content === "Experience"
                 ? "text-indigo-600 dark:text-indigo-500 font-medium"
                 : "hover:animate-bounce"
@@ -59,7 +59,7 @@ export default function Options() {
           </button>
           <button
             type="button"
-            className={`px-5 dark:hover:text-indigo-500 ${
+            className={`px-5 ${
               content === "Education"
                 ? "text-indigo-600 dark:text-indigo-500 font-medium"
                 : "hover:animate-bounce"
