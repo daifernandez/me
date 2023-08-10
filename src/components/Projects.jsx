@@ -44,10 +44,6 @@ export default function Projects() {
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-20 sm:py-30">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h3 className="text-base font-semibold leading-5 text-indigo-500">
-            Proyectos
-          </h3>
-
           <p className="mt-6 text-lg leading-8 text-gray-600">
             <div className="mx-auto">
               <p className="mt-5 mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">

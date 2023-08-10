@@ -34,7 +34,7 @@ export default function Options() {
   return (
     <div className="justify-center">
       <div className="flex justify-center mt-12">
-        <span className="flex rounded-full py-3 mb-3 dark:bg-slate-800 bg-indigo-100/20  px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10">
+        <span className="flex rounded-full py-3 mb-3 dark:bg-slate-800 bg-indigo-100/20 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10">
           <button
             type="button"
             className={`px-5 hover:text-indigo-600 dark:hover:text-indigo-500 ${
