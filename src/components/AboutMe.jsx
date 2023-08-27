@@ -82,7 +82,7 @@ export default function AboutMe() {
                 </p>
                 <p className="text-lg text-gray-700  dark:text-gray-400">
                   Soy una persona adaptable y tengo facilidad para el trabajo en
-                  equipo, siempre enfocado en aprender nuevas experiencias y
+                  equipo, siempre enfocada en aprender nuevas experiencias y
                   habilidades.
                 </p>
                 {/* <p className="text-lg text-gray-700  dark:text-gray-400">
@@ -91,7 +91,7 @@ export default function AboutMe() {
                 </p> */}
                 <p className="text-lg text-gray-700  dark:text-gray-400">
                   Actualmente estoy buscando nuevas oportunidades laborales en
-                  el campo del desarrollo web. Si tienes un proyecto interesante
+                  el campo del desarrollo. Si tienes un proyecto interesante
                   o una posición disponible, ¡no dudes en contactarme!
                 </p>
 
