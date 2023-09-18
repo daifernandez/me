@@ -1,7 +1,6 @@
 import React from "react";
 import Social from "./Social";
 import { useHistory } from "react-router-dom";
-import Tech from "./Tech";
 
 export default function Intro() {
   const redirect = useHistory();
@@ -16,10 +15,11 @@ export default function Intro() {
             FullStack Web Developer
           </h2>
           <p className="animate-fade-left mt-6 text-lg leading-8 text-gray-600 dark:text-gray-400">
-            Hola mi nombre es Daiana, soy desarrolladora web fullstack. Aquí encontrarás algunos de mis proyectos más recientes. Me
-            enorgullece compartir mi trabajo y espero que puedas encontrar algo
-            que te inspire o te resulte útil. Si tienes alguna pregunta o
-            quieres saber más sobre mi trabajo, no dudes en contactarme.
+            Hola mi nombre es Daiana, soy desarrolladora web fullstack. Aquí
+            encontrarás algunos de mis proyectos más recientes. Me enorgullece
+            compartir mi trabajo y espero que puedas encontrar algo que te
+            inspire o te resulte útil. Si tienes alguna pregunta o quieres saber
+            más sobre mi trabajo, no dudes en contactarme.
           </p>
           <button
             type="button"
@@ -29,11 +29,7 @@ export default function Intro() {
             Más sobre Mi <span aria-hidden="true">→</span>
           </button>
           <Social />
-          <div className="mt-10 flex items-center gap-x-6">
-            <Tech />
-          </div>
-          <div className="mt-12 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1">
-          </div>
+          <div className="mt-12 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1"></div>
         </div>
       </div>
     </div>

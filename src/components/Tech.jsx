@@ -96,7 +96,7 @@ function TechnologiesComponent({ technologiesTypes, type }) {
 
 export default function Tech() {
   return (
-    <div>
+    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8 mb-10 ">
       <Popover className="relative ">
         <Popover.Button
           type="button"
@@ -104,6 +104,7 @@ export default function Tech() {
         >
           <span>Tecnologias</span>
         </Popover.Button>
+
         <Transition
           as={Fragment}
           enter="transition duration-300 ease-out"
