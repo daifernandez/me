@@ -65,16 +65,18 @@ const technologiesTypes = {
 // Función para renderizar las tecnologías
 function renderTechnologies(technologies) {
   return (
-    <ul className="p-3 items-center">
+    <ul className="p-2 items-center">
       {Object.keys(technologies).map((technology) => (
-        <li className="flex items-center py-1" key={technology}>
-          {technologies[technology].icon && (
-            <span className="mr-2">{technologies[technology].icon}</span>
-          )}
-          <span className="text-indigo-900 dark:text-indigo-100 mx-2">
-            {technologies[technology].title}
-          </span>
-        </li>
+        <div className="bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-md p-2 dark:bg-slate-800 dark:bg-opacity-60 my-2">
+          <li className="flex items-center py-1" key={technology}>
+            {technologies[technology].icon && (
+              <span className="mr-5">{technologies[technology].icon}</span>
+            )}
+            <span className="text-indigo-900 dark:text-indigo-100 mx-2">
+              {technologies[technology].title}
+            </span>
+          </li>
+        </div>
       ))}
     </ul>
   );
@@ -83,10 +85,10 @@ function renderTechnologies(technologies) {
 // Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
-    <div className="bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-3xl shadow-md p-4 items-center dark:bg-slate-700  dark:bg-opacity-5 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
-      <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-xl shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+    <div>
+      {/* <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
         {type.charAt(0).toUpperCase() + type.slice(1)}
-      </h3>
+      </h3> */}
       {renderTechnologies(technologiesTypes[type])}
     </div>
   );
@@ -95,7 +97,6 @@ function TechnologiesComponent({ technologiesTypes, type }) {
 export default function Tech() {
   return (
     <div>
-      {" "}
       <Popover className="relative ">
         <Popover.Button
           type="button"
@@ -112,20 +113,18 @@ export default function Tech() {
           leaveFrom="opacity-100 scale-100"
           leaveTo="opacity-0 scale-95"
         >
-          <Popover.Panel className="z-10 mt-5 flex w-full max-w-screen-sm">
-            <div className="w-full flex-auto overflow-hidden rounded-3xl bg-indigo-100/20 bg-opacity-5 backdrop-blur-md  p-2 text-sm leading-6 shadow-lg ring-1 ring-gray-900/5  dark:bg-slate-800 dark:bg-opacity-60">
-              <div className="p-5">
-                <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
-                  <TechnologiesComponent
-                    technologiesTypes={technologiesTypes}
-                    type="frontend"
-                  />
-                  <TechnologiesComponent
-                    technologiesTypes={technologiesTypes}
-                    type="backend"
-                  />
-                </ul>
-              </div>
+          <Popover.Panel className="z-10 mt-2">
+            <div className="sm:px-20 md:px-32 xl:px-42 p-10 px-20 ">
+              <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
+                <TechnologiesComponent
+                  technologiesTypes={technologiesTypes}
+                  type="frontend"
+                />
+                <TechnologiesComponent
+                  technologiesTypes={technologiesTypes}
+                  type="backend"
+                />
+              </ul>
             </div>
           </Popover.Panel>
         </Transition>
