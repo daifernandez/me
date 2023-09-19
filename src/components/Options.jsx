@@ -32,9 +32,9 @@ export default function Options() {
   }
 
   return (
-    <div className="justify-center mt-24">
+    <div className="justify-center mt-24 ">
       <div className="flex justify-center">
-        <span className="flex rounded-full py-3 mb-3 dark:bg-slate-800 bg-indigo-100/20 px-3 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10">
+        <span className="flex rounded-full px-4 py-2.5 leading-5 dark:bg-slate-800 bg-indigo-100/20 text-sm font-medium text-zinc-800 shadow-lg shadow-zinc-800/5 ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10">
           <button
             type="button"
             className={`px-5 ${
