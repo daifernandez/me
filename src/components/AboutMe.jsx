@@ -27,7 +27,7 @@ export default function AboutMe() {
         />
         <section id="cv" className="px-6 py-12 bg-gray-50 dark:bg-slate-900">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-base text-indigo-700 font-semibold tracking-wide uppercase">
+            <h2 className="text-base text-indigo-600 dark:text-indigo-500 font-semibold tracking-wide uppercase">
               Sobre mi
             </h2>
             <div className="animate-fade animate-once animate-duration-1000 animate-ease-in grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -37,7 +37,7 @@ export default function AboutMe() {
                   alt="Foto de perfil"
                   className="w-64 h-64 rounded-full mx-auto md:mx-0 mb-6 mt-10 aspect-[6/5] object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5"
                 />
-                <h2 className="text-base text-indigo-700 font-semibold tracking-wide">
+                <h2 className="text-base text-indigo-600 dark:text-indigo-500 font-semibold tracking-wide">
                   ¡Hola Mundo!
                 </h2>
                 <h3 className="text-2xl font-bold mb-2 dark:text-white">

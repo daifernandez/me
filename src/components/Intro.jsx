@@ -8,7 +8,7 @@ export default function Intro() {
     <div className="py-12 sm:py-12">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="animate-fade-left text-base font-semibold leading-7 text-indigo-600">
+          <p className="animate-fade-left text-base font-semibold leading-7 text-indigo-600 dark:text-indigo-500 ">
             Bienvenido a mi portfolio!
           </p>
           <h2 className="animate-fade animate-once animate-duration-[2000ms] mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl dark:text-white">
