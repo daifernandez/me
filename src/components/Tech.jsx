@@ -96,13 +96,19 @@ function TechnologiesComponent({ technologiesTypes, type }) {
 
 export default function Tech() {
   return (
-    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8 mb-10 ">
-      <Popover className="relative ">
+    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+      <Popover className="relative">
         <Popover.Button
           type="button"
-          className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600  dark:bg-indigo-600 dark:bg-opacity-60 dark:hover:bg-indigo-600"
+          className="focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus-visible:rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900/5"
         >
-          <span>Tecnologias</span>
+          <p className="relative rounded-full bg-indigo-100/20 dark:bg-slate-800 px-4 py-1.5 text-sm leading-6 text-gray-600  dark:text-gray-300 ring-1 ring-inset ring-gray-900/5 dark:hover:ring-gray-900/5">
+            <span className="hidden md:inline">Chequea las</span>
+            <a href="#" className="font-semibold text-indigo-600">
+              <span className="absolute inset-0" aria-hidden="true" />{" "}
+              Tecnologias que manejo <span aria-hidden="true">&rarr;</span>
+            </a>
+          </p>
         </Popover.Button>
 
         <Transition
