@@ -102,9 +102,12 @@ export default function Tech() {
           type="button"
           className="focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus-visible:rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900/5"
         >
-          <p className="relative rounded-full bg-indigo-100/20 dark:bg-slate-800 px-4 py-1.5 text-sm leading-6 text-gray-600  dark:text-gray-300 ring-1 ring-inset ring-gray-900/5 dark:hover:ring-gray-900/5">
+          <p className="relative rounded-full bg-indigo-100/20 dark:bg-slate-800 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10  shadow-zinc-800/5">
             <span className="hidden md:inline">Chequea las</span>
-            <a href="#" className="font-semibold text-indigo-600 dark:text-indigo-500 ">
+            <a
+              href="#"
+              className="font-semibold text-indigo-600 dark:text-indigo-500"
+            >
               <span className="absolute inset-0" aria-hidden="true" />{" "}
               Tecnologias que manejo <span aria-hidden="true">&rarr;</span>
             </a>
