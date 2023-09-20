@@ -12,15 +12,34 @@ import {
   SiBootstrap,
   SiNodedotjs,
   SiTailwindcss,
+  SiGit,
+  SiGithub,
+  SiNpm,
 } from "@icons-pack/react-simple-icons";
 
 // tipos de categorias
 const technologiesTypes = {
-  frontend: {
+  lenguajes: {
     javascript: {
       icon: <SiJavascript title="JavaScript" color="default" size={24} />,
       title: "JavaScript",
     },
+  },
+  tools: {
+    git: {
+      icon: <SiGit title="Git" color="default" size={24} />,
+      title: "Git",
+    },
+    github: {
+      icon: <SiGithub title="Github" color="default" size={24} />,
+      title: "GitHub",
+    },
+    npm: {
+      icon: <SiNpm title="Npm" color="default" size={24} />,
+      title: "Npm",
+    },
+  },
+  frontend: {
     react: {
       icon: <SiReact title="React" color="default" size={24} />,
       title: "React",
@@ -124,8 +143,18 @@ export default function Tech() {
           leaveTo="opacity-0 scale-95"
         >
           <Popover.Panel className="z-10 mt-2">
-            <div className="sm:px-20 md:px-32 xl:px-42 p-10 px-20 ">
-              <ul className="grid gap-5 md:grid-cols-2 lg:grid-cols-2 ">
+            <div className="sm:px-20 md:px-10 xl:px-52 p-10 px-20 ">
+              <ul className="grid gap-5 md:grid-cols-3 lg:grid-cols-3">
+                <ul className="grid-cols-1">
+                  <TechnologiesComponent
+                    technologiesTypes={technologiesTypes}
+                    type="lenguajes"
+                  />
+                  <TechnologiesComponent
+                    technologiesTypes={technologiesTypes}
+                    type="tools"
+                  />
+                </ul>
                 <TechnologiesComponent
                   technologiesTypes={technologiesTypes}
                   type="frontend"
