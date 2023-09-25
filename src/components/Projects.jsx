@@ -46,7 +46,7 @@ export default function Projects() {
         <div className="mx-auto max-w-2xl lg:mx-0">
           <p className="mt-6 text-lg leading-8 text-gray-600">
             <div className="mx-auto">
-              <p className="mt-5 mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">
+              <p className="mt-5 mb-20 text-base leading-7 text-gray-700 dark:text-gray-400">
                 Estos son algunos de mis Proyectos más recientes.
               </p>
             </div>
@@ -108,7 +108,7 @@ export default function Projects() {
           </Splide>
 
           <div className="text-center">
-            <p className="mt-10 text-base leading-7 text-gray-700 dark:text-gray-400">
+            <p className="mt-5 text-base leading-7 text-gray-700 dark:text-gray-400">
               Te invito a hacer click en cada uno para obtener más detalles.
             </p>
           </div>
