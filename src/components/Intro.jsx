@@ -29,7 +29,7 @@ export default function Intro() {
             Más sobre Mi <span aria-hidden="true">→</span>
           </button>
           <Social />
-          <div className="mt-12 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1"></div>
+          <div className="sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:justify-start sm:space-x-6 sm:pb-1"></div>
         </div>
       </div>
     </div>

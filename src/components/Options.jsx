@@ -44,7 +44,7 @@ export default function Options() {
             }`}
             onClick={handleSelectProjects}
           >
-            Mis proyectos
+            Proyectos
           </button>
           <button
             type="button"
