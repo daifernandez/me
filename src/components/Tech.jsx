@@ -15,6 +15,7 @@ import {
   SiGit,
   SiGithub,
   SiNpm,
+  SiNextdotjs,
 } from "@icons-pack/react-simple-icons";
 
 // tipos de categorias
@@ -40,6 +41,10 @@ const technologiesTypes = {
     },
   },
   frontend: {
+    nextjs: {
+      icon: <SiNextdotjs title="NextJS" color="default" size={24} />,
+      title: "NextJS",
+    },
     react: {
       icon: <SiReact title="React" color="default" size={24} />,
       title: "React",
