@@ -43,7 +43,7 @@ const technologiesTypes = {
   frontend: {
     nextjs: {
       icon: <SiNextdotjs title="NextJS" color="default" size={24} />,
-      title: "NextJS",
+      title: "Next.js",
     },
     react: {
       icon: <SiReact title="React" color="default" size={24} />,
