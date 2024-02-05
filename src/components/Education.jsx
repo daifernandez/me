@@ -98,6 +98,18 @@ function classNames(...classes) {
 const posts = [
   {
     id: 1,
+    where: "Coderhouse",
+    description:
+      "14 horas dictadas a lo largo de 7 semanas, cumpliendo todos los requisitos académicos exigidos.",
+    date: "2023",
+    category: { title: "Tecnología" },
+    title: {
+      name: "NextJS",
+      role: "",
+    },
+  },
+  {
+    id: 2,
     where: "Henry",
     description:
       "Modalidad Full-time con mas de 800 horas en tecnologías como Javascript, NodeJS, React, Redux y ExpressJS",
@@ -109,7 +121,7 @@ const posts = [
     },
   },
   {
-    id: 2,
+    id: 3,
     where: "Platzi",
     description: "Ruta de Aprendizaje de Desarrollo de Aplicaciones iOS",
     date: "2022",
@@ -120,7 +132,7 @@ const posts = [
     },
   },
   {
-    id: 3,
+    id: 4,
     where: "Universidad Complutense de Madrid - Google Activate",
     description: "Curso de Desarrollo de Apps Móviles",
     date: "2021",
@@ -131,7 +143,7 @@ const posts = [
     },
   },
   {
-    id: 4,
+    id: 5,
     where: "Ateneo Argentino de Odontología | Universidad de Favaloro",
     description: "Caracter teórico con prácticas en clínica y evaluación",
     date: "2010",
