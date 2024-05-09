@@ -126,7 +126,7 @@ export default function Projects() {
                 {categories.map((category) => (
                   <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700">
                     <div className="items-center gap-x-4 text-xs mt-5">
-                      <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-4 mt-20">
+                      <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-16 mt-20">
                         Proyectos de {category.title}
                       </div>
                       {/* <div className="dark:text-gray-500">{category.title}</div> */}

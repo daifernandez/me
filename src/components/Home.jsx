@@ -3,7 +3,7 @@ import Header from "./Header";
 // import Options from "./Options";
 import Footer from "./Footer";
 import Intro from "./Intro";
-import Tech from "./Tech";
+// import Tech from "./Tech";
 import Cv from "./Cv";
 import Projects from "./Projects";
 
@@ -14,7 +14,7 @@ export default function Home() {
       <Intro />
       <Cv />
       <Projects />
-      <Tech />
+      {/* <Tech /> */}
       {/* <Options /> */}
       <Footer />
     </div>

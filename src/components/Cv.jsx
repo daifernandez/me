@@ -6,6 +6,9 @@ import avatarPlatzi from "../img/avatarPlatzi.png";
 import avatarAAO from "../img/avatarAAO.jpeg";
 import avatarGA from "../img/avatarGA.png";
 import { useHistory } from "react-router-dom";
+import { CheckIcon } from "@heroicons/react/20/solid";
+import { Fragment } from "react";
+import { Popover, Transition } from "@headlessui/react";
 
 const activity = [
   {
@@ -95,6 +98,100 @@ const activity = [
     date: "2010",
   },
 ];
+const timeline = [
+  {
+    id: 11,
+    content: "Curso de",
+    target: "Desarrollo de Aplicaciones para Apple Watch",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 10,
+    content: "Curso ",
+    target: "Profesional de Git y GitHub",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 9,
+    content: "Curso de",
+    target: "SwiftUI: Porteo y Ciclo de Vida de Aplicaciónes",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 8,
+    content: "Curso de",
+    target: "Desarrollo de Aplicaciones iOS con Swift",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 7,
+    content: "Curso de",
+    target: "Programación orientada a objetos en Swift",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 6,
+    content: "Curso de",
+    target: "Programación orientada a objetos: POO",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 5,
+    content: "Curso de",
+    target: "SwiftUI desde Cero",
+    date: "2022",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 4,
+    content: "Curso de",
+    target: "Programación en Swift: Funciones",
+    date: "2021",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 3,
+    content: "Curso de",
+    target: "Programación en Swift",
+    date: "2021",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 2,
+    content: "Curso de",
+    target: "Programación Estruturada",
+    date: "2021",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+  {
+    id: 1,
+    content: "Curso de",
+    target: "Introducción a Swift",
+    date: "2021",
+    icon: CheckIcon,
+    iconBackground: "bg-emerald-400",
+  },
+];
+
+function classNames(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 export default function Cv() {
   const redirect = useHistory();
@@ -112,10 +209,10 @@ export default function Cv() {
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-4xl px-20">
-        <ul className="-mb-8 space-y-16 ">
+        <ul className="-mb-8 space-y-16">
           {activity.map((activityItem, activityItemIdx) => (
             <li key={activityItem.id}>
-              <div className="relative pb-10">
+              <div className="relative pb-5">
                 {activityItemIdx !== activity.length - 1 ? (
                   <span
                     className="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200 dark:bg-slate-700"
@@ -133,7 +230,7 @@ export default function Cv() {
                     </div>
                     <div className="min-w-0 flex-1">
                       <div>
-                        <div className="text-sm dark:text-white">
+                        <div className="text-sm font-semibold text-gray-400 dark:text-gray-400">
                           {activityItem.experience.title}
                         </div>
                         <p className="mt-0.5 text-sm text-gray-500 dark:text-gray-500">
@@ -147,7 +244,6 @@ export default function Cv() {
                           </p>
                         )}
                         <p>{activityItem.description}</p>
-
                         {/* agregar proyecto */}
                         {activityItem.project && (
                           <>
@@ -155,18 +251,16 @@ export default function Cv() {
                               Proyectos:
                             </p>
                             {activityItem.project.map((projectItem) => (
-                              <p className="text-gray-500 dark:text-gray-400">
+                              <div className="text-gray-500 dark:text-gray-400 mb-2 mt-2">
                                 <button
                                   onClick={() => handleClick(projectItem.title)}
                                 >
-                                  <span
-                                    href="#"
-                                    className="font-semibold text-indigo-600 dark:text-indigo-500"
-                                  >
+                                  <span className="font-semibold text-indigo-600 dark:text-indigo-500">
+                                    <span aria-hidden="true">&rarr;</span>{" "}
                                     {projectItem.title}
                                   </span>
                                 </button>
-                              </p>
+                              </div>
                             ))}
                           </>
                         )}
@@ -204,6 +298,90 @@ export default function Cv() {
                             </p>
                           </>
                         )}
+                        {activityItem.experience.title ===
+                        "Apple FullStack Developer - IOS Mobile Developer" ? (
+                          <div className="flow-root mb-5 mt-5">
+                            <ul className="-mb-8">
+                              <Popover className="relative">
+                                <Popover.Button
+                                  type="button"
+                                  className="ffocus-visible:ring-2 focus:outline-none"
+                                >
+                                  <h3 className="text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center dark:focus:ring-offset-black focus:outline-none bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+                                    <span
+                                      href="#"
+                                      className="font-semibold text-indigo-600 dark:text-indigo-500"
+                                    >
+                                      <span
+                                        className="absolute inset-0"
+                                        aria-hidden="true"
+                                      />{" "}
+                                      iOS Mobile Developer{" "}
+                                    </span>
+                                    <span className="hidden md:inline font-semibold text-gray-600 dark:text-gray=200">
+                                      {" "}
+                                      Ruta
+                                      <span aria-hidden="true">&rarr;</span>
+                                    </span>
+                                  </h3>
+                                </Popover.Button>
+
+                                <Transition
+                                  as={Fragment}
+                                  enter="transition duration-300 ease-out"
+                                  enterFrom="opacity-0 scale-95"
+                                  enterTo="opacity-100 scale-100"
+                                  leave="transition duration-200 ease-in"
+                                  leaveFrom="opacity-100 scale-100"
+                                  leaveTo="opacity-0 scale-95"
+                                >
+                                  <Popover.Panel>
+                                    <div className="md:px-10 xl:px-22 p-10">
+                                      <ul className="grid-cols-1">
+                                        {timeline.map((event, eventIdx) => (
+                                          <li key={event.id}>
+                                            <div className="relative pb-7">
+                                              <div className="relative flex space-x-3">
+                                                <div>
+                                                  <span
+                                                    className={classNames(
+                                                      event.iconBackground,
+                                                      "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white dark:ring-slate-700"
+                                                    )}
+                                                  >
+                                                    <event.icon
+                                                      className="h-5 w-5 text-white "
+                                                      aria-hidden="true"
+                                                    />
+                                                  </span>
+                                                </div>
+                                                <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                                                  <div>
+                                                    <p className="font-medium text-gray-900 dark:text-gray-400">
+                                                      {event.target}
+                                                    </p>
+                                                  </div>
+                                                  <div className="whitespace-nowrap text-right text-sm text-gray-500 dark:text-gray-400">
+                                                    <time
+                                                      dateTime={event.datetime}
+                                                    >
+                                                      {event.date}
+                                                    </time>
+                                                  </div>
+                                                  {}
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </li>
+                                        ))}
+                                      </ul>
+                                    </div>
+                                  </Popover.Panel>
+                                </Transition>
+                              </Popover>
+                            </ul>
+                          </div>
+                        ) : null}
                       </div>
                     </div>
                   </>
