@@ -5,7 +5,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
-    "@icons-pack/react-simple-icons": "^9.0.0",
+    "@icons-pack/react-simple-icons": "^9.4.1",
     "@splidejs/react-splide": "^0.7.12",
     "@tailwindcss/line-clamp": "^0.4.4",
     "@testing-library/jest-dom": "^5.16.5",

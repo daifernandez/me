@@ -9,6 +9,10 @@ import PCipad from "./ImgProjects/PCipad.png";
 import PCipad1 from "./ImgProjects/PCipad1.png";
 import PCweb from "./ImgProjects/PCweb.png";
 import PCmobile from "./ImgProjects/PCmobile.png";
+import Cipad from "./ImgProjects/Cipad.jpeg";
+import Cipad2 from "./ImgProjects/Cipad2.jpeg";
+import Cmobile from "./ImgProjects/Cmobile.jpeg";
+import Cweb from "./ImgProjects/Cweb.jpeg";
 import {
   SiJavascript,
   SiReact,
@@ -22,6 +26,9 @@ import {
   SiAuth0,
   SiMercadopago,
   SiNodedotjs,
+  SiNextdotjs,
+  SiFirebase,
+  SiCloudinary,
 } from "@icons-pack/react-simple-icons";
 import ReactPlayer from "react-player";
 import ScrollToTop from "./ScrollToTop";
@@ -43,6 +50,7 @@ const projects = {
       "Auth0",
       "Cloudinary",
     ],
+    aptitudes: ["Trabajo en equipo", "Comunicación", "Organización"],
     images: [PCipad, PCipad1, PCweb, PCmobile],
     link: "https://pawcare.vercel.app",
     video: true,
@@ -61,8 +69,26 @@ const projects = {
       "Sequelize",
       "PostgreSQL",
     ],
+    aptitudes: ["Autonomía", "Resolución de problemas", "Investigación"],
     images: [GSipad, GSipad2, GSweb, GSmobile],
     link: "https://gamestream.dev/",
+  },
+  capellari: {
+    name: "Capellari",
+    description:
+      "Proyecto individual desarrollado dentro de CoderHouse que consiste en el desarrollo de una página e-commerce con NextJS en la cual se desarrolla una app para la venta de productos electrodomésticos",
+    technologies: [
+      "NextJS",
+      "JavaScript",
+      "React",
+      "NodeJS",
+      "Google Login",
+      "Firebase",
+    ],
+    aptitudes: ["Organización", "Investigación", "Autonomía"],
+    images: [Cipad, Cipad2, Cweb, Cmobile],
+    link: "https://e-commerce-capellari.vercel.app",
+    video: false,
   },
 };
 
@@ -70,6 +96,10 @@ const technologiesName = {
   javascript: {
     name: "JavaScript",
     icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+  },
+  nextjs: {
+    name: "NextJS",
+    icon: <SiNextdotjs title="NextJS" color="default" size={24} />,
   },
   react: {
     name: "React",
@@ -117,7 +147,11 @@ const technologiesName = {
   },
   cloudinary: {
     name: "Cloudinary",
-    icon: null,
+    icon: <SiCloudinary title="Cloudinary" color="default" size={24} />,
+  },
+  firebase: {
+    name: "Firebase",
+    icon: <SiFirebase title="Firebase" color="default" size={24} />,
   },
 };
 
@@ -159,22 +193,26 @@ export default function ProjectDetails() {
               <h2 className="animate-fade-up text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl hover:animate-pulse">
                 {project.name}
               </h2>
-              <p
-                className="animate-fade-left mt-6 text-xl leading-8 text-gray-600 dark:text-gray-400"
-              >
+              <p className="animate-fade-left mt-6 text-xl leading-8 text-gray-600 dark:text-gray-400">
                 {project.description}
               </p>
+              {/* <section className="animate-fade-right mt-12">
+                <h2 className="text-lg font-medium text-gray-900 dark:text-indigo-600 mb-4">
+                  Aptitudes
+                </h2>
+              </section> */}
               <section className="animate-fade-left mt-12">
                 <h2 className="text-lg font-medium text-gray-900 dark:text-indigo-600 mb-4">
                   Tecnologías utilizadas
                 </h2>
                 <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
                   {project.technologies.sort().map((technology) => (
-                    <div
-                      key={technology}
-                      className=" bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-md p-2  dark:bg-slate-800 dark:bg-opacity-60"
-                    >
-                      <TechnologyItem technology={technology} />
+                    <div className="text-sm leading-6 text-indigo-800 text-center font-medium p-2 items-center  ">
+                      <li className="flex items-center py-1">
+                        <span className="md:inline font-semibold text-gray-600 dark:text-gray=200">
+                          <TechnologyItem technology={technology} />
+                        </span>
+                      </li>
                     </div>
                   ))}
                 </div>

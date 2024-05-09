@@ -1,6 +1,4 @@
 import React from "react";
-import { Fragment } from "react";
-import { Popover, Transition } from "@headlessui/react";
 import {
   SiJavascript,
   SiReact,
@@ -18,7 +16,7 @@ import {
   SiNextdotjs,
 } from "@icons-pack/react-simple-icons";
 
-// tipos de categorias
+// Objeto con las tecnologías
 const technologiesTypes = {
   lenguajes: {
     javascript: {
@@ -89,14 +87,14 @@ const technologiesTypes = {
 // Función para renderizar las tecnologías
 function renderTechnologies(technologies) {
   return (
-    <ul className="p-2 items-center">
+    <ul className="grid grid-cols-1">
       {Object.keys(technologies).map((technology) => (
-        <div className="bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-md p-2 dark:bg-slate-800 dark:bg-opacity-60 my-2">
+        <div className="text-sm leading-6 text-indigo-800 text-center font-medium p-2 items-center  ">
           <li className="flex items-center py-1" key={technology}>
             {technologies[technology].icon && (
               <span className="mr-5">{technologies[technology].icon}</span>
             )}
-            <span className="text-indigo-900 dark:text-indigo-100 mx-2">
+            <span className="md:inline font-semibold text-gray-600 dark:text-gray=200">
               {technologies[technology].title}
             </span>
           </li>
@@ -109,10 +107,14 @@ function renderTechnologies(technologies) {
 // Componente que renderiza las tecnologías basado en el tipo (frontend o backend)
 function TechnologiesComponent({ technologiesTypes, type }) {
   return (
-    <div>
-      {/* <h3 className="mt-1 mb-4 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
-        {type.charAt(0).toUpperCase() + type.slice(1)}
-      </h3> */}
+    <div className="mb-8 mt-8">
+      <h3 className="mt-1 mb-4 text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+        <span className="md:inline font-semibold text-gray-600 dark:text-gray=200">
+          {" "}
+          {type.charAt(0).toUpperCase() + type.slice(1)}
+        </span>
+      </h3>
+
       {renderTechnologies(technologiesTypes[type])}
     </div>
   );
@@ -120,59 +122,48 @@ function TechnologiesComponent({ technologiesTypes, type }) {
 
 export default function Tech() {
   return (
-    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
-      <Popover className="relative">
-        <Popover.Button
-          type="button"
-          className="focus-visible:outline-offset-2 focus-visible:outline-indigo-600 focus-visible:rounded-full focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-gray-900/5"
-        >
-          <p className="relative rounded-full bg-indigo-100/20 dark:bg-slate-800 px-4 py-1.5 text-sm leading-6 text-gray-600 ring-1 ring-inset ring-gray-900/5ring-1 ring-zinc-900/5 backdrop-blur dark:text-zinc-200 dark:ring-white/10  shadow-zinc-800/5">
-            <span className="hidden md:inline">Chequea las</span>
+    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+        <div className="sm:px-20 md:px-20 xl:px-52 p-10 px-20 ">
+          <h3 className="mt-1 mb-4 text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
             <span
               href="#"
               className="font-semibold text-indigo-600 dark:text-indigo-500"
             >
               <span className="absolute inset-0" aria-hidden="true" />{" "}
-              Tecnologias que manejo <span aria-hidden="true">&rarr;</span>
+              Tecnologias, Lenguajes y Herramientas
             </span>
-          </p>
-        </Popover.Button>
+            <span className="hidden md:inline font-semibold text-gray-600 dark:text-gray=200">
+              {" "}
+              que manejo
+            </span>
+          </h3>
 
-        <Transition
-          as={Fragment}
-          enter="transition duration-300 ease-out"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition duration-200 ease-in"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          <Popover.Panel className="z-10 mt-2">
-            <div className="sm:px-20 md:px-10 xl:px-52 p-10 px-20 ">
-              <ul className="grid gap-5 md:grid-cols-3 lg:grid-cols-3">
-                <ul className="grid-cols-1">
-                  <TechnologiesComponent
-                    technologiesTypes={technologiesTypes}
-                    type="lenguajes"
-                  />
-                  <TechnologiesComponent
-                    technologiesTypes={technologiesTypes}
-                    type="tools"
-                  />
-                </ul>
-                <TechnologiesComponent
-                  technologiesTypes={technologiesTypes}
-                  type="frontend"
-                />
-                <TechnologiesComponent
-                  technologiesTypes={technologiesTypes}
-                  type="backend"
-                />
-              </ul>
-            </div>
-          </Popover.Panel>
-        </Transition>
-      </Popover>
+          <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-4 mt-20">
+            Desarrollo web
+          </div>
+          <ul className="grid gap-10 md:gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+            <ul className="grid-cols-1">
+              <TechnologiesComponent
+                technologiesTypes={technologiesTypes}
+                type="lenguajes"
+              />
+              <TechnologiesComponent
+                technologiesTypes={technologiesTypes}
+                type="tools"
+              />
+            </ul>
+            <TechnologiesComponent
+              technologiesTypes={technologiesTypes}
+              type="frontend"
+            />
+            <TechnologiesComponent
+              technologiesTypes={technologiesTypes}
+              type="backend"
+            />
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }

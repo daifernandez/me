@@ -15,7 +15,7 @@ const activity = [
       "búsqueda, filtros combinados, ordenamientos, autenticación local y de terceros, pasarela de pagos, deploy, panel de administrador, valoraciones, comentarios y notificaciones vía email.",
     tecnologies:
       "JavaScript, React, Redux, Bootstrap , NodeJS, Express, Google login, MercadoPago, Auth0, Cloudinary, distintas librerías y frameworks.",
-    date: "3 semanas",
+    date: "",
   },
   {
     id: 1,
@@ -29,7 +29,7 @@ const activity = [
       "búsquedas, filtrados, ordenamientos y creación de actividades",
     tecnologies:
       "JavaScript, React, Redux, CSS, NodeJS, Express, Sequelize y PostgreSQL.",
-    date: "2 semanas",
+    date: "",
   },
   {
     id: 2,
