@@ -117,9 +117,9 @@ export default function Projects() {
   };
 
   return (
-    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-20 sm:py-30">
-      <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        <div className="mx-auto max-w-2xl lg:mx-0">
+    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
+    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+      <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
           <p className="mt-6 text-lg leading-8 text-gray-600">
             <div className="mx-auto">
               <p className="mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">
@@ -127,7 +127,7 @@ export default function Projects() {
                   <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700">
                     <div className="items-center gap-x-4 text-xs mt-5">
                       <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-4 mt-20">
-                        {category.title}
+                        Proyectos de {category.title}
                       </div>
                       {/* <div className="dark:text-gray-500">{category.title}</div> */}
                       <div className="mx-auto mt-5 mb-5 max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-5 lg:mx-0 lg:max-w-none ">
@@ -181,7 +181,7 @@ export default function Projects() {
                           ))}
                         </Splide>
 
-                        <div className="text-center">
+                        <div className="text-center mb-20">
                           <p className="mt-5 text-base leading-7 text-gray-700 dark:text-gray-400">
                             Te invito a hacer click en cada uno para obtener más
                             detalles.
@@ -192,6 +192,7 @@ export default function Projects() {
                   </div>
                 ))}
               </p>
+              <div className=" space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700"></div>
             </div>
           </p>
         </div>

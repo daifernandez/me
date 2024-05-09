@@ -124,14 +124,14 @@ export default function Tech() {
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
-        <div className="sm:px-20 md:px-20 xl:px-52 p-10 px-20 ">
-          <h3 className="mt-1 mb-4 text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
+        <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
+          <h3 className="mb-4 text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
             <span
               href="#"
               className="font-semibold text-indigo-600 dark:text-indigo-500"
             >
               <span className="absolute inset-0" aria-hidden="true" />{" "}
-              Tecnologias, Lenguajes y Herramientas
+              Tecnologias - Lenguajes - Herramientas
             </span>
             <span className="hidden md:inline font-semibold text-gray-600 dark:text-gray=200">
               {" "}
@@ -142,7 +142,7 @@ export default function Tech() {
           <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-4 mt-20">
             Desarrollo web
           </div>
-          <ul className="grid gap-10 md:gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-3">
+          <ul className="grid gap-4 md:gap-5 grid-cols-1 md:grid-cols-3 lg:grid-cols-3">
             <ul className="grid-cols-1">
               <TechnologiesComponent
                 technologiesTypes={technologiesTypes}
