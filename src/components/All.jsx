@@ -146,13 +146,13 @@ export default function All() {
                     </p>
                   </div>
                 </div>
-                <p className="mb-14 lg:mb-2 text-sm leading-6 text-gray-600 line-clamp-3 dark:text-gray-400">
+                <p className="mb-20 text-sm leading-6 text-gray-600 line-clamp-3 dark:text-gray-400">
                   {post.description}
                 </p>
               </div>
               {/* EXPERIENCIA */}
               <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900">
-                <div className="flex items-center mx-auto max-w-4xl ">
+                <div className=" flex items-center mx-auto max-w-4xl ">
                   <ul
                     role="list"
                     className="mx-auto mt-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-2 "
