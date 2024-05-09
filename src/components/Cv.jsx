@@ -1,6 +1,6 @@
 import avatarHenry from "../img/avatarHenry.jpeg";
-import avatarMed from "../img/avatarMed.jpeg";
-import avatarOH from "../img/avatarOH.png";
+// import avatarMed from "../img/avatarMed.jpeg";
+// import avatarOH from "../img/avatarOH.png";
 import avatarCoder from "../img/avatarCoder.png";
 import avatarPlatzi from "../img/avatarPlatzi.png";
 import avatarAAO from "../img/avatarAAO.jpeg";
@@ -111,7 +111,7 @@ export default function Cv() {
   };
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
-      <div className="mx-auto max-w-4xl px-32 lg:px-20">
+      <div className="mx-auto max-w-4xl px-20">
         <ul className="-mb-8 space-y-16 ">
           {activity.map((activityItem, activityItemIdx) => (
             <li key={activityItem.id}>

@@ -118,8 +118,8 @@ export default function Projects() {
 
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
-    <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
-      <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
+      <div className="mx-auto max-w-7xl md:px-12 lg:px-8">
+        <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
           <p className="mt-6 text-lg leading-8 text-gray-600">
             <div className="mx-auto">
               <p className="mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">

@@ -123,7 +123,7 @@ function TechnologiesComponent({ technologiesTypes, type }) {
 export default function Tech() {
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-8">
+      <div className="mx-auto max-w-7xl md:px-12 lg:px-8">
         <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
           <h3 className="mb-4 text-sm leading-6 text-indigo-800 text-center font-medium p-3 items-center bg-white bg-opacity-90 backdrop-filter backdrop-blur-md rounded-md shadow-md  dark:bg-slate-800  dark:bg-opacity-10 dark:backdrop-filter dark:backdrop-blur-md dark:shadow-md dark:text-white ">
             <span
