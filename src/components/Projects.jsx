@@ -105,15 +105,14 @@ const categories = [
 export default function Projects() {
   const redirect = useHistory();
 
+  const routes = {
+    "GameStream": "/projects/gamestream",
+    "Capellari": "/projects/capellari",
+  };
+  
   const handleClick = (title) => {
-    if (title === "GameStream") {
-      redirect.push("/projects/gamestream");
-    }
-    if (title === "Capellari") {
-      redirect.push("/projects/capellari");
-    } else {
-      redirect.push("/projects/pawcare");
-    }
+    const path = routes[title] || "/projects/pawcare";
+    redirect.push(path);
   };
 
   return (

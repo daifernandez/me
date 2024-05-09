@@ -262,22 +262,23 @@ export default function ProjectDetails() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="bg-white dark:bg-slate-900 animate-jump-in animate-once animate-ease-in">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl mx-auto">
-            {project.video && (
-              <div className="flex items-center justify-center h-96 md:h-full p-4">
-                <ReactPlayer
-                  url="https://vimeo.com/803296822"
-                  controls={true}
-                  className="w-full"
-                />
-              </div>
-            )}
+        <div className="bg-white dark:bg-slate-900 animate-jump-in animate-once animate-ease-in mt-36">
+          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="max-w-2xl mx-auto">
+              {project.video && (
+                <div className="flex items-center justify-center h-96 md:h-full p-4">
+                  <ReactPlayer
+                    url="https://vimeo.com/803296822"
+                    controls={true}
+                    className="w-full"
+                  />
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
+
       <Footer />
     </div>
   );

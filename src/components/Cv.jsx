@@ -196,15 +196,14 @@ function classNames(...classes) {
 export default function Cv() {
   const redirect = useHistory();
 
+  const routes = {
+    GameStream: "/projects/gamestream",
+    Capellari: "/projects/capellari",
+  };
+
   const handleClick = (title) => {
-    if (title === "GameStream") {
-      redirect.push("/projects/gamestream");
-    }
-    if (title === "Capellari") {
-      redirect.push("/projects/capellari");
-    } else {
-      redirect.push("/projects/pawcare");
-    }
+    const path = routes[title] || "/projects/pawcare";
+    redirect.push(path);
   };
   return (
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
