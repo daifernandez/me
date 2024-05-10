@@ -242,15 +242,21 @@ export default function Cv() {
                             {activityItem.title}
                           </p>
                         )}
-                        <p>{activityItem.description}</p>
+                        <p className="text-gray-500 mt-2 dark:text-gray-400">
+                          {activityItem.description}
+                        </p>
                         {/* agregar proyecto */}
                         {activityItem.project && (
-                          <>
-                            <p className="text-gray-500 mt-3 dark:text-gray-400">
-                              Proyectos:
-                            </p>
-                            {activityItem.project.map((projectItem) => (
-                              <div className="text-gray-500 dark:text-gray-400 mb-2 mt-2">
+                          <div
+                            key={activityItem.id}
+                            className="text-gray-500 mt-3 dark:text-gray-400"
+                          >
+                            Proyectos:
+                            {activityItem.project.map((projectItem, index) => (
+                              <div
+                                key={index}
+                                className="text-gray-500 dark:text-gray-400 mb-2 mt-2"
+                              >
                                 <button
                                   onClick={() => handleClick(projectItem.title)}
                                 >
@@ -261,7 +267,7 @@ export default function Cv() {
                                 </button>
                               </div>
                             ))}
-                          </>
+                          </div>
                         )}
                         {activityItem.funcionalidades && (
                           <>

@@ -206,13 +206,16 @@ export default function ProjectDetails() {
                   Tecnologías utilizadas
                 </h2>
                 <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
-                  {project.technologies.sort().map((technology) => (
-                    <div className="text-sm leading-6 text-indigo-800 text-center font-medium p-2 items-center  ">
-                      <li className="flex items-center py-1">
+                  {project.technologies.sort().map((technology, index) => (
+                    <div
+                      key={index}
+                      className="text-sm leading-6 text-indigo-800 text-center font-medium p-2 items-center  "
+                    >
+                      <div className="flex items-center py-1">
                         <span className="md:inline font-semibold text-gray-600 dark:text-gray=200">
                           <TechnologyItem technology={technology} />
                         </span>
-                      </li>
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -278,7 +281,6 @@ export default function ProjectDetails() {
           </div>
         </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -106,12 +106,13 @@ export default function Projects() {
   const redirect = useHistory();
 
   const routes = {
-    "GameStream": "/projects/gamestream",
-    "Capellari": "/projects/capellari",
+    GameStream: "/projects/gamestream",
+    Capellari: "/projects/capellari",
+    PawCare: "/projects/pawcare",
   };
-  
+
   const handleClick = (title) => {
-    const path = routes[title] || "/projects/pawcare";
+    const path = routes[title];
     redirect.push(path);
   };
 
@@ -119,11 +120,14 @@ export default function Projects() {
     <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
       <div className="mx-auto max-w-7xl  md:px-12 lg:px-8">
         <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
-          <p className="text-lg leading-8 text-gray-600">
+          <div className="text-lg leading-8 text-gray-600">
             <div className="mx-auto">
-              <p className="mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">
+              <div className="mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">
                 {categories.map((category) => (
-                  <div className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700">
+                  <div
+                    key={category.id}
+                    className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700"
+                  >
                     <div className="items-center gap-x-4 text-xs mt-5">
                       <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-16 mt-20">
                         Proyectos de {category.title}
@@ -134,8 +138,8 @@ export default function Projects() {
                           options={{ rewind: true }}
                           aria-label="React Splide Example"
                         >
-                          {posts.map((post) => (
-                            <SplideSlide>
+                          {posts.map((post, index) => (
+                            <SplideSlide key={index}>
                               <article
                                 key={post.id}
                                 className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
@@ -190,10 +194,10 @@ export default function Projects() {
                     </div>
                   </div>
                 ))}
-              </p>
+              </div>
               <div className="  border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700"></div>
             </div>
-          </p>
+          </div>
         </div>
       </div>
     </div>
