@@ -1,107 +1,86 @@
-import Footer from "./Footer";
-import background from "../img/background.jpg";
 import avatar from "../img/me1.png";
 import Social from "./Social";
 import ScrollToTop from "./ScrollToTop";
+import { DocumentArrowDownIcon } from "@heroicons/react/24/outline";
 // import { DocumentCheckIcon } from "@heroicons/react/20/solid";
+// import cvFile from "../assets/CV-DaianaFernandez.pdf";
 
 export default function AboutMe() {
   return (
-    <div className="bg-white dark:bg-slate-900">
+    <div className="bg-stone-50 dark:bg-slate-900">
       <ScrollToTop />
-      <div
-        aria-hidden="true"
-        className="animate-fade-down animate-once animate-ease-linear relative"
-      >
-        <img
-          className="h-32 w-full object-cover lg:h-48"
-          src={background}
-          alt=""
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900" />
-      </div>
-      <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14">
-        <div
-          className="absolute inset-y-0 right-1/2 -z-10 -mr-96 w-[200%] origin-top-right skew-x-[-30deg] bg-white  dark:bg-slate-900 shadow-xl shadow-indigo-600/10 dark:shadow-slate-800 ring-1 ring-indigo-50 dark:ring-slate-800 sm:-mr-80 lg:-mr-96"
-          aria-hidden="true"
-        />
-        <section id="cv" className="px-6 py-12 bg-gray-50 dark:bg-slate-900">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-base text-indigo-600 dark:text-indigo-500 font-semibold tracking-wide uppercase">
+      <div className="relative isolate pt-14">
+        <section id="cv" className="px-6 py-20">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-base text-stone-600 dark:text-stone-400 font-semibold tracking-wide uppercase mb-8 animate-fade-right">
               Sobre mi
             </h2>
-            <div className="animate-fade animate-once animate-duration-1000 animate-ease-in grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div className="text-center md:text-left">
-                <img
-                  src={avatar}
-                  alt="Foto de perfil"
-                  className="w-64 h-64 rounded-full mx-auto md:mx-0 mb-6 mt-10 aspect-[6/5] object-cover lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5"
-                />
-                <h2 className="text-base text-indigo-600 dark:text-indigo-500 font-semibold tracking-wide">
-                  ¡Hola Mundo!
-                </h2>
-                <h3 className="text-2xl font-bold mb-2 dark:text-white">
-                  Soy Daiana Fernandez
-                </h3>
-                <p className="text-lg text-gray-700 dark:text-gray-400">
-                  Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀.
-                </p>
-                {/* <div className="mt-1 sm:flex sm:min-w-0 sm:flex-1 sm:items-center sm:space-x-6 sm:pb-1">
-                  <div className="justify-stretch mt-6 flex flex-col space-y-3 sm:flex-row sm:space-y-0 sm:space-x-4">
+            <div className="animate-fade animate-once animate-duration-1000 animate-ease-in grid grid-cols-1 md:grid-cols-2 gap-16 items-start">
+              <div className="text-center md:text-left space-y-8">
+                <div className="flex justify-center md:justify-start">
+                  <div className="relative group">
+                    <div className="absolute -inset-0.5 bg-stone-300/30 dark:bg-stone-400/20 rounded-full blur-md group-hover:bg-stone-400/40 dark:group-hover:bg-stone-400/30 transition duration-300"></div>
+                    <img
+                      src={avatar}
+                      alt="Foto de perfil"
+                      className="relative w-64 h-64 md:w-72 md:h-72 rounded-full object-cover shadow-2xl hover:scale-102 transition duration-300 ring-4 ring-stone-100 dark:ring-stone-800"
+                    />
+                  </div>
+                </div>
+                <div className="relative">
+                  <h2 className="text-base text-stone-600 dark:text-stone-400 font-semibold tracking-wide mb-2 animate-fade-up animate-delay-300">
+                    ¡Hola Mundo!
+                  </h2>
+                  <h3 className="text-4xl font-bold mb-4 dark:text-white bg-gradient-to-r from-stone-700 to-stone-500 inline-block text-transparent bg-clip-text animate-fade-up animate-delay-500">
+                    Soy Daiana Fernandez
+                  </h3>
+                  <p className="text-xl text-stone-600 dark:text-stone-400 animate-fade-up animate-delay-700 mb-6">
+                    Desarrolladora Web FullStack de Buenos Aires, Argentina 🚀
+                  </p>
+                  <div className="animate-fade-up animate-delay-1000">
                     <button
                       type="button"
-                      className="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                      onClick={() => window.open('#', '_blank')}
+                      className="inline-flex items-center px-4 py-2 text-sm font-medium text-stone-700 bg-stone-100 border border-stone-200 rounded-md shadow-sm hover:bg-stone-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-stone-400 dark:bg-stone-800 dark:text-stone-200 dark:border-stone-700 dark:hover:bg-stone-700 transition-colors duration-200"
                     >
-                      <DocumentCheckIcon
-                        className="-ml-0.5 mr-1.5 h-5 w-5 text-gray-400"
-                        aria-hidden="true"
-                      />
+                      <DocumentArrowDownIcon className="w-5 h-5 mr-2" />
                       Descargar CV
                     </button>
                   </div>
-                </div> */}
+                </div>
               </div>
-              <div className="animate-fade-left">
-                {/* <p className="text-lg text-gray-700  dark:text-gray-400">
-                  Me considero una entusiasta de la tecnología que disfruta
-                  aprendiendo nuevas habilidades y enfrentando desafíos
-                  emocionantes.
-                </p> */}
-                <p className="text-lg text-gray-700  dark:text-gray-400">
-                  {/* Tengo experiencia en tecnologías como Javascript, NodeJS,
-                  React, Redux y ExpressJS.*/}{" "}
+              <div className="animate-fade-left space-y-8 bg-stone-100/50 dark:bg-stone-800/50 p-8 rounded-2xl border border-stone-200/20 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <p className="text-lg text-stone-600 dark:text-stone-300 animate-fade-up animate-delay-300 leading-relaxed">
                   Me enorgullece decir que he trabajado en proyectos desafiantes
                   y emocionantes, lo que me ha permitido desarrollar habilidades
                   creativas para resolver problemas.
                 </p>
-                <p className="text-lg text-gray-700  dark:text-gray-400">
+                <p className="text-lg text-stone-600 dark:text-stone-300 animate-fade-up animate-delay-300">
                   Además, tengo experiencia en el campo de la asistencia dental.
                   Durante varios años trabajé en clínicas dentales donde aprendí
                   habilidades valiosas como la atención al detalle, la empatía y
                   la comunicación efectiva.
                 </p>
-                <p className="text-lg text-gray-700  dark:text-gray-400">
+                <p className="text-lg text-stone-600 dark:text-stone-300 animate-fade-up animate-delay-300">
                   Soy una persona adaptable y tengo facilidad para el trabajo en
                   equipo, siempre enfocada en aprender nuevas experiencias y
                   habilidades.
                 </p>
-                {/* <p className="text-lg text-gray-700  dark:text-gray-400">
-                  En mi tiempo libre, disfruto pasar tiempo con mi familia y me
-                  encantan todo tipo de animales 💕.
-                </p> */}
-                <p className="text-lg text-gray-700  dark:text-gray-400">
+                <p className="text-lg text-stone-600 dark:text-stone-300 animate-fade-up animate-delay-300">
                   Actualmente estoy buscando nuevas oportunidades laborales en
                   el campo del desarrollo. Si tienes un proyecto interesante
                   o una posición disponible, ¡no dudes en contactarme!
                 </p>
 
-                <Social />
+                <div className="flex justify-end mt-12">
+                  <Social className="animate-fade-up animate-delay-700" />
+                </div>
               </div>
             </div>
           </div>
         </section>
       </div>
-      <Footer />
+    
     </div>
   );
 }

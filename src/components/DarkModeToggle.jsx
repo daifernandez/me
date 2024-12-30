@@ -1,28 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 export default function DarkModeToggle() {
   const [theme, setTheme] = useState(
     localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
-  ); // 'light' | 'dark' | 'system'
+  );
+  
   const element = document.documentElement;
   const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
-  const options = [
-    {
-      icon: "sunny",
-      text: "light",
-    },
-    {
-      icon: "moon",
-      text: "dark",
-    },
-    // {
-    //   icon: "desktop-outline",
-    //   text: "system",
-    // },
-  ];
-
-  function onWindowMatch() {
+  const onWindowMatch = useCallback(() => {
     if (
       localStorage.theme === "dark" ||
       (!("theme" in localStorage) && darkQuery.matches)
@@ -31,8 +17,11 @@ export default function DarkModeToggle() {
     } else {
       element.classList.remove("dark");
     }
-  }
-  onWindowMatch();
+  }, [element.classList, darkQuery.matches]);
+
+  useEffect(() => {
+    onWindowMatch();
+  }, [onWindowMatch]);
 
   useEffect(() => {
     switch (theme) {
@@ -49,17 +38,33 @@ export default function DarkModeToggle() {
         onWindowMatch();
         break;
     }
-  }, [theme]);
+  }, [theme, element.classList, onWindowMatch]);
 
-  darkQuery.addEventListener("change", (e) => {
-    if (!("theme" in localStorage)) {
-      if (e.matches) {
-        element.classList.add("dark");
-      } else {
-        element.classList.remove("dark");
+  useEffect(() => {
+    const handleChange = (e) => {
+      if (!("theme" in localStorage)) {
+        if (e.matches) {
+          element.classList.add("dark");
+        } else {
+          element.classList.remove("dark");
+        }
       }
-    }
-  });
+    };
+
+    darkQuery.addEventListener("change", handleChange);
+    return () => darkQuery.removeEventListener("change", handleChange);
+  }, [darkQuery, element.classList]);
+
+  const options = [
+    {
+      icon: "sunny",
+      text: "light",
+    },
+    {
+      icon: "moon",
+      text: "dark",
+    },
+  ];
 
   return (
     <section className="pt-8 dark:text-gray-100 dark:bg-slate-900 duration-100 dark:bg-opacity-60">

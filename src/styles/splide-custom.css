@@ -1,0 +1,118 @@
+.splide-custom {
+  padding: 4rem 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.splide-custom .splide__track {
+  overflow: visible;
+  padding: 1rem 0;
+}
+
+.splide-custom .splide__list {
+  align-items: center;
+  padding: 0 !important;
+}
+
+.splide-custom .splide__slide {
+  transition: all 0.4s ease;
+  opacity: 0.5;
+  transform: scale(0.8);
+}
+
+.splide-custom .splide__slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.splide-custom .splide__slide:hover {
+  transform: scale(0.85);
+}
+
+.splide-custom .splide__slide.is-active:hover {
+  transform: scale(1.05);
+}
+
+.splide-custom .splide__arrow {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 3rem;
+  height: 3rem;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.splide-custom:hover .splide__arrow {
+  opacity: 1;
+}
+
+.splide-custom .splide__arrow:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
+}
+
+.splide-custom .splide__arrow svg {
+  fill: #fff;
+  width: 1.2em;
+  height: 1.2em;
+}
+
+.splide-custom .splide__pagination {
+  bottom: -2rem;
+}
+
+.splide-custom .splide__pagination__page {
+  background: rgba(156, 163, 175, 0.2);
+  width: 2rem;
+  height: 0.25rem;
+  border-radius: 0.125rem;
+  margin: 0 0.3rem;
+  transition: all 0.3s ease;
+}
+
+.splide-custom .splide__pagination__page.is-active {
+  background: rgb(99, 102, 241);
+  transform: none;
+  width: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .splide-custom .splide__pagination__page {
+    background: rgba(156, 163, 175, 0.1);
+  }
+  
+  .splide-custom .splide__pagination__page.is-active {
+    background: rgb(129, 140, 248);
+  }
+}
+
+/* Animación para las imágenes */
+@keyframes fadeScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.splide-custom .splide__slide.is-active article {
+  animation: fadeScale 0.6s ease forwards;
+}
+
+/* Ajustes para dispositivos móviles */
+@media (max-width: 640px) {
+  .splide-custom .splide__slide,
+  .splide-custom .splide__slide.is-active {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .splide-custom .splide__slide:hover,
+  .splide-custom .splide__slide.is-active:hover {
+    transform: scale(1.05);
+  }
+} 

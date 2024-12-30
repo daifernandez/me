@@ -95,63 +95,63 @@ const projects = {
 const technologiesName = {
   javascript: {
     name: "JavaScript",
-    icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+    icon: <SiJavascript title="JavaScript" color="#F7DF1E" size={20} />,
   },
   nextjs: {
     name: "NextJS",
-    icon: <SiNextdotjs title="NextJS" color="default" size={24} />,
+    icon: <SiNextdotjs title="NextJS" color="#000000" size={20} />,
   },
   react: {
     name: "React",
-    icon: <SiReact title="React" color="default" size={24} />,
+    icon: <SiReact title="React" color="#61DAFB" size={20} />,
   },
   redux: {
     name: "Redux",
-    icon: <SiRedux title="Redux" color="default" size={24} />,
+    icon: <SiRedux title="Redux" color="#764ABC" size={20} />,
   },
   css: {
     name: "CSS",
-    icon: <SiCss3 title="CSS" color="default" size={24} />,
+    icon: <SiCss3 title="CSS" color="#1572B6" size={20} />,
   },
   nodejs: {
     name: "NodeJS",
-    icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+    icon: <SiNodedotjs title="NodeJS" color="#339933" size={20} />,
   },
   express: {
     name: "Express",
-    icon: <SiExpress title="Express" color="default" size={24} />,
+    icon: <SiExpress title="Express" color="#000000" size={20} />,
   },
   sequelize: {
     name: "Sequelize",
-    icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+    icon: <SiSequelize title="Sequelize" color="#52B0E7" size={20} />,
   },
   postgresql: {
     name: "PostgreSQL",
-    icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+    icon: <SiPostgresql title="PostgreSQL" color="#4169E1" size={20} />,
   },
   bootstrap: {
     name: "Bootstrap",
-    icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+    icon: <SiBootstrap title="Bootstrap" color="#7952B3" size={20} />,
   },
   googlelogin: {
     name: "Google login",
-    icon: <SiGoogle title="Google login" color="default" size={20} />,
+    icon: <SiGoogle title="Google login" color="#4285F4" size={20} />,
   },
   mercadopago: {
     name: "MercadoPago",
-    icon: <SiMercadopago title="MercadoPago" color="default" size={24} />,
+    icon: <SiMercadopago title="MercadoPago" color="#00B1EA" size={20} />,
   },
   auth0: {
     name: "Auth0",
-    icon: <SiAuth0 title="Auth0" color="default" size={24} />,
+    icon: <SiAuth0 title="Auth0" color="#EB5424" size={20} />,
   },
   cloudinary: {
     name: "Cloudinary",
-    icon: <SiCloudinary title="Cloudinary" color="default" size={24} />,
+    icon: <SiCloudinary title="Cloudinary" color="#3448C5" size={20} />,
   },
   firebase: {
     name: "Firebase",
-    icon: <SiFirebase title="Firebase" color="default" size={24} />,
+    icon: <SiFirebase title="Firebase" color="#FFCA28" size={20} />,
   },
 };
 
@@ -159,10 +159,39 @@ function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
   return (
-    <li className="flex items-center py-1">
-      {technologyIcon && <span className="mr-2">{technologyIcon}</span>}
-      <span className="text-indigo-800 dark:text-indigo-100">{technology}</span>
-    </li>
+    <div className="group flex items-center gap-3 p-2">
+      <div className="transition-all duration-300 group-hover:scale-110">
+        {technologyIcon}
+      </div>
+      <span className="text-sm text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
+        {technology}
+      </span>
+    </div>
+  );
+}
+
+function AptitudeItem({ aptitud }) {
+  return (
+    <div className="group flex flex-col items-center gap-4 p-4 w-full">
+      <div className="text-gray-400 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
+        <svg 
+          className="w-6 h-6" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M9 12l2 2 4-4" 
+          />
+        </svg>
+      </div>
+      <span className="text-base font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors text-center">
+        {aptitud}
+      </span>
+    </div>
   );
 }
 
@@ -173,7 +202,7 @@ export default function ProjectDetails() {
   return (
     <div>
       <ScrollToTop />
-      <div className="bg-white dark:bg-slate-900">
+      <div className="bg-gray-50 dark:bg-gray-900">
         <div
           aria-hidden="true"
           className="animate-fade-down animate-once animate-ease-linear relative"
@@ -183,50 +212,82 @@ export default function ProjectDetails() {
             src={background}
             alt=""
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-gray-900" />
         </div>
       </div>
       <div className="overflow-hidden bg-white dark:bg-slate-900 py-32">
         <div className="animate-fade animate-once animate-duration-1000 animate-ease-in mx-auto max-w-7xl px-6 lg:flex lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
             <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-              <h2 className="animate-fade-up text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-4xl hover:animate-pulse">
-                {project.name}
-              </h2>
-              <p className="animate-fade-left mt-6 text-xl leading-8 text-gray-600 dark:text-gray-400">
-                {project.description}
-              </p>
-              {/* <section className="animate-fade-right mt-12">
-                <h2 className="text-lg font-medium text-gray-900 dark:text-indigo-600 mb-4">
+              <div className="space-y-4">
+                <h2 className="animate-fade-up text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-200 sm:text-5xl">
+                  {project.name}
+                </h2>
+                <div className="h-1 w-20 bg-gray-700 dark:bg-gray-300 rounded-full"></div>
+              </div>
+              <div className="mt-8 space-y-6">
+                <p className="animate-fade-left text-lg leading-relaxed text-gray-600 dark:text-gray-400 
+                              first-letter:text-4xl first-letter:font-bold first-letter:text-gray-900 
+                              dark:first-letter:text-gray-200 first-letter:mr-3 first-letter:float-left">
+                  {project.description}
+                </p>
+              </div>
+              <div className="my-12">
+                <div className="border-t border-gray-200 dark:border-gray-700"></div>
+              </div>
+              <section className="animate-fade-right mt-12">
+                <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-300 mb-6 text-center">
                   Aptitudes
                 </h2>
-              </section> */}
+                <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {project.aptitudes.map((aptitud, index) => (
+                      <div
+                        key={index}
+                        className="w-full hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
+                      >
+                        <AptitudeItem aptitud={aptitud} />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </section>
               <section className="animate-fade-left mt-12">
-                <h2 className="text-lg font-medium text-gray-900 dark:text-indigo-600 mb-4">
+                <h2 className="text-2xl font-bold text-gray-700 dark:text-gray-300 mb-6">
                   Tecnologías utilizadas
                 </h2>
-                <div className="grid grid-cols-2 gap-1 lg:grid-cols-3">
-                  {project.technologies.sort().map((technology, index) => (
-                    <div
-                      key={index}
-                      className="text-sm leading-6 text-indigo-800 text-center font-medium p-2 items-center  "
-                    >
-                      <div className="flex items-center py-1">
-                        <span className="md:inline font-semibold text-gray-600 dark:text-gray=200">
-                          <TechnologyItem technology={technology} />
-                        </span>
+                <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    {project.technologies.sort().map((technology, index) => (
+                      <div
+                        key={index}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
+                      >
+                        <TechnologyItem technology={technology} />
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
                 </div>
               </section>
 
               <div className="mt-12 flex">
                 <a
                   href={project.link}
-                  className="rounded-md bg-indigo-700 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group relative rounded-lg bg-gray-700 px-6 py-3 text-sm font-semibold text-gray-50 shadow-lg hover:bg-gray-600 transition-all duration-300 ease-in-out"
                 >
-                  Visita la App <span aria-hidden="true">&rarr;</span>
+                  <span className="flex items-center gap-2">
+                    Visita la App
+                    <svg 
+                      className="w-4 h-4 transition-transform group-hover:translate-x-1" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </span>
                 </a>
               </div>
             </div>
@@ -236,7 +297,7 @@ export default function ProjectDetails() {
                 <img
                   src={project.images[0]}
                   alt=""
-                  className="aspect-[5/7] w-[30rem] rounded-xl lg:w-[32rem]"
+                  className="aspect-[5/7] w-[30rem] rounded-xl lg:w-[32rem] object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:brightness-95 dark:hover:brightness-110"
                 />
               </div>
               <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
@@ -244,7 +305,7 @@ export default function ProjectDetails() {
                   <img
                     src={project.images[1]}
                     alt=""
-                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem] rounded-xl lg:w-[20rem]"
+                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem] rounded-xl lg:w-[20rem] object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl"
                   />
                 </div>
                 <div className="flex w-60 sm:w-96 flex-auto justify-end lg:w-auto lg:flex-none">
@@ -267,14 +328,20 @@ export default function ProjectDetails() {
         </div>
         <div className="bg-white dark:bg-slate-900 animate-jump-in animate-once animate-ease-in mt-36">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-2xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               {project.video && (
-                <div className="flex items-center justify-center h-96 md:h-full p-4">
-                  <ReactPlayer
-                    url="https://vimeo.com/803296822"
-                    controls={true}
-                    className="w-full"
-                  />
+                <div className="mt-16 rounded-xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800">
+                  <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
+                    <ReactPlayer
+                      url="https://vimeo.com/803296822"
+                      controls={true}
+                      width="100%"
+                      height="100%"
+                      className="absolute top-0 left-0"
+                      playing={false}
+                      light={false}
+                    />
+                  </div>
                 </div>
               )}
             </div>
