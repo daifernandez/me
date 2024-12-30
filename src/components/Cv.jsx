@@ -159,74 +159,75 @@ export default function Cv() {
   };
 
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 dark:from-slate-900 dark:to-slate-800/50 py-16 sm:py-24">
+    <div className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-20">
-          <h2 className="text-3xl font-light tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+        <div className="mx-auto max-w-2xl text-center mb-24">
+          <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Experiencia Profesional
           </h2>
           <div className="mt-4 flex justify-center">
-            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
           </div>
-          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 font-light">
+          <p className="mt-6 text-lg leading-8 text-gray-500 dark:text-gray-400 font-extralight">
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
         </div>
 
         <div className="relative">
-          {/* Línea decorativa vertical */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-gray-200 via-gray-300 to-transparent dark:from-gray-700 dark:via-gray-600" />
-
-          <div className="space-y-24">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-400/20 to-transparent"></div>
+          
+          <div className="space-y-20">
             {activity.map((item) => (
               <div 
                 key={item.id}
-                className="relative pl-20 group"
+                className="relative pl-16 group"
               >
-                {/* Imagen con efecto hover */}
-                <div className="absolute -left-2 top-0">
-                  <div className="p-1 rounded-full bg-white dark:bg-slate-700 shadow-sm">
-                    <img
-                      src={item.imageUrl}
-                      alt=""
-                      className="w-14 h-14 rounded-full object-cover transform group-hover:scale-105 transition-transform duration-300"
-                    />
+                <div className="absolute -left-4 top-0 flex items-center justify-center">
+                  <div className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-indigo-50 to-transparent dark:from-indigo-900/10 dark:to-transparent"></div>
+                  
+                  <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-indigo-300/40 dark:bg-indigo-400/20 ring-2 ring-white/90 dark:ring-slate-900/90"></div>
+                  
+                  <div className="relative ml-6">
+                    <div className="rounded-full p-0.5 bg-white/90 dark:bg-slate-900/90">
+                      <img
+                        src={item.imageUrl}
+                        alt=""
+                        className="w-9 h-9 rounded-full object-cover shadow-sm opacity-90"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                {/* Contenido principal */}
-                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 p-8">
-                  {/* Encabezado */}
-                  <div className="mb-6">
-                    <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                <div className="space-y-5">
+                  <div>
+                    <h3 className="text-lg font-light text-gray-800 dark:text-white">
                       {item.experience.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                      <span className="font-medium">{item.experience.where}</span>
-                      <span className="text-gray-400">•</span>
-                      <span>{item.date}</span>
+                    <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mt-0.5">
+                      <span className="font-light">{item.experience.where}</span>
+                      <span className="text-gray-200 dark:text-gray-700">•</span>
+                      <span className="font-light">{item.date}</span>
                     </div>
                   </div>
 
-                  {/* Descripción */}
                   {item.description && (
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm">
                       {item.description}
                     </p>
                   )}
 
-                  {/* Proyectos */}
                   {item.project && item.project.length > 0 && (
-                    <div className="mb-8">
-                      <h4 className="text-sm font-medium text-gray-800 dark:text-white mb-4">
-                        Proyectos destacados
+                    <div>
+                      <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
+                        <span>Proyectos destacados</span>
+                        <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
                       </h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         {item.project.map((proj, idx) => {
                           const projectIcon = projectIcons[proj.title] || {
                             icon: HiOutlinePuzzle,
-                            color: 'text-gray-600',
-                            bgColor: 'bg-gray-100 dark:bg-gray-800'
+                            color: 'text-gray-400',
+                            bgColor: 'bg-gray-50/30 dark:bg-gray-800/20'
                           };
                           const IconComponent = projectIcon.icon;
                           
@@ -234,43 +235,22 @@ export default function Cv() {
                             <button
                               key={idx}
                               onClick={() => handleClick(proj.title)}
-                              className="group relative flex items-center p-4 bg-gray-50 dark:bg-slate-800/50 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all"
+                              className="group flex items-center gap-2 hover:opacity-80"
                             >
-                              <div className="min-w-0 flex-1">
-                                <div className="flex items-center gap-3">
-                                  <div className={`flex-shrink-0 h-8 w-8 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
-                                    <IconComponent 
-                                      className={`h-5 w-5 ${projectIcon.color}`}
-                                    />
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <h3 className="text-sm font-medium text-gray-800 dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
-                                      {proj.title}
-                                    </h3>
-                                    {proj.date && (
-                                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-                                        {proj.date}
-                                      </p>
-                                    )}
-                                  </div>
-                                </div>
+                              <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
+                                <IconComponent 
+                                  className={`h-4 w-4 ${projectIcon.color}`}
+                                />
                               </div>
-                              <div className="ml-3 flex-shrink-0">
-                                <span className="inline-flex items-center justify-center h-8 w-8 rounded-md bg-white dark:bg-slate-700 group-hover:bg-gray-100 dark:group-hover:bg-gray-700 transition-colors">
-                                  <svg 
-                                    className="h-5 w-5 text-gray-400 group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors"
-                                    fill="none" 
-                                    viewBox="0 0 24 24" 
-                                    stroke="currentColor"
-                                  >
-                                    <path 
-                                      strokeLinecap="round" 
-                                      strokeLinejoin="round" 
-                                      strokeWidth={2} 
-                                      d="M9 5l7 7-7 7" 
-                                    />
-                                  </svg>
-                                </span>
+                              <div>
+                                <h3 className="text-sm font-light text-gray-700 dark:text-gray-300">
+                                  {proj.title}
+                                </h3>
+                                {proj.date && (
+                                  <p className="text-xs text-gray-400 dark:text-gray-500">
+                                    {proj.date}
+                                  </p>
+                                )}
                               </div>
                             </button>
                           );
@@ -279,13 +259,13 @@ export default function Cv() {
                     </div>
                   )}
 
-                  {/* Tecnologías */}
                   {item.tecnologies && (
-                    <div className="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
-                      <h4 className="text-sm font-medium text-gray-800 dark:text-white mb-4">
-                        Stack tecnológico
+                    <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
+                      <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
+                        <span>Stack tecnológico</span>
+                        <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
                       </h4>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                      <div className="flex flex-wrap gap-2">
                         {item.tecnologies.split(',').map((tech, idx) => {
                           const techKey = tech.trim();
                           const techData = techIcons[techKey];
@@ -296,18 +276,14 @@ export default function Cv() {
                           return (
                             <div 
                               key={idx}
-                              className="group flex items-center p-3 rounded-xl bg-gray-50 dark:bg-slate-700/50 hover:bg-gray-100 dark:hover:bg-slate-700 transition-all duration-300"
+                              className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full bg-gray-50/30 dark:bg-gray-800/20"
                             >
-                              <div className="flex items-center gap-3">
-                                <div className="flex-shrink-0 p-2 rounded-lg bg-white dark:bg-slate-600">
-                                  <Icon 
-                                    className={`w-4 h-4 ${techData.color} group-hover:scale-110 transition-transform duration-300`}
-                                  />
-                                </div>
-                                <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                                  {techKey}
-                                </span>
-                              </div>
+                              <Icon 
+                                className={`w-3.5 h-3.5 ${techData.color} opacity-75`}
+                              />
+                              <span className="text-xs font-light text-gray-500 dark:text-gray-400">
+                                {techKey}
+                              </span>
                             </div>
                           );
                         })}
