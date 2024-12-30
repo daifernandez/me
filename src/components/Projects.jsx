@@ -4,50 +4,7 @@ import avatarPC from "../img/avatarPC.png";
 import avatarGS from "../img/avatarGS.png";
 import capellari from "../img/capellari.jpeg";
 import { useHistory } from "react-router-dom";
-import { Splide, SplideSlide } from "@splidejs/react-splide";
-import "@splidejs/react-splide/css";
 
-const posts = [
-  {
-    id: 1,
-    title: "GameStream",
-    href: "https://gamestream.dev",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: gamestream,
-    date: "Ene 2023",
-    author: {
-      name: "Proyecto Individual",
-      imageUrl: avatarGS,
-    },
-  },
-  {
-    id: 2,
-    title: "PawCare",
-    href: "https://pawcare.vercel.app",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: pawcare,
-    date: "Feb 2023",
-    author: {
-      name: "Proyecto Grupal",
-      imageUrl: avatarPC,
-    },
-  },
-  {
-    id: 3,
-    title: "Capellari",
-    href: "#",
-    description:
-      "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
-    imageUrl: capellari,
-    date: "Dic 2023",
-    author: {
-      name: "Proyecto Individual",
-      imageUrl: avatarPC,
-    },
-  },
-];
 const categories = [
   {
     id: 1,
@@ -56,13 +13,11 @@ const categories = [
       {
         id: 1,
         title: "GameStream",
-        href: "https://gamestream.dev",
+        href: "/projects/gamestream",
         description:
           "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
         imageUrl: gamestream,
         date: "Ene 2023",
-        datetime: "2020-03-16",
-        category: { title: "Desarrollo Web" },
         author: {
           name: "Proyecto Individual",
           imageUrl: avatarGS,
@@ -71,13 +26,11 @@ const categories = [
       {
         id: 2,
         title: "PawCare",
-        href: "https://pawcare.vercel.app",
+        href: "/projects/pawcare",
         description:
           "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
         imageUrl: pawcare,
         date: "Feb 2023",
-        datetime: "2020-03-16",
-        category: { title: "Desarrollo Web" },
         author: {
           name: "Proyecto Grupal",
           imageUrl: avatarPC,
@@ -86,13 +39,11 @@ const categories = [
       {
         id: 3,
         title: "Capellari",
-        href: "#",
+        href: "/projects/capellari",
         description:
           "Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.",
         imageUrl: capellari,
         date: "Dic 2023",
-        datetime: "2020-03-16",
-        category: { title: "Desarrollo Web" },
         author: {
           name: "Proyecto Individual",
           imageUrl: avatarPC,
@@ -117,88 +68,82 @@ export default function Projects() {
   };
 
   return (
-    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-white dark:bg-slate-900 py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl  md:px-12 lg:px-8">
-        <div className="sm:px-20 md:px-20 xl:px-52 px-20 ">
-          <div className="text-lg leading-8 text-gray-600">
-            <div className="mx-auto">
-              <div className="mb-10 text-base leading-7 text-gray-700 dark:text-gray-400">
-                {categories.map((category) => (
-                  <div
-                    key={category.id}
-                    className="space-y-16 border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700"
+    <div className="animate-fade animate-once animate-duration-1000 animate-ease-in bg-gradient-to-b from-white via-gray-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center mb-20">
+          <h2 className="text-3xl font-light tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+            Mis Proyectos
+          </h2>
+          <div className="mt-4 flex justify-center">
+            <div className="h-1 w-20 bg-gradient-to-r from-transparent via-indigo-500 to-transparent"></div>
+          </div>
+          <p className="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300 font-light">
+            Explora algunos de mis trabajos más recientes
+          </p>
+        </div>
+
+        {categories.map((category) => (
+          <div key={category.id} className="space-y-16">
+            <div className="relative">
+              <div className="flex items-center mb-12">
+                <div className="h-px flex-grow bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
+                <h3 className="px-4 text-lg font-light text-gray-900 dark:text-gray-100">
+                  {category.title}
+                </h3>
+                <div className="h-px flex-grow bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent"></div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                {category.projects.map((project) => (
+                  <div 
+                    key={project.id}
+                    className="group relative overflow-hidden rounded-2xl bg-gray-900 transition-all duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1"
                   >
-                    <div className="items-center gap-x-4 text-xs mt-5">
-                      <div className="grid grid-cols-1 text-sm font-semibold text-indigo-600 dark:text-indigo-500 mb-16 mt-20">
-                        Proyectos de {category.title}
+                    <div className="aspect-[16/9] w-full">
+                      <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      />
+                    </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/50 to-transparent opacity-80" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center justify-between mb-3">
+                        <time className="text-sm font-light text-gray-300 tracking-wider">
+                          {project.date}
+                        </time>
+                        <span className="inline-flex items-center rounded-full bg-white/10 backdrop-blur-sm px-3 py-1 text-xs font-light text-gray-200 tracking-wide border border-white/10">
+                          {project.author.name}
+                        </span>
                       </div>
-                      {/* <div className="dark:text-gray-500">{category.title}</div> */}
-                      <div className="mx-auto mt-5 mb-5 max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-5 lg:mx-0 lg:max-w-none ">
-                        <Splide
-                          options={{ rewind: true }}
-                          aria-label="React Splide Example"
-                        >
-                          {posts.map((post, index) => (
-                            <SplideSlide key={index}>
-                              <article
-                                key={post.id}
-                                className="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80"
-                              >
-                                <img
-                                  src={post.imageUrl}
-                                  alt=""
-                                  className="absolute inset-0 -z-10 h-full w-full object-cover"
-                                />
-                                <div className="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40" />
-                                <div className="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10" />
 
-                                <div className="flex flex-wrap items-center gap-y-1 overflow-hidden text-sm leading-6 text-gray-300">
-                                  <time className="mr-8">{post.date}</time>
-                                  <div className="-ml-4 flex items-center gap-x-4">
-                                    <svg
-                                      viewBox="0 0 2 2"
-                                      className="-ml-0.5 h-0.5 w-0.5 flex-none fill-white/50"
-                                    >
-                                      <circle cx={1} cy={1} r={1} />
-                                    </svg>
-                                    <div className="flex gap-x-2.5">
-                                      {/* <img
-                                        src={post.author.imageUrl}
-                                        alt=""
-                                        className="h-6 w-6 flex-none rounded-full bg-white/10"
-                                      /> */}
-                                      {post.author.name}
-                                    </div>
-                                  </div>
-                                </div>
-                                <h3 className="mt-3 text-lg font-semibold leading-6 text-white">
-                                  <button
-                                    onClick={() => handleClick(post.title)}
-                                  >
-                                    <span className="absolute inset-0" />
-                                    {post.title}
-                                  </button>
-                                </h3>
-                              </article>
-                            </SplideSlide>
-                          ))}
-                        </Splide>
-
-                        <div className="text-center mb-20">
-                          <p className="mt-5 text-base leading-7 text-gray-700 dark:text-gray-400">
-                            Te invito a hacer click en cada uno para obtener más
-                            detalles.
-                          </p>
-                        </div>
+                      <div>
+                        <h3 className="text-xl font-light tracking-wide text-white group-hover:text-indigo-300 transition-colors duration-300">
+                          <button
+                            onClick={() => handleClick(project.title)}
+                            className="focus:outline-none"
+                          >
+                            <span className="absolute inset-0" />
+                            {project.title}
+                          </button>
+                        </h3>
+                        <div className="h-0.5 w-0 group-hover:w-full bg-indigo-500/50 transition-all duration-300 mt-2" />
                       </div>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="  border-t border-gray-200 sm:mt-1 sm:pt-1  dark:border-slate-700"></div>
+
+              <div className="text-center mt-12">
+                <p className="text-sm leading-7 text-gray-500 dark:text-gray-400 font-light italic">
+                  Haz click en cada proyecto para explorar más detalles
+                </p>
+              </div>
             </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
   );

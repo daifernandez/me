@@ -14,8 +14,6 @@ export default function Home() {
       <Intro />
       <Cv />
       <Projects />
-      {/* <Tech /> */}
-      {/* <Options /> */}
       <Footer />
     </div>
   );

@@ -37,23 +37,25 @@ const navigation = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-slate-800">
-      <div className="mx-auto max-w-7xl py-12 px-6 md:flex md:items-center md:justify-between lg:px-8">
-        <div className="flex justify-center space-x-6 md:order-2">
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="text-gray-400 hover:text-gray-500"
-            >
-              <span className="sr-only">{item.name}</span>
-              <item.icon className="h-6 w-6" aria-hidden="true" />
-            </a>
-          ))}
-        </div>
-        <div className="mt-8 md:order-1 md:mt-0">
-          <p className="text-center text-xs leading-5 text-gray-500">
-            &copy; 2023 daifernandez, Inc. All rights reserved.
+    <footer className="bg-gradient-to-r from-slate-900 to-slate-800">
+      <div className="mx-auto max-w-7xl py-8 px-6">
+        <div className="flex flex-col items-center justify-center gap-6">
+          <div className="flex space-x-8">
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className="text-gray-400 hover:text-white transition-colors duration-300"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="sr-only">{item.name}</span>
+                <item.icon className="h-7 w-7" aria-hidden="true" />
+              </a>
+            ))}
+          </div>
+          <p className="text-sm text-gray-400">
+            Desarrollado por daifernandez
           </p>
         </div>
       </div>
