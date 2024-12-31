@@ -2,26 +2,21 @@ import { useEffect, useState, useCallback } from "react";
 
 export default function DarkModeToggle() {
   const [theme, setTheme] = useState(
-    localStorage.getItem("theme") ? localStorage.getItem("theme") : "system"
+    localStorage.getItem("theme") || "system"
   );
   
   const element = document.documentElement;
   const darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
   const onWindowMatch = useCallback(() => {
-    if (
-      localStorage.theme === "dark" ||
-      (!("theme" in localStorage) && darkQuery.matches)
-    ) {
-      element.classList.add("dark");
-    } else {
-      element.classList.remove("dark");
+    if (theme === "system") {
+      if (darkQuery.matches) {
+        element.classList.add("dark");
+      } else {
+        element.classList.remove("dark");
+      }
     }
-  }, [element.classList, darkQuery.matches]);
-
-  useEffect(() => {
-    onWindowMatch();
-  }, [onWindowMatch]);
+  }, [darkQuery.matches, element.classList, theme]);
 
   useEffect(() => {
     switch (theme) {
@@ -33,27 +28,29 @@ export default function DarkModeToggle() {
         element.classList.remove("dark");
         localStorage.setItem("theme", "light");
         break;
-      default:
+      case "system":
         localStorage.setItem("theme", "system");
         onWindowMatch();
+        break;
+      default:
         break;
     }
   }, [theme, element.classList, onWindowMatch]);
 
   useEffect(() => {
-    const handleChange = (e) => {
-      if (!("theme" in localStorage)) {
-        if (e.matches) {
-          element.classList.add("dark");
-        } else {
-          element.classList.remove("dark");
-        }
+    const handleSystemThemeChange = () => {
+      if (theme === "system") {
+        onWindowMatch();
       }
     };
 
-    darkQuery.addEventListener("change", handleChange);
-    return () => darkQuery.removeEventListener("change", handleChange);
-  }, [darkQuery, element.classList]);
+    darkQuery.addEventListener("change", handleSystemThemeChange);
+    return () => darkQuery.removeEventListener("change", handleSystemThemeChange);
+  }, [darkQuery, onWindowMatch, theme]);
+
+  useEffect(() => {
+    onWindowMatch();
+  }, [onWindowMatch]);
 
   const options = [
     {
