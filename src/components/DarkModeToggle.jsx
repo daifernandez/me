@@ -59,29 +59,48 @@ export default function DarkModeToggle() {
     {
       icon: "sunny",
       text: "light",
+      tooltip: "Modo claro"
     },
     {
       icon: "moon",
       text: "dark",
+      tooltip: "Modo oscuro"
     },
+    {
+      icon: "desktop-outline",
+      text: "system",
+      tooltip: "Usar configuración del sistema"
+    }
   ];
 
   return (
-    <section className="pt-8 dark:text-gray-100 dark:bg-slate-900 duration-100 dark:bg-opacity-60">
-      <div className="right-10 duration-100 dark:bg-slate-800 bg-indigo-100/20 bg-opacity-5 backdrop-blur-md rounded-2xl">
+    <div className="fixed top-4 right-4 z-50">
+      <div className="p-2 flex gap-1 
+        bg-white/20 dark:bg-slate-800/20 
+        backdrop-blur-lg 
+        border border-white/30 dark:border-slate-700/30
+        rounded-lg 
+        shadow-[0_8px_32px_0_rgba(31,38,135,0.07)]">
         {options?.map((option) => (
           <button
             key={option.text}
             onClick={() => setTheme(option.text)}
-            className={`w-8 h-8 leading-9 text-xl rounded-full m-1 text-slate-400 ${
-              theme === option.text &&
-              "bg-indigo-600 text-white dark:bg-slate-100 dark:text-indigo-600"
-            }`}
+            className={`
+              w-9 h-9 
+              flex items-center justify-center
+              rounded-md transition-all duration-200
+              hover:bg-white/30 dark:hover:bg-slate-700/30
+              ${theme === option.text 
+                ? 'bg-white/40 dark:bg-slate-700/40 text-indigo-600 dark:text-indigo-400' 
+                : 'text-gray-600 dark:text-gray-300'
+              }
+            `}
+            title={option.tooltip}
           >
-            <ion-icon name={option.icon}></ion-icon>
+            <ion-icon name={option.icon} className="text-xl"></ion-icon>
           </button>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
