@@ -8,10 +8,10 @@ import PCipad from "./ImgProjects/PCipad.png";
 import PCipad1 from "./ImgProjects/PCipad1.png";
 import PCweb from "./ImgProjects/PCweb.png";
 import PCmobile from "./ImgProjects/PCmobile.png";
-import Cipad from "./ImgProjects/Cipad.jpeg";
-import Cipad2 from "./ImgProjects/Cipad2.jpeg";
-import Cmobile from "./ImgProjects/Cmobile.jpeg";
-import Cweb from "./ImgProjects/Cweb.jpeg";
+import Cipad from "./ImgProjects/Cipad.png";
+import Cipad2 from "./ImgProjects/Cipad2.png";
+import Cmobile from "./ImgProjects/Cmobile.png";
+import Cweb from "./ImgProjects/Cweb.png";
 import {
   SiJavascript,
   SiReact,
