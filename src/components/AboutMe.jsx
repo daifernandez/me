@@ -1,4 +1,4 @@
-import avatar from "../img/me1.png";
+import avatar from "../img/profile.jpg";
 import Social from "./Social";
 import ScrollToTop from "./ScrollToTop";
 // import { DocumentArrowDownIcon } from "@heroicons/react/24/outline";
