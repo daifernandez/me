@@ -4,7 +4,9 @@ import avatarPlatzi from "../img/avatarPlatzi.png";
 import avatarAAO from "../img/avatarAAO.jpeg";
 import avatarGA from "../img/avatarGA.png";
 import { useHistory } from "react-router-dom";
-
+import { motion } from "framer-motion";
+import { useState, useMemo, useEffect } from "react";
+import { HiOutlineEmojiSad, HiOutlineStar } from 'react-icons/hi';
 
 import { 
   SiJavascript, 
@@ -23,7 +25,11 @@ import {
 import { 
   HiOutlineVideoCamera,
   HiOutlineShoppingBag,
-  HiOutlinePuzzle
+  HiOutlinePuzzle,
+  HiOutlineCalendar,
+  HiOutlineOfficeBuilding,
+  HiOutlineAdjustments,
+  HiOutlineSortAscending
 } from 'react-icons/hi';
 
 const activity = [
@@ -146,22 +152,103 @@ const projectIcons = {
   }
 };
 
+const AptitudesList = ({ aptitudes }) => {
+  if (!aptitudes) return null;
+  
+  const aptitudeArray = aptitudes.split('·').map(apt => apt.trim()).filter(Boolean);
+  
+  return (
+    <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
+      <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
+        <span>Aptitudes</span>
+        <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
+      </h4>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+        {aptitudeArray.map((aptitud, idx) => (
+          <div 
+            key={idx}
+            className="flex items-center gap-2 p-2 rounded-lg bg-gray-50/30 dark:bg-gray-800/20 group hover:bg-gray-100/50 dark:hover:bg-gray-700/30 transition-colors duration-200"
+          >
+            <HiOutlineStar className="w-4 h-4 text-indigo-400 dark:text-indigo-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400" />
+            <span className="text-sm font-light text-gray-600 dark:text-gray-400">
+              {aptitud}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export default function Cv() {
   const redirect = useHistory();
+  const [filter, setFilter] = useState('all');
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [isLoading, setIsLoading] = useState(true);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
   const routes = {
     GameStream: "/projects/gamestream",
     Capellari: "/projects/capellari",
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const timeline = document.getElementById('cv-timeline');
+      if (timeline) {
+        const scrollPosition = window.scrollY - timeline.offsetTop;
+        const scrollHeight = timeline.scrollHeight - window.innerHeight;
+        const progress = Math.min(Math.max(scrollPosition / scrollHeight, 0), 1);
+        setScrollProgress(progress);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  }, []);
 
   const handleClick = (title) => {
     const path = routes[title] || "/projects/pawcare";
     redirect.push(path);
   };
 
+  const filteredAndSortedActivity = useMemo(() => {
+    let filtered = [...activity];
+    
+    if (filter !== 'all') {
+      filtered = filtered.filter(item => {
+        if (filter === 'withProjects') {
+          return item.project && item.project.length > 0;
+        }
+        if (filter === 'courses') {
+          return item.type === 'comment';
+        }
+        return false;
+      });
+    }
+
+    return filtered.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+    });
+  }, [filter, sortOrder]);
+
   return (
-    <div className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-16 sm:py-24">
+    <section className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-16 sm:py-24">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-24">
+        <motion.header 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-2xl text-center mb-24"
+        >
           <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Experiencia Profesional
           </h2>
@@ -171,131 +258,213 @@ export default function Cv() {
           <p className="mt-6 text-lg leading-8 text-gray-500 dark:text-gray-400 font-extralight">
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
-        </div>
 
-        <div className="relative">
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-400/20 to-transparent"></div>
-          
-          <div className="space-y-20">
-            {activity.map((item) => (
-              <div 
-                key={item.id}
-                className="relative pl-16 group"
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <div className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2">
+              <HiOutlineAdjustments className="w-5 h-5 text-gray-400" />
+              <select 
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                className="bg-transparent border-none text-sm text-gray-600 dark:text-gray-300 focus:ring-0"
               >
-                <div className="absolute -left-4 top-0 flex items-center justify-center">
-                  <div className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-indigo-50 to-transparent dark:from-indigo-900/10 dark:to-transparent"></div>
-                  
-                  <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-indigo-300/40 dark:bg-indigo-400/20 ring-2 ring-white/90 dark:ring-slate-900/90"></div>
-                  
-                  <div className="relative ml-6">
-                    <div className="rounded-full p-0.5 bg-white/90 dark:bg-slate-900/90">
-                      <img
-                        src={item.imageUrl}
-                        alt=""
-                        className="w-9 h-9 rounded-full object-cover shadow-sm opacity-90"
-                      />
-                    </div>
-                  </div>
-                </div>
+                <option value="all">Todos</option>
+                <option value="withProjects">Con Proyectos</option>
+                <option value="courses">Cursos</option>
+              </select>
+            </div>
 
-                <div className="space-y-5">
-                  <div>
-                    <h3 className="text-lg font-light text-gray-800 dark:text-white">
-                      {item.experience.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mt-0.5">
-                      <span className="font-light">{item.experience.where}</span>
-                      <span className="text-gray-200 dark:text-gray-700">•</span>
-                      <span className="font-light">{item.date}</span>
-                    </div>
-                  </div>
-
-                  {item.description && (
-                    <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm">
-                      {item.description}
-                    </p>
-                  )}
-
-                  {item.project && item.project.length > 0 && (
-                    <div>
-                      <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
-                        <span>Proyectos destacados</span>
-                        <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
-                      </h4>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        {item.project.map((proj, idx) => {
-                          const projectIcon = projectIcons[proj.title] || {
-                            icon: HiOutlinePuzzle,
-                            color: 'text-gray-400',
-                            bgColor: 'bg-gray-50/30 dark:bg-gray-800/20'
-                          };
-                          const IconComponent = projectIcon.icon;
-                          
-                          return (
-                            <button
-                              key={idx}
-                              onClick={() => handleClick(proj.title)}
-                              className="group flex items-center gap-2 hover:opacity-80"
-                            >
-                              <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
-                                <IconComponent 
-                                  className={`h-4 w-4 ${projectIcon.color}`}
-                                />
-                              </div>
-                              <div>
-                                <h3 className="text-sm font-light text-gray-700 dark:text-gray-300">
-                                  {proj.title}
-                                </h3>
-                                {proj.date && (
-                                  <p className="text-xs text-gray-400 dark:text-gray-500">
-                                    {proj.date}
-                                  </p>
-                                )}
-                              </div>
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-
-                  {item.tecnologies && (
-                    <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
-                      <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
-                        <span>Stack tecnológico</span>
-                        <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
-                      </h4>
-                      <div className="flex flex-wrap gap-2">
-                        {item.tecnologies.split(',').map((tech, idx) => {
-                          const techKey = tech.trim();
-                          const techData = techIcons[techKey];
-                          
-                          if (!techData) return null;
-                          
-                          const Icon = techData.icon;
-                          return (
-                            <div 
-                              key={idx}
-                              className="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full bg-gray-50/30 dark:bg-gray-800/20"
-                            >
-                              <Icon 
-                                className={`w-3.5 h-3.5 ${techData.color} opacity-75`}
-                              />
-                              <span className="text-xs font-light text-gray-500 dark:text-gray-400">
-                                {techKey}
-                              </span>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
+            <button
+              onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
+              className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+            >
+              <HiOutlineSortAscending className={`w-5 h-5 text-gray-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} />
+              <span className="text-sm text-gray-600 dark:text-gray-300">
+                {sortOrder === 'desc' ? 'Más reciente' : 'Más antiguo'}
+              </span>
+            </button>
           </div>
+        </motion.header>
+
+        <div className="relative" id="cv-timeline">
+          <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-indigo-400/20 to-transparent">
+            <div 
+              className="absolute left-0 top-0 w-full bg-indigo-500/30 dark:bg-indigo-400/30 transition-all duration-300"
+              style={{ height: `${scrollProgress * 100}%` }}
+            />
+          </div>
+          
+          {isLoading ? (
+            <div className="space-y-20">
+              {[1, 2, 3].map((_, index) => (
+                <div key={index} className="animate-pulse">
+                  <div className="h-20 bg-gray-200 dark:bg-gray-800 rounded-lg mb-4"></div>
+                  <div className="h-10 bg-gray-100 dark:bg-gray-700 rounded-lg w-3/4"></div>
+                </div>
+              ))}
+            </div>
+          ) : filteredAndSortedActivity.length === 0 ? (
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="text-center py-20"
+            >
+              <HiOutlineEmojiSad className="w-16 h-16 mx-auto text-gray-400 dark:text-gray-600 mb-4" />
+              <h3 className="text-lg font-light text-gray-600 dark:text-gray-400">
+                No se encontraron resultados
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">
+                Intenta cambiar los filtros de búsqueda
+              </p>
+              <button
+                onClick={() => setFilter('all')}
+                className="mt-4 text-indigo-600 dark:text-indigo-400 text-sm hover:text-indigo-500 dark:hover:text-indigo-300 transition-colors"
+              >
+                Mostrar todo
+              </button>
+            </motion.div>
+          ) : (
+            <div className="space-y-20" role="list">
+              {filteredAndSortedActivity.map((item, index) => (
+                <motion.article 
+                  key={item.id}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="relative pl-16 group"
+                  role="listitem"
+                >
+                  <div className="absolute -left-4 top-0 flex items-center justify-center">
+                    <motion.div 
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                      className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-indigo-50 to-transparent dark:from-indigo-900/10 dark:to-transparent"
+                    />
+                    
+                    <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-indigo-300/40 dark:bg-indigo-400/20 ring-2 ring-white/90 dark:ring-slate-900/90"></div>
+                    
+                    <div className="relative ml-6">
+                      <div className="rounded-full p-0.5 bg-white/90 dark:bg-slate-900/90 shadow-lg">
+                        <img
+                          src={item.imageUrl}
+                          alt={`Logo de ${item.experience.where}`}
+                          className="w-9 h-9 rounded-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-5">
+                    <div className="flex items-center gap-4">
+                      <div className="flex-1">
+                        <h3 className="text-lg font-light text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                          {item.experience.title}
+                        </h3>
+                        <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mt-0.5">
+                          <HiOutlineOfficeBuilding className="w-4 h-4" />
+                          <span className="font-light">{item.experience.where}</span>
+                          <span className="text-gray-200 dark:text-gray-700">•</span>
+                          <HiOutlineCalendar className="w-4 h-4" />
+                            <span className="font-light">{item.date}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {item.description && (
+                      <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm">
+                        {item.description}
+                      </p>
+                    )}
+
+                    {item.project && item.project.length > 0 && (
+                      <div>
+                        <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
+                          <span>Proyectos destacados</span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
+                        </h4>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                          {item.project.map((proj, idx) => {
+                            const projectIcon = projectIcons[proj.title] || {
+                              icon: HiOutlinePuzzle,
+                              color: 'text-gray-400',
+                              bgColor: 'bg-gray-50/30 dark:bg-gray-800/20'
+                            };
+                            const IconComponent = projectIcon.icon;
+                            
+                            return (
+                              <button
+                                key={idx}
+                                onClick={() => handleClick(proj.title)}
+                                className="group flex items-center gap-2 hover:opacity-80 p-3 rounded-lg transition-all duration-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 dark:focus:ring-indigo-400/50"
+                                aria-label={`Ver proyecto ${proj.title}`}
+                              >
+                                <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
+                                  <IconComponent 
+                                    className={`h-4 w-4 ${projectIcon.color}`}
+                                  />
+                                </div>
+                                <div>
+                                  <h3 className="text-sm font-light text-gray-700 dark:text-gray-300">
+                                    {proj.title}
+                                  </h3>
+                                  {proj.date && (
+                                    <p className="text-xs text-gray-400 dark:text-gray-500">
+                                      {proj.date}
+                                    </p>
+                                  )}
+                                </div>
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {item.tecnologies && (
+                      <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
+                        <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
+                          <span>Stack tecnológico</span>
+                          <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
+                        </h4>
+                        <div className="flex flex-wrap gap-2">
+                          {item.tecnologies.split(',').map((tech, idx) => {
+                            const techKey = tech.trim();
+                            const techData = techIcons[techKey];
+                            
+                            if (!techData) return null;
+                            
+                            const Icon = techData.icon;
+                            return (
+                              <div 
+                                key={idx}
+                                className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-gray-50/30 dark:bg-gray-800/20 hover:bg-gray-100/50 dark:hover:bg-gray-700/30 transition-colors duration-200"
+                                role="listitem"
+                                aria-label={`Tecnología: ${techKey}`}
+                              >
+                                <Icon 
+                                  className={`w-3.5 h-3.5 ${techData.color} opacity-75`}
+                                  aria-hidden="true"
+                                />
+                                <span className="text-xs font-light text-gray-500 dark:text-gray-400">
+                                  {techKey}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    )}
+
+                    {item.aptitudes && (
+                      <AptitudesList aptitudes={item.aptitudes} />
+                    )}
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          )}
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -17,7 +17,7 @@ export default function ScrollToTop() {
     // Configurar event listener pasivo
     const handleTouchStart = (event) => {
       // Manejar el evento touchstart si es necesario
-    };
+  };
 
     window.addEventListener('touchstart', handleTouchStart, { passive: true });
 
