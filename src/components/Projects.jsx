@@ -70,8 +70,7 @@ const categories = [
 ];
 
 export default function Projects() {
-  const redirect = useHistory();
-  const [hoveredProject, setHoveredProject] = useState(null);
+  const redirect = useHistory()
   const [selectedTag, setSelectedTag] = useState(null);
 
   const routes = {
@@ -108,9 +107,13 @@ export default function Projects() {
         <div className="relative mx-auto max-w-2xl text-center mb-24">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-40 h-40 bg-indigo-500/5 rounded-full blur-3xl" />
           
-          <h2 className="text-4xl font-light tracking-tight text-gray-900 dark:text-white">
-            Mis Proyectos
+          <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          Mis Proyectos
           </h2>
+          <div className="mt-4 flex justify-center">
+            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
+          </div>
+         
           
           {/* Subtítulo y descripción */}
           <div className="mt-12 space-y-8">
