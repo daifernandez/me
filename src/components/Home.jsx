@@ -9,7 +9,7 @@ import Projects from "./Projects";
 
 export default function Home() {
   return (
-    <div className="bg-white dark:bg-slate-900">
+    <div className="bg-white dark:bg-slate-900 px-4 sm:px-6 lg:px-8">
       <Header />
       <Intro />
       <Cv />

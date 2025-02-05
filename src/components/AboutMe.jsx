@@ -1,92 +1,199 @@
 import avatar from "../img/profile.jpg";
 import Social from "./Social";
 import ScrollToTop from "./ScrollToTop";
-import { DocumentArrowDownIcon } from "@heroicons/react/24/outline";
+import { motion } from "framer-motion";
+import { HiOutlineCode, HiOutlineHeart, HiOutlineLightBulb, HiOutlineChip, HiOutlineUser } from "react-icons/hi";
+import { 
+  SiReact, 
+  SiJavascript, 
+  SiTailwindcss, 
+  SiNodedotjs, 
+  SiNextdotjs,
+  SiGit,
+  SiPostgresql
+} from "react-icons/si";
+// import { DocumentArrowDownIcon } from "@heroicons/react/24/outline";
 
 export default function AboutMe() {
+  const skills = [
+    { icon: HiOutlineCode, title: "Desarrollo Web FullStack", description: "Frontend y Backend" },
+    { icon: HiOutlineHeart, title: "Pasión por el Código", description: "Aprendizaje continuo" },
+    { icon: HiOutlineLightBulb, title: "Soluciones Creativas", description: "Enfoque innovador" }
+  ];
+
+  const technologies = [
+    { icon: SiJavascript, name: "JavaScript", color: "text-yellow-400" },
+    { icon: SiReact, name: "React", color: "text-blue-400" }, 
+    { icon: SiTailwindcss, name: "Tailwind", color: "text-cyan-400" },
+    { icon: SiNodedotjs, name: "Node.js", color: "text-green-500" },
+    { icon: SiNextdotjs, name: "Next.js", color: "text-gray-700 dark:text-gray-300" },
+    { icon: SiGit, name: "Git", color: "text-orange-500" },
+    { icon: SiPostgresql, name: "PostgreSQL", color: "text-blue-500" }
+  ];
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0 }
+  };
+
   return (
-    <div className="bg-white dark:bg-gray-900 py-12 sm:py-12">
+    <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 py-12">
       <ScrollToTop />
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl">
-          <div className="mb-12 flex flex-col sm:flex-row items-center sm:items-start gap-8">
-            <div className="relative group">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-gray-300 to-gray-400 dark:from-gray-600 dark:to-gray-700 rounded-full opacity-75 group-hover:opacity-100 blur-md transition duration-300 animate-pulse"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Hero Section */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="relative overflow-hidden rounded-3xl bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm p-8 mb-12 shadow-sm"
+        >
+          <div className="absolute inset-0 bg-grid-slate-100 dark:bg-grid-slate-700/25 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:[mask-image:linear-gradient(0deg,rgba(255,255,255,0.1),rgba(255,255,255,0.5))]"></div>
+          <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
+            <motion.div 
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative group cursor-pointer flex-shrink-0"
+            >
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full opacity-75 group-hover:opacity-100 blur-md transition duration-300 animate-pulse"></div>
               <img
                 src={avatar}
                 alt="Foto de perfil"
-                className="relative w-40 h-40 sm:w-48 sm:h-48 rounded-full object-cover ring-2 ring-white dark:ring-gray-800 shadow-lg shadow-gray-400/50 dark:shadow-gray-900/50 transform transition duration-300 group-hover:scale-105"
+                className="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover ring-4 ring-white dark:ring-gray-800 shadow-lg shadow-indigo-500/30 dark:shadow-indigo-400/30 transform transition duration-300 group-hover:scale-105"
               />
-            </div>
-            <div className="text-center sm:text-left">
-              <p className="text-sm font-light text-indigo-500 dark:text-indigo-400 tracking-wider
-                animate-fade-down animate-duration-[800ms] animate-delay-300">
-                ¡Bienvenido a mi espacio!
-              </p>
-              <h2 className="mt-2 text-5xl sm:text-5xl lg:text-6xl font-extralight tracking-tight
-                  animate-fade-right animate-once animate-duration-[1200ms] animate-delay-500 dark:text-white">
+            </motion.div>
+            
+            <div className="text-center md:text-left">
+              <motion.div
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+              >
+                <p className="text-sm font-medium text-indigo-500 dark:text-indigo-400 tracking-wider mb-3">
+                  ¡Bienvenido a mi espacio!
+                </p>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-4">
                   Soy Daiana Fernandez
-               
-              </h2>
-              <p className="block mt-6 bg-clip-text animate-fade-up animate-once animate-duration-[1200ms] animate-delay-700 dark:text-white">
-                Desarrolladora Web FullStack enfocada en crear experiencias digitales · Buenos Aires 🚀
-              </p>
+                </h1>
+                <p className="text-lg text-gray-600 dark:text-gray-300 font-light">
+                  Desarrolladora Web FullStack enfocada en crear experiencias digitales · Buenos Aires 🚀
+                </p>
+                <div className="mt-6">
+                  <Social />
+                </div>
+              </motion.div>
             </div>
           </div>
+        </motion.div>
 
-          <div className="mt-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* About Section */}
+          <motion.div 
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="lg:col-span-2 bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-sm"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <HiOutlineUser className="w-6 h-6 text-indigo-500 dark:text-indigo-400" />
+              <h2 className="text-xl font-light text-gray-900 dark:text-white">Sobre mí</h2>
+            </div>
             <div className="space-y-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              <p>
+              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
                 Como desarrolladora web fullstack, combino mi pasión por la programación con 
                 creatividad para construir soluciones digitales efectivas. Mi experiencia en 
                 frontend y backend me permite desarrollar aplicaciones web completas con 
                 énfasis en la experiencia del usuario.
               </p>
-              <p>
+              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
                 Mi experiencia previa en el campo de la salud me aportó habilidades valiosas 
                 como la atención al detalle, la empatía y una buena comunicación. Esta 
                 combinación de habilidades técnicas y personales me ayuda a entender mejor 
                 las necesidades de cada proyecto y trabajar eficientemente en equipo.
               </p>
-              <p>
-                Me gusta mantenerme actualizada con las nuevas tecnologías y metodologías 
-                del desarrollo web. Disfruto aprendiendo constantemente y aplicando estos 
-                conocimientos para mejorar la calidad de mi código y los proyectos en 
-                los que trabajo.
-              </p>
-              <p>
-                Busco oportunidades para colaborar en proyectos interesantes donde pueda 
-                aportar mis conocimientos y seguir creciendo profesionalmente. Si buscas 
-                una desarrolladora comprometida y con ganas de aprender, ¡me encantaría 
-                conectar contigo!
-              </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mt-10 flex justify-center">
-            <div className="flex flex-col items-center gap-8 max-w-md w-full">
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
-                <button
-                  type="button"
-                  onClick={() => window.open('/docs/CV-DaianaFernandez.pdf', '_blank')}
-                  className="inline-flex justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 dark:bg-gray-800 dark:text-white dark:ring-gray-600 dark:hover:bg-gray-700 transition-all duration-300"
-                >
-                  <DocumentArrowDownIcon className="w-5 h-5 mr-1.5 text-gray-400" />
-                  <span>Descargar CV</span>
-                </button>
+          {/* Skills Section */}
+          <motion.div 
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="space-y-6"
+          >
+            {skills.map((skill, index) => (
+              <div 
+                key={index}
+                className="p-6 rounded-xl bg-white dark:bg-gray-800/50 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300 group cursor-pointer shadow-sm text-center"
+              >
+                <div className="flex justify-center">
+                  <skill.icon className="w-8 h-8 text-indigo-500 dark:text-indigo-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
+                </div>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{skill.title}</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">{skill.description}</p>
               </div>
-
-              <div className="flex items-center gap-4 w-full justify-center mt-10">
-                <div className="h-px w-12 bg-gray-300 dark:bg-gray-700"></div>
-                <span className="text-sm text-gray-500 dark:text-gray-400">conecta conmigo</span>
-                <div className="h-px w-12 bg-gray-300 dark:bg-gray-700"></div>
-              </div>
-              <div className="flex justify-center">
-                <Social />
-              </div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
         </div>
+
+        {/* Technologies Section */}
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="mt-12 bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-sm"
+        >
+          <div className="flex items-center gap-4 mb-8">
+            <HiOutlineChip className="w-6 h-6 text-indigo-500 dark:text-indigo-400" />
+            <h2 className="text-xl font-light text-gray-900 dark:text-white">Stack Tecnológico</h2>
+            <div className="h-px flex-1 bg-gradient-to-r from-indigo-200 to-transparent dark:from-indigo-900"></div>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-6">
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={index}
+                variants={item}
+                className="flex flex-col items-center p-4 rounded-xl bg-gray-50 dark:bg-gray-800/30 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer"
+              >
+                <tech.icon className={`w-8 h-8 ${tech.color} group-hover:scale-110 transition-transform duration-300`} />
+                <span className="mt-2 text-sm font-light text-gray-600 dark:text-gray-400">{tech.name}</span>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Additional Info */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-12 bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-sm"
+        >
+          <div className="space-y-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+              Me gusta mantenerme actualizada con las nuevas tecnologías y metodologías 
+              del desarrollo web. Disfruto aprendiendo constantemente y aplicando estos 
+              conocimientos para mejorar la calidad de mi código y los proyectos en 
+              los que trabajo.
+            </p>
+            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+              Busco oportunidades para colaborar en proyectos interesantes donde pueda 
+              aportar mis conocimientos y seguir creciendo profesionalmente. Si buscas 
+              una desarrolladora comprometida y con ganas de aprender, ¡me encantaría 
+              conectar contigo!
+            </p>
+          </div>
+        </motion.div>
       </div>
     </div>
   );

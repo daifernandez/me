@@ -1,4 +1,5 @@
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useRef } from 'react';
 import Footer from "./Footer";
 import GSipad from "./ImgProjects/GSipad.png";
 import GSipad2 from "./ImgProjects/GSipad1.png";
@@ -35,6 +36,8 @@ import ScrollToTop from "./ScrollToTop";
 import pawcareBackground from "../img/PawCare.png";
 import gamestreamBackground from "../img/GameStream.png";
 import capellariBackground from "../img/capellari.jpeg";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import '@splidejs/react-splide/css';
 
 const projects = {
   pawcare: {
@@ -63,7 +66,7 @@ const projects = {
   gamestream: {
     name: "GameStream",
     description:
-      "Proyecto individual desarrollado dentro de Henry Bootcamp que consiste en el desarrollo de una pagina web utilizando React para el Front End y Redux como state management, con el propósito de crear una pequeña aplicación en donde se podrá obtener detalles de videojuegos. Todos los componentes fueron desarrollados con CSS sin uso de librerías externas. Consume datos de una API (“RAWG”) a través de un Back End desarrollado en Node.JS utilizando Express, agregando nuevas funcionalidades",
+      "Inicialmente desarrollado como proyecto individual en Henry Bootcamp, GameStream ha evolucionado significativamente con el tiempo hasta convertirse en un proyecto personal en constante crecimiento. La aplicación comenzó como una plataforma para obtener detalles de videojuegos, pero ha ido incorporando nuevas funcionalidades y mejoras técnicas. Desarrollada con React para el Front End y Redux como gestor de estado, la aplicación consume datos de la API 'RAWG' a través de un Back End personalizado en Node.JS con Express. Todos los componentes fueron desarrollados con CSS puro, priorizando la experiencia de usuario y el rendimiento. Este proyecto representa mi crecimiento como desarrollador, desde sus inicios académicos hasta convertirse en una plataforma en constante evolución.",
     technologies: [
       "JavaScript",
       "React",
@@ -172,7 +175,7 @@ function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
   return (
-    <div className="group flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-all duration-300">
+    <div className="group flex items-center gap-3 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
       <div className="transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-500">
         {technologyIcon}
       </div>
@@ -184,238 +187,290 @@ function TechnologyItem({ technology }) {
 }
 
 function AptitudeItem({ aptitud }) {
+  const getIcon = (aptitud) => {
+    switch(aptitud.toLowerCase()) {
+      case 'trabajo en equipo':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+          </svg>
+        );
+      case 'comunicación':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+          </svg>
+        );
+      case 'organización':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+          </svg>
+        );
+      case 'autonomía':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        );
+      case 'resolución de problemas':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        );
+      case 'investigación':
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+          </svg>
+        );
+      default:
+        return (
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        );
+    }
+  };
+
   return (
-    <div className="group flex flex-col items-center gap-4 p-6 w-full rounded-lg hover:bg-gray-50/50 dark:hover:bg-gray-800/50 transition-all duration-300">
-      <div className="text-gray-400 dark:text-gray-600 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
-        <svg 
-          className="w-8 h-8" 
-          fill="none" 
-          stroke="currentColor" 
-          viewBox="0 0 24 24"
-        >
-          <path 
-            strokeLinecap="round" 
-            strokeLinejoin="round" 
-            strokeWidth={2} 
-            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" 
-          />
-        </svg>
+    <div className="group flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/50 to-white/30 dark:from-gray-800/50 dark:to-gray-800/30 hover:from-indigo-50 hover:to-indigo-50/50 dark:hover:from-indigo-900/20 dark:hover:to-indigo-900/10 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500 dark:text-indigo-400 group-hover:scale-110 transition-all duration-300">
+        {getIcon(aptitud)}
       </div>
-      <span className="text-base font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors text-center">
-        {aptitud}
-      </span>
+      <div className="flex-1">
+        <h3 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+          {aptitud}
+        </h3>
+        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+          {getAptitudeDescription(aptitud)}
+        </p>
+      </div>
     </div>
   );
+}
+
+// Función auxiliar para las descripciones
+function getAptitudeDescription(aptitud) {
+  const descriptions = {
+    'trabajo en equipo': 'Colaboración efectiva y sinergia con otros desarrolladores',
+    'comunicación': 'Habilidad para expresar ideas y conceptos técnicos claramente',
+    'organización': 'Gestión eficiente de tareas y recursos del proyecto',
+    'autonomía': 'Capacidad para trabajar y resolver problemas independientemente',
+    'resolución de problemas': 'Análisis y solución efectiva de desafíos técnicos',
+    'investigación': 'Búsqueda y aplicación de nuevas tecnologías y soluciones',
+  };
+  return descriptions[aptitud.toLowerCase()] || 'Competencia clave para el desarrollo del proyecto';
 }
 
 export default function ProjectDetails() {
   const { name } = useParams();
   const project = projects[name];
+  const splideRef = useRef(null);
 
   return (
-    <div>
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <ScrollToTop />
       
-      <div className="bg-gray-50 dark:bg-gray-900">
-        <div
-          aria-hidden="true"
-          className="animate-fade-down animate-once animate-ease-linear relative"
-        >
+      {/* Hero Section */}
+      <section className="relative pb-32">
+        {/* Imagen de fondo con overlay */}
+        <div className="absolute inset-0 overflow-hidden">
           <img
-            className="h-32 w-full object-cover lg:h-48"
             src={project.background}
-            alt={`${project.name} background`}
+            alt=""
+            className="w-full h-full object-cover filter blur-sm"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-gray-900" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-900/95 backdrop-blur-sm" />
         </div>
-      </div>
-      
-      <div className="overflow-hidden bg-white dark:bg-slate-900 py-32">
-        <div className="animate-fade animate-once animate-duration-1000 animate-ease-in mx-auto max-w-7xl px-6 lg:flex lg:px-8">
-          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:min-w-full lg:max-w-none lg:flex-none lg:gap-y-8">
-            <div className="lg:col-end-1 lg:w-full lg:max-w-lg lg:pb-8">
-            <div className="overflow-hidden">
-                <h2 className="mt-2 text-5xl sm:text-6xl lg:text-7xl font-extralight tracking-tight
-                  animate-fade-right animate-once animate-duration-[1200ms] animate-delay-500">
-                  <span className="block text-gray-900 dark:text-white">
-                {project.name}
-                </span>
-                
-                </h2>
-                <div className="mt-4 flex justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
-          
-          </div>
-              </div>
-              <div className="mt-8 space-y-6">
-                <p className="mt-6 text-lg leading-8 text-gray-500 dark:text-gray-400 font-extralight" >
-                  {project.description}
-                </p>
-              </div>
-              <div className="my-12">
-                <div className="border-t border-gray-200 dark:border-gray-700"></div>
-              </div>
-              <section className="animate-fade-right mt-12">
-               
-                <div className="mx-auto max-w-2xl mb-24"> 
 
-          <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            Aptitudes
-          </h2>
-          <div className="mt-4 flex justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
+        {/* Navegación */}
+        <div className="absolute top-0 left-0 right-0 z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <Link
+              to="/"
+              className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              aria-label="Volver a la página principal"
+            >
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              </svg>
+              Volver
+            </Link>
           </div>
-
         </div>
-                <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6">
-                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-                    {project.aptitudes.map((aptitud, index) => (
-                      <div
-                        key={index}
-                        className="w-full hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
-                      >
-                        <AptitudeItem aptitud={aptitud} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
-              <section className="animate-fade-left mt-12">
-              <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-          Tecnologías utilizadas
-          </h2>
-          <div className="mt-5 flex justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
+
+        {/* Contenido Hero */}
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+          <div className="max-w-3xl mx-auto text-center">
+            <div className="inline-flex items-center justify-center p-1 mb-8 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm ring-1 ring-gray-200 dark:ring-gray-700">
+              <span className="px-4 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400">
+                {project.technologies.slice(0, 3).join(" · ")}
+              </span>
+            </div>
+            
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8
+              animate-fade-up animate-once animate-duration-[1200ms] animate-delay-300">
+              {project.name}
+            </h1>
+            
+            <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed">
+              {project.description}
+            </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up animate-delay-700">
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <span>Ver sitio web</span>
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+              <a
+                href={project.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ring-1 ring-gray-200 dark:ring-gray-700"
+              >
+                <SiGithub className="w-4 h-4" />
+                <span>Ver código</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contenido Principal */}
+      <main className="relative -mt-20 pb-32">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Tecnologías y Aptitudes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* Tecnologías */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+              <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Tecnologías</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {project.technologies.sort().map((technology, index) => (
+                  <TechnologyItem key={index} technology={technology} />
+                ))}
+              </div>
+            </div>
+
+            {/* Aptitudes */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+              <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Aptitudes clave</h2>
+              <div className="space-y-4">
+                {project.aptitudes.map((aptitud, index) => (
+                  <AptitudeItem key={index} aptitud={aptitud} />
+                ))}
+              </div>
+            </div>
           </div>
 
-        
-                <div className="border border-gray-200 dark:border-gray-700 rounded-xl p-6 mt-12">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {project.technologies.sort().map((technology, index) => (
-                      <div
-                        key={index}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-800 rounded-lg transition-all duration-300"
-                      >
-                        <TechnologyItem technology={technology} />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </section>
+          {/* Galería */}
+          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-10 shadow-xl ring-1 ring-gray-100 dark:ring-gray-700">
+            {/* Vista Principal */}
+            <div className="relative mb-12">
+              <Splide
+                ref={splideRef}
+                options={{
+                  type: 'fade',
+                  rewind: true,
+                  gap: '1rem',
+                  arrows: true,
+                  pagination: false,
+                  autoplay: true,
+                  interval: 5000,
+                  pauseOnHover: true,
+                  resetProgress: false,
+                }}
+                className="splide-custom"
+              >
+                {project.images.map((image, index) => (
+                  <SplideSlide key={index}>
+                    <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800">
+                      <img
+                        src={image}
+                        alt={`Vista ${index + 1} del proyecto ${project.name}`}
+                        className="w-full h-full object-contain p-4 transform hover:scale-[1.02] transition-all duration-1000 ease-out"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
+                    </div>
+                  </SplideSlide>
+                ))}
+              </Splide>
+            </div>
 
-              <div className="mt-12 flex flex-wrap gap-4">
-                <a
-                  href={project.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide text-white transition-all duration-300 ease-out bg-gradient-to-r from-indigo-500 to-indigo-400 rounded-lg hover:from-indigo-600 hover:to-indigo-500 transform hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0"
+            {/* Grid de Vistas */}
+            <div className="grid grid-cols-4 gap-6">
+              {project.images.map((image, index) => (
+                <button
+                  key={index}
+                  onClick={() => splideRef.current?.go(index)}
+                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 hover:shadow-lg transition-all duration-500 ease-out"
                 >
-                  <span className="relative flex items-center gap-2">
-                    <svg 
-                      className="w-5 h-5" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path 
-                        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" 
-                        stroke="currentColor" 
-                        strokeWidth="1.5" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      />
-                      <path 
-                        d="M15 12H9M12 9L15 12L12 15" 
-                        stroke="currentColor" 
-                        strokeWidth="1.5" 
-                        strokeLinecap="round" 
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                    Visitar sitio web
-                  </span>
-                </a>
-
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative inline-flex items-center justify-center px-6 py-3 text-sm font-medium tracking-wide transition-all duration-300 ease-out bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transform hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ring-1 ring-gray-200 dark:ring-gray-700"
-                >
-                  <span className="relative flex items-center gap-2">
-                    <svg 
-                      className="w-5 h-5" 
-                      viewBox="0 0 24 24" 
-                      fill="currentColor"
-                    >
-                      <path 
-                        fillRule="evenodd" 
-                        clipRule="evenodd" 
-                        d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.464-1.11-1.464-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"
-                      />
-                    </svg>
-                    Ver código fuente
-                  </span>
-                </a>
-              </div>
-            </div>
-
-            <div className="flex flex-wrap items-start justify-end gap-6 lg:contents animate-fade-up animate-duration-1000 animate-delay-300">
-              <div className="w-0 flex flex-auto lg:ml-auto lg:w-auto lg:flex-none lg:self-end">
-                <img
-                  src={project.images[0]}
-                  alt=""
-                  className="aspect-[5/7] w-[30rem] rounded-xl lg:w-[32rem] object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl hover:brightness-95 dark:hover:brightness-110"
-                />
-              </div>
-              <div className="contents lg:col-span-2 lg:col-end-2 lg:ml-auto lg:flex lg:w-[37rem] lg:items-start lg:justify-end lg:gap-x-8">
-                <div className="order-first flex sm:w-64 flex-none justify-end self-end lg:w-auto">
                   <img
-                    src={project.images[1]}
-                    alt=""
-                    className="aspect-[7/] w-[9rem] sm:aspect-[5/7] sm:w-[20rem] rounded-xl lg:w-[20rem] object-cover transition-all duration-300 hover:scale-105 hover:shadow-xl"
+                    src={image}
+                    alt={`Vista ${index + 1}`}
+                    className="w-full h-full object-contain p-2 transform group-hover:scale-[1.03] transition-all duration-700 ease-out"
                   />
-                </div>
-                <div className="flex w-60 sm:w-96 flex-auto justify-end lg:w-auto lg:flex-none">
-                  <img
-                    src={project.images[2]}
-                    alt=""
-                    className="aspect-[7/] w-[45rem] sm:w-[45rem] lg:w-[44rem]"
-                  />
-                </div>
-                <div className="sm:block sm:w-0 sm:flex-auto lg:w-auto lg:flex-none">
-                  <img
-                    src={project.images[3]}
-                    alt=""
-                    className="aspect-[/3] w-[5rem] sm:w-[8rem] rounded-2xl lg:w-[10rem]"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white dark:bg-slate-900 animate-fade-up animate-duration-1000 animate-delay-500 mt-36">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="max-w-4xl mx-auto">
-              {project.video && (
-                <div className="mt-16 rounded-2xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
-                  <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
-                    <ReactPlayer
-                      url="https://vimeo.com/803296822"
-                      controls={true}
-                      width="100%"
-                      height="100%"
-                      className="absolute top-0 left-0"
-                      playing={false}
-                      light={false}
-                    />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-out">
+                    <span className="block text-xs text-center font-light text-white backdrop-blur-sm bg-black/20 rounded-full py-1 px-3">
+                      {index === 0 ? 'Vista Tablet' :
+                       index === 1 ? 'Vista Tablet Alt' :
+                       index === 2 ? 'Vista Desktop' : 'Vista Mobile'}
+                    </span>
                   </div>
-                </div>
-              )}
+                </button>
+              ))}
+            </div>
+
+            {/* Indicadores de Dispositivo */}
+            <div className="mt-10 flex flex-wrap gap-3 justify-center">
+              {['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'].map((device, index) => (
+                <button
+                  key={device}
+                  onClick={() => splideRef.current?.go(index)}
+                  className="px-5 py-2 text-xs font-light tracking-wide rounded-full transition-all duration-500 ease-out
+                    bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800
+                    text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
+                    ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-gray-300 dark:hover:ring-gray-600
+                    hover:shadow-md transform hover:-translate-y-0.5"
+                >
+                  {device}
+                </button>
+              ))}
             </div>
           </div>
+
+          {/* Video demo */}
+          {project.video && (
+            <div className="mt-8">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Demo del proyecto</h2>
+                <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' }}>
+                  <ReactPlayer
+                    url="https://vimeo.com/803296822"
+                    controls={true}
+                    width="100%"
+                    height="100%"
+                    className="absolute top-0 left-0"
+                    playing={false}
+                    light={false}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      </div>
+      </main>
+
       <Footer />
     </div>
   );

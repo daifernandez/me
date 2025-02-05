@@ -2,6 +2,9 @@
   padding: 4rem 0;
   margin: 0 auto;
   width: 100%;
+  --splide-arrow-size: 2.5rem;
+  --splide-arrow-color: rgba(255, 255, 255, 0.8);
+  --splide-arrow-hover-color: rgba(255, 255, 255, 1);
 }
 
 .splide-custom .splide__track {
@@ -34,11 +37,9 @@
 }
 
 .splide-custom .splide__arrow {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 3rem;
-  height: 3rem;
+  background: rgba(0, 0, 0, 0.3);
+  width: var(--splide-arrow-size);
+  height: var(--splide-arrow-size);
   opacity: 0;
   transition: all 0.3s ease;
 }
@@ -47,23 +48,23 @@
   opacity: 1;
 }
 
-.splide-custom .splide__arrow:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: scale(1.1);
-}
-
 .splide-custom .splide__arrow svg {
-  fill: #fff;
+  fill: var(--splide-arrow-color);
   width: 1.2em;
   height: 1.2em;
+  transition: fill 0.3s ease;
+}
+
+.splide-custom .splide__arrow:hover svg {
+  fill: var(--splide-arrow-hover-color);
 }
 
 .splide-custom .splide__pagination {
-  bottom: -2rem;
+  bottom: 1rem;
 }
 
 .splide-custom .splide__pagination__page {
-  background: rgba(156, 163, 175, 0.2);
+  background: rgba(255, 255, 255, 0.3);
   width: 2rem;
   height: 0.25rem;
   border-radius: 0.125rem;
@@ -72,26 +73,16 @@
 }
 
 .splide-custom .splide__pagination__page.is-active {
-  background: rgb(99, 102, 241);
+  background: rgba(255, 255, 255, 0.9);
   transform: none;
   width: 3rem;
-}
-
-@media (prefers-color-scheme: dark) {
-  .splide-custom .splide__pagination__page {
-    background: rgba(156, 163, 175, 0.1);
-  }
-  
-  .splide-custom .splide__pagination__page.is-active {
-    background: rgb(129, 140, 248);
-  }
 }
 
 /* Animación para las imágenes */
 @keyframes fadeScale {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -103,16 +94,33 @@
   animation: fadeScale 0.6s ease forwards;
 }
 
-/* Ajustes para dispositivos móviles */
-@media (max-width: 640px) {
-  .splide-custom .splide__slide,
-  .splide-custom .splide__slide.is-active {
-    transform: scale(1);
-    opacity: 1;
+/* Modo oscuro */
+@media (prefers-color-scheme: dark) {
+  .splide-custom .splide__pagination__page {
+    background: rgba(255, 255, 255, 0.2);
   }
   
-  .splide-custom .splide__slide:hover,
-  .splide-custom .splide__slide.is-active:hover {
-    transform: scale(1.05);
+  .splide-custom .splide__pagination__page.is-active {
+    background: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Ajustes responsive */
+@media (max-width: 640px) {
+  .splide-custom {
+    --splide-arrow-size: 2rem;
+  }
+  
+  .splide-custom .splide__arrow {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  
+  .splide-custom .splide__pagination__page {
+    width: 1.5rem;
+  }
+  
+  .splide-custom .splide__pagination__page.is-active {
+    width: 2rem;
   }
 } 
