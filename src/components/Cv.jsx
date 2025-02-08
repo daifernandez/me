@@ -50,7 +50,7 @@ const activity = [
     ],
     funcionalidades: "",
     tecnologies: "NextJS, React, TailwindCSS, Firestore, Firebase.",
-    date: "Dic 2023",
+    date: "2023",
   },
   {
     id: 4,
