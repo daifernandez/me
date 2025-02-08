@@ -56,6 +56,13 @@ const projects = {
       "Auth0",
       "Cloudinary",
     ],
+    technologiesDestacadas: [
+      "React",
+      "Redux",
+      "Bootstrap",
+      "NodeJS",
+      "Express",
+    ],
     aptitudes: ["Trabajo en equipo", "Comunicación", "Organización"],
     images: [PCipad, PCipad1, PCweb, PCmobile],
     link: "https://pawcare.vercel.app",
@@ -77,6 +84,13 @@ const projects = {
       "Sequelize",
       "PostgreSQL",
     ],
+    technologiesDestacadas: [
+      "React",
+      "Redux",
+      "CSS",
+      "NodeJS",
+      "Express",
+    ],
     aptitudes: ["Autonomía", "Resolución de problemas", "Investigación"],
     images: [GSipad, GSipad2, GSweb, GSmobile],
     link: "https://gamestream.dev/",
@@ -91,9 +105,16 @@ const projects = {
       "NextJS",
       "JavaScript",
       "React",
+      "Firebase",
       "NodeJS",
       "Google Login",
+    ],
+    technologiesDestacadas: [
+      "NextJS",
+      "React",
+      "TailwindCSS",
       "Firebase",
+      "NodeJS",
     ],
     aptitudes: ["Organización", "Investigación", "Autonomía"],
     images: [Cipad, Cipad2, Cweb, Cmobile],
@@ -244,7 +265,7 @@ function AptitudeItem({ aptitud }) {
         <h3 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
           {aptitud}
         </h3>
-        <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+        <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 text-justify">
           {getAptitudeDescription(aptitud)}
         </p>
       </div>
@@ -307,16 +328,16 @@ export default function ProjectDetails() {
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center p-1 mb-8 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm ring-1 ring-gray-200 dark:ring-gray-700">
               <span className="px-4 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                {project.technologies.slice(0, 3).join(" · ")}
+                {project.technologiesDestacadas.join(" · ")}
               </span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8
               animate-fade-up animate-once animate-duration-[1200ms] animate-delay-300">
               {project.name}
             </h1>
             
-            <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed text-justify">
               {project.description}
             </p>
             
@@ -353,7 +374,7 @@ export default function ProjectDetails() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Tecnologías */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Tecnologías</h2>
+              <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Tecnologías</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {project.technologies.sort().map((technology, index) => (
                   <TechnologyItem key={index} technology={technology} />
@@ -363,7 +384,7 @@ export default function ProjectDetails() {
 
             {/* Aptitudes */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-              <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Aptitudes clave</h2>
+              <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Aptitudes clave</h2>
               <div className="space-y-4">
                 {project.aptitudes.map((aptitud, index) => (
                   <AptitudeItem key={index} aptitud={aptitud} />

@@ -79,16 +79,16 @@ export default function AboutMe() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
               >
-                <p className="text-sm font-medium text-indigo-500 dark:text-indigo-400 tracking-wider mb-3">
+                <p className="text-sm sm:text-base font-medium text-indigo-500 dark:text-indigo-400 tracking-wider mb-3">
                   ¡Bienvenido a mi espacio!
                 </p>
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-4">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 dark:text-white mb-4">
                   Soy Daiana Fernandez
                 </h1>
-                <p className="text-lg text-gray-600 dark:text-gray-300 font-light">
+                <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-light">
                   Desarrolladora Web FullStack enfocada en crear experiencias digitales · Buenos Aires 🚀
                 </p>
-                <div className="mt-6">
+                <div className="mt-6 flex justify-center md:justify-start">
                   <Social />
                 </div>
               </motion.div>
@@ -108,14 +108,14 @@ export default function AboutMe() {
               <HiOutlineUser className="w-6 h-6 text-indigo-500 dark:text-indigo-400" />
               <h2 className="text-xl font-light text-gray-900 dark:text-white">Sobre mí</h2>
             </div>
-            <div className="space-y-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+            <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 dark:text-gray-300">
+              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white text-justify">
                 Como desarrolladora web fullstack, combino mi pasión por la programación con 
                 creatividad para construir soluciones digitales efectivas. Mi experiencia en 
                 frontend y backend me permite desarrollar aplicaciones web completas con 
                 énfasis en la experiencia del usuario.
               </p>
-              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+              <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white text-justify">
                 Mi experiencia previa en el campo de la salud me aportó habilidades valiosas 
                 como la atención al detalle, la empatía y una buena comunicación. Esta 
                 combinación de habilidades técnicas y personales me ayuda a entender mejor 
@@ -139,8 +139,8 @@ export default function AboutMe() {
                 <div className="flex justify-center">
                   <skill.icon className="w-8 h-8 text-indigo-500 dark:text-indigo-400 mb-4 group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">{skill.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{skill.description}</p>
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-white mb-2">{skill.title}</h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400">{skill.description}</p>
               </div>
             ))}
           </motion.div>
@@ -179,14 +179,14 @@ export default function AboutMe() {
           transition={{ duration: 0.6, delay: 0.6 }}
           className="mt-12 bg-white dark:bg-gray-800/50 rounded-2xl p-8 shadow-sm"
         >
-          <div className="space-y-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
-            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+          <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-600 dark:text-gray-300">
+            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white text-justify">
               Me gusta mantenerme actualizada con las nuevas tecnologías y metodologías 
               del desarrollo web. Disfruto aprendiendo constantemente y aplicando estos 
               conocimientos para mejorar la calidad de mi código y los proyectos en 
               los que trabajo.
             </p>
-            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white">
+            <p className="transition-colors duration-300 hover:text-gray-900 dark:hover:text-white text-justify">
               Busco oportunidades para colaborar en proyectos interesantes donde pueda 
               aportar mis conocimientos y seguir creciendo profesionalmente. Si buscas 
               una desarrolladora comprometida y con ganas de aprender, ¡me encantaría 

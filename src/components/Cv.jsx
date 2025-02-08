@@ -6,7 +6,7 @@ import avatarGA from "../img/avatarGA.png";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useMemo, useEffect } from "react";
-import { HiOutlineEmojiSad, HiOutlineStar } from 'react-icons/hi';
+import { HiOutlineEmojiSad, HiOutlineSparkles } from 'react-icons/hi';
 
 import { 
   SiJavascript, 
@@ -45,7 +45,7 @@ const activity = [
         id: 1,
         title: "Capellari",
         imageUrl: "",
-        date: "Dic 2023",
+        date: "",
       },
     ],
     funcionalidades: "",
@@ -158,7 +158,7 @@ const AptitudesList = ({ aptitudes }) => {
   const aptitudeArray = aptitudes.split('·').map(apt => apt.trim()).filter(Boolean);
   
   return (
-    <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
+    <div className="pt-3 border-t border-gray-100/10 dark:border-gray-800/10">
       <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
         <span>Aptitudes</span>
         <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
@@ -167,9 +167,9 @@ const AptitudesList = ({ aptitudes }) => {
         {aptitudeArray.map((aptitud, idx) => (
           <div 
             key={idx}
-            className="flex items-center gap-2 p-2 rounded-lg bg-gray-50/30 dark:bg-gray-800/20 group hover:bg-gray-100/50 dark:hover:bg-gray-700/30 transition-colors duration-200"
+            className="flex items-center gap-2 p-2 rounded-lg bg-gray-50/10 dark:bg-gray-800/5 hover:bg-gray-100/20 dark:hover:bg-gray-700/10 transition-colors duration-200 group"
           >
-            <HiOutlineStar className="w-4 h-4 text-indigo-400 dark:text-indigo-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400" />
+            <HiOutlineSparkles className="w-4 h-4 text-indigo-400/70 dark:text-indigo-500/70 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-all duration-200" />
             <span className="text-sm font-light text-gray-600 dark:text-gray-400">
               {aptitud}
             </span>
@@ -241,31 +241,31 @@ export default function Cv() {
   }, [filter, sortOrder]);
 
   return (
-    <section className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-16 sm:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-12 sm:py-24">
+      <div className="mx-auto max-w-4xl px-3 sm:px-6 lg:px-8">
         <motion.header 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mx-auto max-w-2xl text-center mb-24"
+          className="mx-auto max-w-2xl text-center mb-16 sm:mb-24 px-4"
         >
-          <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-2xl sm:text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             Experiencia Profesional
           </h2>
-          <div className="mt-4 flex justify-center">
+          <div className="mt-3 sm:mt-4 flex justify-center">
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
           </div>
-          <p className="mt-6 text-lg leading-8 text-gray-500 dark:text-gray-400 font-extralight">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-gray-500 dark:text-gray-400 font-extralight">
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <div className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2">
-              <HiOutlineAdjustments className="w-5 h-5 text-gray-400" />
+          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
+            <div className="w-full sm:w-auto flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5">
+              <HiOutlineAdjustments className="w-5 h-5 text-gray-400 flex-shrink-0" />
               <select 
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="bg-transparent border-none text-sm text-gray-600 dark:text-gray-300 focus:ring-0"
+                className="w-full sm:w-auto bg-transparent border-none text-sm text-gray-600 dark:text-gray-300 focus:ring-0"
               >
                 <option value="all">Todos</option>
                 <option value="withProjects">Con Proyectos</option>
@@ -275,7 +275,7 @@ export default function Cv() {
 
             <button
               onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
-              className="flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
             >
               <HiOutlineSortAscending className={`w-5 h-5 text-gray-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} />
               <span className="text-sm text-gray-600 dark:text-gray-300">
@@ -330,42 +330,53 @@ export default function Cv() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative pl-16 group"
+                  className="relative pl-12 sm:pl-16 group"
                   role="listitem"
                 >
                   <div className="absolute -left-4 top-0 flex items-center justify-center">
-                    <motion.div 
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
-                      className="absolute w-14 h-14 rounded-full bg-gradient-to-br from-indigo-50 to-transparent dark:from-indigo-900/10 dark:to-transparent"
-                    />
-                    
-                    <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-indigo-300/40 dark:bg-indigo-400/20 ring-2 ring-white/90 dark:ring-slate-900/90"></div>
-                    
-                    <div className="relative ml-6">
-                      <div className="rounded-full p-0.5 bg-white/90 dark:bg-slate-900/90 shadow-lg">
-                        <img
-                          src={item.imageUrl}
-                          alt={`Logo de ${item.experience.where}`}
-                          className="w-9 h-9 rounded-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                        <motion.div 
+                          initial={{ scale: 0 }}
+                          animate={{ scale: 1 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 + 0.2 }}
+                          className="absolute w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-gradient-to-br from-indigo-50 to-transparent dark:from-indigo-900/10 dark:to-transparent"
                         />
+                        
+                      <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-indigo-300/40 dark:bg-indigo-400/20 ring-2 ring-white/90 dark:ring-slate-900/90"></div>
+                        
+                      <div className="relative ml-4 sm:ml-6">
+                          <div className="rounded-full p-0.5 bg-white/90 dark:bg-slate-900/90 shadow-lg">
+                            <img
+                              src={item.imageUrl}
+                              alt={`Logo de ${item.experience.where}`}
+                              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover opacity-90 transition-opacity group-hover:opacity-100"
+                            />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </div>
 
-                  <div className="space-y-5">
-                    <div className="flex items-center gap-4">
+                  <div className="space-y-4 sm:space-y-5">
+                    <div className="flex items-start sm:items-center gap-3 sm:gap-4">
                       <div className="flex-1">
-                        <h3 className="text-lg font-light text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        <h3 className="text-base sm:text-lg font-light text-gray-800 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
                           {item.experience.title}
                         </h3>
-                        <div className="flex items-center gap-2 text-sm text-gray-400 dark:text-gray-500 mt-0.5">
-                          <HiOutlineOfficeBuilding className="w-4 h-4" />
-                          <span className="font-light">{item.experience.where}</span>
-                          <span className="text-gray-200 dark:text-gray-700">•</span>
-                          <HiOutlineCalendar className="w-4 h-4" />
+                        <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-400 dark:text-gray-500 mt-1">
+                          <div className="flex items-center gap-1 min-w-0">
+                            <HiOutlineOfficeBuilding className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                            <span className="font-light block sm:hidden">
+                              {item.experience.where.includes("Universidad Computense") 
+                                ? "UCM - Google Actívate"
+                                : item.experience.where.includes("Ateneo Argentino")
+                                ? "AAO - UF"
+                                : item.experience.where}
+                            </span>
+                            <span className="font-light hidden sm:block">{item.experience.where}</span>
+                          </div>
+                          <span className="text-gray-300 dark:text-gray-600">•</span>
+                          <div className="flex items-center gap-1 flex-shrink-0">
+                            <HiOutlineCalendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
                             <span className="font-light">{item.date}</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -376,18 +387,20 @@ export default function Cv() {
                       </p>
                     )}
 
+                    {item.aptitudes && <AptitudesList aptitudes={item.aptitudes} />}
+
                     {item.project && item.project.length > 0 && (
                       <div>
                         <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
-                          <span>Proyectos destacados</span>
+                          <span className="sm:inline">Proyectos destacados</span>
                           <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
                         </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {item.project.map((proj, idx) => {
                             const projectIcon = projectIcons[proj.title] || {
                               icon: HiOutlinePuzzle,
                               color: 'text-gray-400',
-                              bgColor: 'bg-gray-50/30 dark:bg-gray-800/20'
+                              bgColor: 'bg-gray-50/10 dark:bg-gray-800/5'
                             };
                             const IconComponent = projectIcon.icon;
                             
@@ -395,23 +408,23 @@ export default function Cv() {
                               <button
                                 key={idx}
                                 onClick={() => handleClick(proj.title)}
-                                className="group flex items-center gap-2 hover:opacity-80 p-3 rounded-lg transition-all duration-300 hover:bg-gray-50/50 dark:hover:bg-gray-800/50 focus:outline-none focus:ring-2 focus:ring-indigo-500/50 dark:focus:ring-indigo-400/50"
+                                className="group relative flex items-center gap-3 py-2 px-2.5 -mx-2.5 rounded-lg hover:bg-gray-50/20 dark:hover:bg-slate-800/10 transition-all duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-indigo-500/20 dark:focus-visible:ring-indigo-400/20"
                                 aria-label={`Ver proyecto ${proj.title}`}
                               >
-                                <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
+                                <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor} group-hover:scale-105 transition-transform duration-200`}>
                                   <IconComponent 
-                                    className={`h-4 w-4 ${projectIcon.color}`}
+                                    className={`h-3.5 w-3.5 ${projectIcon.color}`}
                                   />
                                 </div>
-                                <div>
-                                  <h3 className="text-sm font-light text-gray-700 dark:text-gray-300">
+                                <div className="flex-1 min-w-0 text-left">
+                                  <h3 className="text-sm font-light text-gray-600 dark:text-gray-300 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors">
                                     {proj.title}
                                   </h3>
-                                  {proj.date && (
-                                    <p className="text-xs text-gray-400 dark:text-gray-500">
-                                      {proj.date}
-                                    </p>
-                                  )}
+                                </div>
+                                <div className="flex-shrink-0 text-gray-300 dark:text-gray-700 group-hover:text-indigo-500/50 dark:group-hover:text-indigo-400/50 group-hover:translate-x-0.5 transition-all duration-200 opacity-0 group-hover:opacity-100">
+                                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                                  </svg>
                                 </div>
                               </button>
                             );
@@ -421,12 +434,12 @@ export default function Cv() {
                     )}
 
                     {item.tecnologies && (
-                      <div className="pt-5 border-t border-gray-100/30 dark:border-gray-800/30">
+                      <div className="pt-3 border-t border-gray-100/10 dark:border-gray-800/10">
                         <h4 className="text-xs font-light text-gray-600 dark:text-gray-400 mb-3 flex items-center gap-3">
                           <span>Stack tecnológico</span>
                           <div className="h-px flex-1 bg-gradient-to-r from-gray-100 to-transparent dark:from-gray-800"></div>
                         </h4>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap justify-center sm:justify-start gap-2">
                           {item.tecnologies.split(',').map((tech, idx) => {
                             const techKey = tech.trim();
                             const techData = techIcons[techKey];
@@ -437,15 +450,16 @@ export default function Cv() {
                             return (
                               <div 
                                 key={idx}
-                                className="inline-flex items-center gap-1.5 py-1 px-3 rounded-full bg-gray-50/30 dark:bg-gray-800/20 hover:bg-gray-100/50 dark:hover:bg-gray-700/30 transition-colors duration-200"
+                                className="inline-flex items-center gap-1.5 py-1.5 px-2 sm:px-2.5 rounded-md bg-gray-50/10 dark:bg-gray-800/5 hover:bg-gray-100/20 dark:hover:bg-gray-700/10 transition-colors duration-200 group"
                                 role="listitem"
                                 aria-label={`Tecnología: ${techKey}`}
+                                title={techKey}
                               >
                                 <Icon 
-                                  className={`w-3.5 h-3.5 ${techData.color} opacity-75`}
+                                  className={`w-4 h-4 sm:w-4.5 sm:h-4.5 ${techData.color} opacity-70 group-hover:opacity-100 transition-opacity`}
                                   aria-hidden="true"
                                 />
-                                <span className="text-xs font-light text-gray-500 dark:text-gray-400">
+                                <span className="hidden sm:inline text-xs font-light text-gray-500 dark:text-gray-400">
                                   {techKey}
                                 </span>
                               </div>
@@ -453,10 +467,6 @@ export default function Cv() {
                           })}
                         </div>
                       </div>
-                    )}
-
-                    {item.aptitudes && (
-                      <AptitudesList aptitudes={item.aptitudes} />
                     )}
                   </div>
                 </motion.article>

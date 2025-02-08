@@ -8,7 +8,6 @@ import { useHistory } from "react-router-dom";
 import { FaReact, FaNodeJs, FaCss3Alt } from "react-icons/fa";
 import { SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
 
-// Objeto para mapear tecnologías con sus iconos
 const techIcons = {
   "React": <FaReact className="w-3.5 h-3.5" />,
   "Node.js": <FaNodeJs className="w-3.5 h-3.5" />,
@@ -114,7 +113,6 @@ export default function Projects() {
             <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
           </div>
          
-          
           {/* Subtítulo y descripción */}
           <div className="mt-12 space-y-8">
             <div className="flex items-center justify-center gap-3">
