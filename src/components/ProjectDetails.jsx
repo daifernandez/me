@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
 import { useRef } from 'react';
+import React from 'react';
 import Footer from "./Footer";
 import GSipad from "./ImgProjects/GSipad.png";
 import GSipad2 from "./ImgProjects/GSipad1.png";
@@ -197,7 +198,7 @@ function TechnologyItem({ technology }) {
   const technologyIcon = technologiesName[technologyName].icon;
   return (
     <div className="group flex items-center gap-3 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-      <div className="transition-all duration-300 group-hover:scale-110 group-hover:text-indigo-500">
+      <div className="transition-all duration-300 group-hover:scale-110">
         {technologyIcon}
       </div>
       <span className="text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
@@ -327,9 +328,19 @@ export default function ProjectDetails() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
           <div className="max-w-3xl mx-auto text-center">
             <div className="inline-flex items-center justify-center p-1 mb-8 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm ring-1 ring-gray-200 dark:ring-gray-700">
-              <span className="px-4 py-1 text-sm font-medium text-indigo-600 dark:text-indigo-400">
-                {project.technologiesDestacadas.join(" · ")}
-              </span>
+              <div className="px-6 py-2 flex items-center gap-8">
+                {project.technologiesDestacadas.map((tech, index) => {
+                  const techKey = tech.toLowerCase().replace(/\s/g, "");
+                  return (
+                    <div key={index} className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+                      {React.cloneElement(technologiesName[techKey].icon, {
+                        color: 'currentColor',
+                        size: 20
+                      })}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8
