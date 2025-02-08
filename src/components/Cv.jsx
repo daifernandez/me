@@ -259,13 +259,13 @@ export default function Cv() {
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
 
-          <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 px-4">
-            <div className="w-full sm:w-auto flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5">
+          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-center gap-2 px-4">
+            <div className="flex-1 max-w-[200px] flex items-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5">
               <HiOutlineAdjustments className="w-5 h-5 text-gray-400 flex-shrink-0" />
               <select 
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
-                className="w-full sm:w-auto bg-transparent border-none text-sm text-gray-600 dark:text-gray-300 focus:ring-0"
+                className="w-full bg-transparent border-none text-sm text-gray-600 dark:text-gray-300 focus:ring-0"
               >
                 <option value="all">Todos</option>
                 <option value="withProjects">Con Proyectos</option>
@@ -275,7 +275,7 @@ export default function Cv() {
 
             <button
               onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
-              className="w-full sm:w-auto flex items-center justify-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              className="flex-1 max-w-[200px] flex items-center justify-center gap-2 bg-white dark:bg-slate-800 rounded-lg shadow-sm p-2.5 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
             >
               <HiOutlineSortAscending className={`w-5 h-5 text-gray-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} />
               <span className="text-sm text-gray-600 dark:text-gray-300">
@@ -382,7 +382,7 @@ export default function Cv() {
                     </div>
 
                     {item.description && (
-                      <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm">
+                      <p className="text-gray-500 dark:text-gray-400 leading-relaxed font-light text-sm text-justify">
                         {item.description}
                       </p>
                     )}

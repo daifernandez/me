@@ -9,15 +9,15 @@ import { FaReact, FaNodeJs, FaCss3Alt } from "react-icons/fa";
 import { SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
 
 const techIcons = {
-  "React": <FaReact className="w-3.5 h-3.5" />,
-  "Node.js": <FaNodeJs className="w-3.5 h-3.5" />,
-  "CSS": <FaCss3Alt className="w-3.5 h-3.5" />,
-  "PostgreSQL": <SiPostgresql className="w-3.5 h-3.5" />,
-  "Sequelize": <SiSequelize className="w-3.5 h-3.5" />,
-  "Express": <SiExpress className="w-3.5 h-3.5" />,
-  "TailwindCSS": <SiTailwindcss className="w-3.5 h-3.5" />,
-  "Firebase": <SiFirebase className="w-3.5 h-3.5" />,
-  "Next.js": <SiNextdotjs className="w-3.5 h-3.5" />,
+  "React": <FaReact className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#61DAFB]" />,
+  "Node.js": <FaNodeJs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#339933]" />,
+  "CSS": <FaCss3Alt className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#1572B6]" />,
+  "PostgreSQL": <SiPostgresql className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#4169E1]" />,
+  "Sequelize": <SiSequelize className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#52B0E7]" />,
+  "Express": <SiExpress className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
+  "TailwindCSS": <SiTailwindcss className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#06B6D4]" />,
+  "Firebase": <SiFirebase className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#FFCA28]" />,
+  "Next.js": <SiNextdotjs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
 };
 
 const categories = [
@@ -106,7 +106,7 @@ export default function Projects() {
         <div className="relative mx-auto max-w-2xl text-center mb-24">
           <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-40 h-40 bg-indigo-500/5 rounded-full blur-3xl" />
           
-          <h2 className="text-3xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
           Mis Proyectos
           </h2>
           <div className="mt-4 flex justify-center">
@@ -117,13 +117,13 @@ export default function Projects() {
           <div className="mt-12 space-y-8">
             <div className="flex items-center justify-center gap-3">
               <span className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600"></span>
-              <span className="text-sm font-light tracking-widest uppercase text-gray-500 dark:text-gray-400">
+              <span className="text-xs xs:text-sm font-light tracking-widest uppercase text-gray-500 dark:text-gray-400">
                 {categories[0].title}
               </span>
               <span className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600"></span>
             </div>
             
-            <p className="text-base text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+            <p className="text-sm xs:text-base sm:text-lg text-gray-500 dark:text-gray-400 font-light leading-relaxed">
               Explora mi portafolio de desarrollo web, donde cada proyecto refleja mi pasión por crear experiencias digitales excepcionales
             </p>
           </div>
@@ -132,19 +132,24 @@ export default function Projects() {
           <div className="mt-12 flex flex-wrap justify-center gap-3">
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-5 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+              className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-all duration-300 ${
                 !selectedTag
                   ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800"
                   : "bg-gray-50 dark:bg-slate-800/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
               }`}
             >
-              Todos
+              <span className="hidden sm:inline">Todos</span>
+              <span className="sm:hidden">
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              </span>
             </button>
             {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-5 py-2 rounded-full text-sm font-light transition-all duration-300 ${
+                className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-all duration-300 ${
                   selectedTag === tag
                     ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800"
                     : "bg-gray-50 dark:bg-slate-800/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
@@ -152,7 +157,7 @@ export default function Projects() {
               >
                 <span className="flex items-center gap-2">
                   {techIcons[tag]}
-                  {tag}
+                  <span className="hidden sm:inline">{tag}</span>
                 </span>
               </button>
             ))}
@@ -187,21 +192,21 @@ export default function Projects() {
                     {/* Contenido */}
                     <div className="p-6 space-y-4">
                       <div>
-                        <h3 className="text-xl font-light tracking-wide text-gray-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300">
+                        <h3 className="text-lg xs:text-xl font-light tracking-wide text-gray-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300">
                           {project.title}
                         </h3>
                         <div className="mt-2 flex items-center gap-3">
-                          <time className="text-sm font-light text-gray-500 dark:text-gray-400">
+                          <time className="text-xs xs:text-sm font-light text-gray-500 dark:text-gray-400">
                             {project.date}
                           </time>
                           <span className="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-600" />
-                          <span className="text-sm font-light text-gray-500 dark:text-gray-400">
+                          <span className="text-xs xs:text-sm font-light text-gray-500 dark:text-gray-400">
                             {project.author.name}
                           </span>
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-600 dark:text-gray-300 font-light line-clamp-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300">
+                      <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-300 font-light line-clamp-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300">
                         {project.description}
                       </p>
 
@@ -210,7 +215,7 @@ export default function Projects() {
                         {project.tags.slice(0, 6).map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center justify-center w-8 h-8 rounded-full text-gray-600 dark:text-gray-300 bg-gray-100/80 dark:bg-slate-700/80 backdrop-blur-sm transition-all duration-300 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:text-indigo-600 dark:hover:text-indigo-300"
+                            className="inline-flex items-center justify-center w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-slate-800 backdrop-blur-sm transition-all duration-300 hover:bg-gray-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md"
                           >
                             {techIcons[tag]}
                           </span>
