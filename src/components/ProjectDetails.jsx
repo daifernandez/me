@@ -31,6 +31,7 @@ import {
   SiFirebase,
   SiCloudinary,
   SiGithub,
+  SiTailwindcss,
 } from "@icons-pack/react-simple-icons";
 import ReactPlayer from "react-player";
 import ScrollToTop from "./ScrollToTop";
@@ -190,6 +191,10 @@ const technologiesName = {
   github: {
     name: "GitHub",
     icon: <SiGithub title="GitHub" color="#181717" size={20} />,
+  },
+  tailwindcss: {
+    name: "TailwindCSS",
+    icon: <SiTailwindcss title="TailwindCSS" color="#06B6D4" size={20} />,
   },
 };
 
