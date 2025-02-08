@@ -202,11 +202,11 @@ function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
   return (
-    <div className="group flex items-center gap-3 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+    <div className="group flex items-center gap-3 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 backdrop-blur-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
       <div className="transition-all duration-300 group-hover:scale-110">
         {technologyIcon}
       </div>
-      <span className="text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
+      <span className="text-sm font-light text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
         {technology}
       </span>
     </div>
@@ -263,15 +263,15 @@ function AptitudeItem({ aptitud }) {
   };
 
   return (
-    <div className="group flex items-center gap-4 p-4 rounded-xl bg-gradient-to-r from-white/50 to-white/30 dark:from-gray-800/50 dark:to-gray-800/30 hover:from-indigo-50 hover:to-indigo-50/50 dark:hover:from-indigo-900/20 dark:hover:to-indigo-900/10 border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-500 dark:text-indigo-400 group-hover:scale-110 transition-all duration-300">
+    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 backdrop-blur-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
+      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-100/50 dark:bg-indigo-900/30 text-indigo-500 dark:text-indigo-400 group-hover:scale-110 transition-all duration-300">
         {getIcon(aptitud)}
       </div>
       <div className="flex-1">
-        <h3 className="text-base font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <h3 className="text-base font-light text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
           {aptitud}
         </h3>
-        <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 text-justify">
+        <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-light text-justify">
           {getAptitudeDescription(aptitud)}
         </p>
       </div>
@@ -389,7 +389,7 @@ export default function ProjectDetails() {
           {/* Tecnologías y Aptitudes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Tecnologías */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
               <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Tecnologías</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {project.technologies.sort().map((technology, index) => (
@@ -399,7 +399,7 @@ export default function ProjectDetails() {
             </div>
 
             {/* Aptitudes */}
-            <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+            <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
               <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Aptitudes clave</h2>
               <div className="space-y-4">
                 {project.aptitudes.map((aptitud, index) => (
@@ -410,7 +410,7 @@ export default function ProjectDetails() {
           </div>
 
           {/* Galería */}
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-3xl p-10 shadow-xl ring-1 ring-gray-100 dark:ring-gray-700">
+          <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
             {/* Vista Principal */}
             <div className="relative mb-12">
               <Splide
@@ -430,7 +430,7 @@ export default function ProjectDetails() {
               >
                 {project.images.map((image, index) => (
                   <SplideSlide key={index}>
-                    <div className="relative aspect-[16/9] rounded-3xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800">
+                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
                       <img
                         src={image}
                         alt={`Vista ${index + 1} del proyecto ${project.name}`}
@@ -449,7 +449,7 @@ export default function ProjectDetails() {
                 <button
                   key={index}
                   onClick={() => splideRef.current?.go(index)}
-                  className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 hover:shadow-lg transition-all duration-500 ease-out"
+                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <img
                     src={image}
@@ -475,7 +475,7 @@ export default function ProjectDetails() {
                   key={device}
                   onClick={() => splideRef.current?.go(index)}
                   className="px-5 py-2 text-xs font-light tracking-wide rounded-full transition-all duration-500 ease-out
-                    bg-white dark:bg-gray-900 hover:bg-gray-50 dark:hover:bg-gray-800
+                    bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800
                     text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
                     ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-gray-300 dark:hover:ring-gray-600
                     hover:shadow-md transform hover:-translate-y-0.5"
