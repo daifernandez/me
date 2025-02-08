@@ -122,16 +122,16 @@ const activity = [
 ];
 
 const techIcons = {
-  'JavaScript': { icon: SiJavascript, color: 'text-yellow-400' },
-  'React': { icon: SiReact, color: 'text-blue-400' },
-  'Redux': { icon: SiRedux, color: 'text-purple-500' },
-  'NodeJS': { icon: SiNodedotjs, color: 'text-green-500' },
-  'Express': { icon: SiExpress, color: 'text-gray-600 dark:text-gray-400' },
-  'Sequelize': { icon: SiSequelize, color: 'text-blue-500' },
-  'PostgreSQL': { icon: SiPostgresql, color: 'text-blue-400' },
-  'NextJS': { icon: SiNextdotjs, color: 'text-gray-900 dark:text-white' },
-  'TailwindCSS': { icon: SiTailwindcss, color: 'text-cyan-400' },
-  'Firebase': { icon: SiFirebase, color: 'text-yellow-500' },
+  'JavaScript': { icon: SiJavascript, color: 'text-gray-500 dark:text-gray-400' },
+  'React': { icon: SiReact, color: 'text-gray-500 dark:text-gray-400' },
+  'Redux': { icon: SiRedux, color: 'text-gray-500 dark:text-gray-400' },
+  'NodeJS': { icon: SiNodedotjs, color: 'text-gray-500 dark:text-gray-400' },
+  'Express': { icon: SiExpress, color: 'text-gray-500 dark:text-gray-400' },
+  'Sequelize': { icon: SiSequelize, color: 'text-gray-500 dark:text-gray-400' },
+  'PostgreSQL': { icon: SiPostgresql, color: 'text-gray-500 dark:text-gray-400' },
+  'NextJS': { icon: SiNextdotjs, color: 'text-gray-500 dark:text-gray-400' },
+  'TailwindCSS': { icon: SiTailwindcss, color: 'text-gray-500 dark:text-gray-400' },
+  'Firebase': { icon: SiFirebase, color: 'text-gray-500 dark:text-gray-400' },
 };
 
 const projectIcons = {
