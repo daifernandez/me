@@ -20,6 +20,18 @@ const techIcons = {
   "Next.js": <SiNextdotjs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
 };
 
+const techIconsCard = {
+  "React": <FaReact className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "Node.js": <FaNodeJs className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "CSS": <FaCss3Alt className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "PostgreSQL": <SiPostgresql className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "Sequelize": <SiSequelize className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "Express": <SiExpress className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "TailwindCSS": <SiTailwindcss className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "Firebase": <SiFirebase className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+  "Next.js": <SiNextdotjs className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
+};
+
 const categories = [
   {
     id: 1,
@@ -215,9 +227,9 @@ export default function Projects() {
                         {project.tags.slice(0, 6).map((tag) => (
                           <span
                             key={tag}
-                            className="inline-flex items-center justify-center w-10 h-10 sm:w-8 sm:h-8 rounded-full bg-white dark:bg-slate-800 backdrop-blur-sm transition-all duration-300 hover:bg-gray-50 dark:hover:bg-slate-700 shadow-sm hover:shadow-md"
+                            className="inline-flex items-center justify-center w-8 h-8 sm:w-8 sm:h-8 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-white/80 dark:hover:bg-slate-700/80 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
                           >
-                            {techIcons[tag]}
+                            {techIconsCard[tag]}
                           </span>
                         ))}
                       </div>
