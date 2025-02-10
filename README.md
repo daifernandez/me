@@ -55,12 +55,10 @@ Portfolio personal desarrollado con React y TailwindCSS, diseñado para mostrar 
 
 </div>
 
-## Contacto 📫
 
 <div align="center">
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tu-perfil)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](https://tu-portfolio.com)
 
 <sub>Desarrollado con ❤️ por Daiana Fernandez</sub>
 
