@@ -1,7 +1,7 @@
 import React from "react";
 import Social from "./Social";
 import { useHistory } from "react-router-dom";
-import { HiOutlineCode, HiOutlineUser, HiOutlineLink } from "react-icons/hi";
+import { HiOutlineUser, HiOutlineLink } from "react-icons/hi";
 import { motion } from "framer-motion";
 
 export default function Intro() {
@@ -12,13 +12,6 @@ export default function Intro() {
     animate: { opacity: 1, y: 0 },
     transition: { duration: 0.6 }
   };
-
-  const skills = [
-    { name: 'Frontend Development', level: '95%' },
-    { name: 'Backend Development', level: '85%' },
-    { name: 'Responsive Design', level: '90%' },
-    { name: 'API Integration', level: '88%' }
-  ];
 
   return (
     <div className="bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-slate-900 dark:via-slate-800/50 dark:to-slate-900 py-8 xs:py-16 sm:py-24 min-h-screen flex items-center">
@@ -86,50 +79,6 @@ export default function Intro() {
                       Aquí encontrarás algunos de mis proyectos más recientes.
                     </p>
                   </div>
-              </motion.div>
-
-              {/* Sección de especialidades */}
-              <motion.div 
-                {...fadeInUp} 
-                className="relative group">
-                <div className="absolute -left-3 xs:-left-4 top-0.5 xs:top-1">
-                  <div className="p-1 xs:p-1.5 sm:p-2 rounded-lg bg-white/50 dark:bg-slate-800/50 shadow-sm ring-1 ring-gray-100 dark:ring-gray-800 group-hover:ring-indigo-400 transition-all duration-300">
-                    <HiOutlineCode className="w-3 h-3 xs:w-4 xs:h-4 sm:w-5 sm:h-5 text-indigo-500" />
-                  </div>
-                </div>
-                <div className="space-y-3 xs:space-y-4 pl-4 xs:pl-6 sm:pl-8">
-                  <h3 className="text-base xs:text-lg sm:text-xl font-light text-gray-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300">
-                      Especialidades
-                  </h3>
-                  <div className="grid grid-cols-1 xs:grid-cols-2 gap-4 xs:gap-5 sm:gap-6">
-                      {skills.map((skill) => (
-                        <div 
-                          key={skill.name} 
-                          className="space-y-2 group/skill"
-                          role="progressbar"
-                          aria-valuenow={parseInt(skill.level)}
-                          aria-valuemin="0"
-                          aria-valuemax="100">
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs xs:text-sm sm:text-base font-light text-gray-600 dark:text-gray-400 group-hover/skill:text-indigo-500 transition-colors duration-300">
-                              {skill.name}
-                            </span>
-                            <span className="text-xs xs:text-sm font-light text-indigo-500">
-                              {skill.level}
-                            </span>
-                          </div>
-                          <div className="h-1 xs:h-1.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
-                            <motion.div 
-                              initial={{ width: 0 }}
-                              whileInView={{ width: skill.level }}
-                              transition={{ duration: 1, ease: "easeOut" }}
-                              className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"
-                            />
-                          </div>
-                        </div>
-                      ))}
-                  </div>
-                </div>
               </motion.div>
 
               {/* Sección de conexión */}
