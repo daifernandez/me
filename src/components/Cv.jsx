@@ -1,7 +1,6 @@
 import avatarHenry from "../img/avatarHenry.jpeg";
 import avatarCoder from "../img/avatarCoder.png";
 import avatarPlatzi from "../img/avatarPlatzi.png";
-import avatarAAO from "../img/avatarAAO.jpeg";
 import avatarGA from "../img/avatarGA.png";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
