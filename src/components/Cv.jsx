@@ -105,20 +105,6 @@ const activity = [
     aptitudes: "",
     date: "2021",
   },
-  {
-    id: 1,
-    type: "assigne",
-    experience: {
-      where: "Ateneo Argentino de Odontologia - Universidad de Favaloro",
-      title: "Auxiliar de Odotología",
-    },
-    imageUrl: avatarAAO,
-    description: "Caracter teórico con prácticas en clínica y evaluación",
-    funcionalidades: "",
-    aptitudes:
-      "Resolución de problemas · Comunicación · Trabajo en equipo · Habilidades sociales · Asistencia de administración · Programación de citas",
-    date: "2010",
-  },
 ];
 
 const techIcons = {

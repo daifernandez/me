@@ -26,28 +26,6 @@ export default function Social() {
         </svg>
       </a>
       <a
-        href="https://twitter.com/daiofernandez"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex flex-row mt-5 transform transition duration-500 ease-in-out hover:scale-110"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-twitter mr-3"
-          width="34"
-          height="34"
-          viewBox="0 0 27 20"
-          strokeWidth="1"
-          stroke="#9e9e9e"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-        </svg>
-      </a>
-      <a
         href="https://www.linkedin.com/in/daifernandez/"
         target="_blank"
         rel="noopener noreferrer"
