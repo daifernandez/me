@@ -15,6 +15,10 @@ import Cipad from "./ImgProjects/Cipad.png";
 import Cipad2 from "./ImgProjects/Cipad2.png";
 import Cmobile from "./ImgProjects/Cmobile.png";
 import Cweb from "./ImgProjects/Cweb.png";
+import NCipad from "./ImgProjects/NCipad.png";
+import NCipad2 from "./ImgProjects/NCipad2.png";
+import NCweb from "./ImgProjects/NCweb.png";
+import NCmobile from "./ImgProjects/NCmobile.png";
 import {
   SiJavascript,
   SiReact,
@@ -33,6 +37,10 @@ import {
   SiCloudinary,
   SiGithub,
   SiTailwindcss,
+  SiSupabase,
+  SiPrisma,
+  SiTypescript,
+  SiResend,
 } from "react-icons/si";
 import {
   ArrowLeftIcon,
@@ -44,16 +52,110 @@ import {
   Cog6ToothIcon,
   MagnifyingGlassIcon,
   ShieldCheckIcon,
+  GiftIcon,
+  ShareIcon,
+  LinkIcon,
+  LockClosedIcon,
+  EnvelopeIcon,
+  NoSymbolIcon,
+  ServerStackIcon,
+  PaintBrushIcon,
+  CommandLineIcon,
+  CpuChipIcon,
 } from "@heroicons/react/24/outline";
 import ReactPlayer from "react-player";
 import ScrollToTop from "./ScrollToTop";
 import pawcareBackground from "../img/PawCare.png";
 import gamestreamBackground from "../img/GameStream.png";
 import capellariBackground from "../img/capellari.jpeg";
+import nidocoBackground from "../img/NidoCo.png";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
 
 const projects = {
+  nidoco: {
+    name: "Nido & Co",
+    description:
+      "Nido & Co es una plataforma web donde podés crear listas de regalos y compartirlas con las personas que querés. Ya sea para un baby shower, un cumpleaños o cualquier excusa para celebrar. La idea es simple: armás la lista, compartís un link, y tus invitados eligen qué regalar sin pisarse entre ellos. Desarrollada con Next.js 15, React 19 y Tailwind CSS, con base de datos PostgreSQL en Supabase, ORM Prisma, autenticación con Google OAuth y emails transaccionales vía Resend.",
+    technologies: [
+      "TypeScript",
+      "React",
+      "NextJS",
+      "TailwindCSS",
+      "PostgreSQL",
+      "Supabase",
+      "Prisma",
+      "Resend",
+      "Google Login",
+    ],
+    technologiesDestacadas: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "TailwindCSS",
+      "Supabase",
+    ],
+    aptitudes: ["Autonomía", "Investigación", "Organización"],
+    images: [NCipad, NCipad2, NCweb, NCmobile],
+    link: "https://nido-co.vercel.app",
+    video: false,
+    github: "https://github.com/daifernandez/nido-and-co.git",
+    background: nidocoBackground,
+    features: [
+      {
+        icon: GiftIcon,
+        title: "Listas personalizadas",
+        description: "Creá listas para cada ocasión: baby shower, nacimiento, primer cumpleaños.",
+      },
+      {
+        icon: NoSymbolIcon,
+        title: "Sin regalos duplicados",
+        description: "Cada regalo se marca al reservarlo. Todos saben qué está disponible.",
+      },
+      {
+        icon: LinkIcon,
+        title: "Links inteligentes",
+        description: "Pegás la URL del producto y se extrae la imagen y datos automáticamente.",
+      },
+      {
+        icon: ShareIcon,
+        title: "Compartir fácil",
+        description: "Link único para compartir por WhatsApp, email o redes. Sin registro para invitados.",
+      },
+      {
+        icon: LockClosedIcon,
+        title: "PIN de seguridad",
+        description: "Protegé tu lista con un código de acceso opcional para mayor privacidad.",
+      },
+      {
+        icon: EnvelopeIcon,
+        title: "Emails transaccionales",
+        description: "Confirmación de reserva, recordatorios y notificaciones automáticas vía Resend.",
+      },
+    ],
+    highlights: [
+      {
+        icon: CpuChipIcon,
+        label: "Next.js 15 + React 19",
+        description: "Última versión del framework con Server Components y App Router.",
+      },
+      {
+        icon: ServerStackIcon,
+        label: "Supabase + Prisma",
+        description: "PostgreSQL en la nube con ORM type-safe y autenticación OAuth integrada.",
+      },
+      {
+        icon: PaintBrushIcon,
+        label: "Diseño propio",
+        description: "UI/UX diseñada desde cero con Tailwind CSS, animaciones y dark mode.",
+      },
+      {
+        icon: CommandLineIcon,
+        label: "Full-stack completo",
+        description: "Desde el concepto hasta el deploy en producción, desarrollado de forma individual.",
+      },
+    ],
+  },
   pawcare: {
     name: "PawCare",
     description:
@@ -210,6 +312,22 @@ const technologiesName = {
     name: "TailwindCSS",
     icon: <SiTailwindcss title="TailwindCSS" className={techIconClass} />,
   },
+  supabase: {
+    name: "Supabase",
+    icon: <SiSupabase title="Supabase" className={techIconClass} />,
+  },
+  prisma: {
+    name: "Prisma",
+    icon: <SiPrisma title="Prisma" className={techIconClass} />,
+  },
+  typescript: {
+    name: "TypeScript",
+    icon: <SiTypescript title="TypeScript" className={techIconClass} />,
+  },
+  resend: {
+    name: "Resend",
+    icon: <SiResend title="Resend" className={techIconClass} />,
+  },
 };
 
 function TechnologyItem({ technology }) {
@@ -270,6 +388,7 @@ function getAptitudeDescription(aptitud) {
 }
 
 const deviceLabels = {
+  nidoco: ['Ayuda', 'Login', 'Desktop', 'Features'],
   pawcare: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
   gamestream: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
   capellari: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
@@ -398,6 +517,72 @@ export default function ProjectDetails() {
               </div>
             </div>
           </div>
+
+          {/* Features del proyecto (solo si existen) */}
+          {project.features && (
+            <div className="mb-10 xs:mb-12 sm:mb-14">
+              <div className="text-center mb-8 xs:mb-10">
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl font-light text-stone-800 dark:text-white">
+                  Funcionalidades principales
+                </h2>
+                <p className="mt-2 text-sm text-stone-400 dark:text-stone-500 font-light">
+                  Lo que hace especial a {project.name}
+                </p>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 xs:gap-5 sm:gap-6">
+                {project.features.map((feature, index) => {
+                  const FeatureIcon = feature.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="rounded-xl xs:rounded-2xl p-5 xs:p-6 border border-stone-200 dark:border-stone-700 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-300"
+                    >
+                      <div className="w-10 h-10 xs:w-11 xs:h-11 flex items-center justify-center rounded-xl bg-stone-100 dark:bg-neutral-800 mb-4">
+                        <FeatureIcon className="w-5 h-5 xs:w-6 xs:h-6 text-stone-500 dark:text-stone-400" strokeWidth={1.5} />
+                      </div>
+                      <h3 className="text-base font-light text-stone-800 dark:text-white mb-1.5">
+                        {feature.title}
+                      </h3>
+                      <p className="text-sm text-stone-500 dark:text-stone-400 font-light leading-relaxed">
+                        {feature.description}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* Highlights técnicos (solo si existen) */}
+          {project.highlights && (
+            <div className="mb-10 xs:mb-12 sm:mb-14">
+              <div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-8 border border-stone-200 dark:border-stone-700 bg-stone-100/50 dark:bg-neutral-800/50">
+                <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6 xs:mb-8">
+                  Destacados técnicos
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 xs:gap-6">
+                  {project.highlights.map((highlight, index) => {
+                    const HighlightIcon = highlight.icon;
+                    return (
+                      <div key={index} className="flex gap-4">
+                        <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-white dark:bg-neutral-900 border border-stone-200 dark:border-stone-700">
+                          <HighlightIcon className="w-5 h-5 text-stone-500 dark:text-stone-400" strokeWidth={1.5} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="text-sm font-medium text-stone-800 dark:text-white">
+                            {highlight.label}
+                          </h3>
+                          <p className="mt-1 text-sm text-stone-500 dark:text-stone-400 font-light leading-relaxed">
+                            {highlight.description}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Galería */}
           <div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-6 border border-stone-200 dark:border-stone-700">

@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gamestream from "../img/GameStream.png";
 import pawcare from "../img/PawCare.png";
+import nidoco from "../img/NidoCo.png";
 import avatarPC from "../img/avatarPC.png";
 import avatarGS from "../img/avatarGS.png";
 import capellari from "../img/capellari.jpeg";
 import { useNavigate } from "react-router-dom";
-import { SiReact, SiNodedotjs, SiCss3, SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
-import { Bars3Icon } from "@heroicons/react/24/outline";
+import { SiReact, SiNodedotjs, SiCss3, SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs, SiSupabase, SiPrisma, SiTypescript } from "react-icons/si";
+import { Bars3Icon, StarIcon } from "@heroicons/react/24/outline";
 
 const techIconClass = "w-5 h-5 sm:w-3.5 sm:h-3.5 text-stone-500 dark:text-stone-400";
 
@@ -21,6 +22,9 @@ const techIcons = {
   "TailwindCSS": <SiTailwindcss className={techIconClass} />,
   "Firebase": <SiFirebase className={techIconClass} />,
   "Next.js": <SiNextdotjs className={techIconClass} />,
+  "Supabase": <SiSupabase className={techIconClass} />,
+  "Prisma": <SiPrisma className={techIconClass} />,
+  "TypeScript": <SiTypescript className={techIconClass} />,
 };
 
 const categories = [
@@ -28,6 +32,20 @@ const categories = [
     id: 1,
     title: "Desarrollo Web",
     projects: [
+      {
+        id: 4,
+        title: "Nido & Co",
+        href: "/projects/nidoco",
+        description: "Plataforma web para crear y compartir listas de regalos para momentos especiales. Armá tu lista, compartí un link, y tus invitados eligen qué regalar sin duplicados. Con autenticación Google, emails transaccionales y links inteligentes.",
+        imageUrl: nidoco,
+        date: "Ene 2026",
+        tags: ["Next.js", "React", "TypeScript", "TailwindCSS", "Supabase", "Prisma"],
+        featured: true,
+        author: {
+          name: "Proyecto Personal",
+          imageUrl: avatarPC,
+        },
+      },
       {
         id: 1,
         title: "GameStream",
@@ -101,6 +119,7 @@ export default function Projects() {
   }, []);
 
   const routes = {
+    "Nido & Co": "/projects/nidoco",
     GameStream: "/projects/gamestream",
     Capellari: "/projects/capellari",
     PawCare: "/projects/pawcare",
@@ -209,49 +228,125 @@ export default function Projects() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.95 }}
                       transition={{ duration: 0.3, ease: "easeOut" }}
-                      className="group relative bg-white dark:bg-neutral-800 rounded-2xl transition-colors duration-300 overflow-hidden cursor-pointer border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
+                      className={`group relative bg-white dark:bg-neutral-800 rounded-2xl transition-all duration-300 overflow-hidden cursor-pointer border hover:border-stone-400 dark:hover:border-stone-500 ${
+                        project.featured
+                          ? "md:col-span-2 lg:col-span-3 border-stone-300 dark:border-stone-600 shadow-sm hover:shadow-md"
+                          : "border-stone-200 dark:border-stone-700"
+                      }`}
                       onClick={() => handleClick(project.title)}
                       tabIndex={0}
                       role="button"
                       aria-label={`Ver detalles de ${project.title}`}
                       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleClick(project.title))}
                     >
-                      {/* Contenedor de la imagen */}
-                      <div className="relative h-40 xs:h-44 sm:h-52 overflow-hidden">
-                        <img
-                          src={project.imageUrl}
-                          alt={project.title}
-                          loading="lazy"
-                          className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-90"
-                        />
-                      </div>
+                      {project.featured ? (
+                        /* Layout destacado — vertical en mobile, horizontal en md+ */
+                        <div className="flex flex-col md:flex-row">
+                          {/* Imagen */}
+                          <div className="relative h-44 xs:h-52 sm:h-60 md:h-auto md:w-3/5 overflow-hidden">
+                            <img
+                              src={project.imageUrl}
+                              alt={project.title}
+                              loading="lazy"
+                              className="w-full h-full object-cover object-top transition-opacity duration-500 group-hover:opacity-90"
+                            />
+                            {/* Badge destacado */}
+                            <div className="absolute top-3 left-3 xs:top-4 xs:left-4">
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 xs:px-3 xs:py-1.5 rounded-full text-[11px] xs:text-xs font-light bg-white/90 dark:bg-neutral-900/90 text-stone-700 dark:text-stone-300 backdrop-blur-sm border border-stone-200/50 dark:border-stone-700/50">
+                                <StarIcon className="w-3 h-3 xs:w-3.5 xs:h-3.5 text-amber-500" strokeWidth={2} />
+                                Proyecto destacado
+                              </span>
+                            </div>
+                          </div>
 
-                      {/* Contenido */}
-                      <div className="p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
-                        <div>
-                          <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
-                            {project.title}
-                          </h3>
-                          <div className="mt-2 flex items-center gap-3">
-                            <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
-                              {project.date}
-                            </time>
-                            <span className="text-stone-300 dark:text-stone-600">·</span>
-                            <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
-                              {project.author.name}
-                            </span>
+                          {/* Contenido */}
+                          <div className="p-4 xs:p-5 sm:p-6 md:p-8 md:w-2/5 flex flex-col justify-center space-y-3 xs:space-y-4 md:space-y-5">
+                            <div>
+                              <h3 className="font-display text-xl xs:text-2xl sm:text-3xl md:text-4xl font-light tracking-wide text-stone-800 dark:text-white">
+                                {project.title}
+                              </h3>
+                              <div className="mt-1.5 xs:mt-2 md:mt-3 flex items-center gap-3">
+                                <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                                  {project.date}
+                                </time>
+                                <span className="text-stone-300 dark:text-stone-600">·</span>
+                                <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                                  {project.author.name}
+                                </span>
+                              </div>
+                            </div>
+
+                            <p className="text-xs xs:text-sm md:text-base text-stone-500 dark:text-stone-400 font-light leading-relaxed line-clamp-3 md:line-clamp-none">
+                              {project.description}
+                            </p>
+
+                            {/* Tags — texto en mobile, pills en md+ */}
+                            <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-1 md:hidden">
+                              {project.tags.join(" · ")}
+                            </p>
+                            <div className="hidden md:flex flex-wrap gap-2 pt-1">
+                              {project.tags.map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-light text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700"
+                                >
+                                  {techIcons[tag]}
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+
+                            <div className="pt-1 md:pt-2">
+                              <span className="inline-flex items-center text-xs xs:text-sm font-light text-stone-600 dark:text-stone-300 group-hover:text-stone-800 dark:group-hover:text-white transition-colors">
+                                Ver proyecto
+                                <svg className="ml-2 w-3.5 h-3.5 xs:w-4 xs:h-4 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                                </svg>
+                              </span>
+                            </div>
                           </div>
                         </div>
+                      ) : (
+                        /* Layout normal — vertical */
+                        <>
+                          {/* Contenedor de la imagen */}
+                          <div className="relative h-40 xs:h-44 sm:h-52 overflow-hidden">
+                            <img
+                              src={project.imageUrl}
+                              alt={project.title}
+                              loading="lazy"
+                              className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-90"
+                            />
+                          </div>
 
-                        <p className="text-xs xs:text-sm text-stone-500 dark:text-stone-400 font-light line-clamp-2">
-                          {project.description}
-                        </p>
+                          {/* Contenido */}
+                          <div className="p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
+                            <div>
+                              <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
+                                {project.title}
+                              </h3>
+                              <div className="mt-2 flex items-center gap-3">
+                                <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                                  {project.date}
+                                </time>
+                                <span className="text-stone-300 dark:text-stone-600">·</span>
+                                <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                                  {project.author.name}
+                                </span>
+                              </div>
+                            </div>
 
-                        {/* Tags como texto con separadores */}
-                        <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-2">
-                          {project.tags.join(" · ")}
-                        </p>
-                      </div>
+                            <p className="text-xs xs:text-sm text-stone-500 dark:text-stone-400 font-light line-clamp-2">
+                              {project.description}
+                            </p>
+
+                            {/* Tags como texto con separadores */}
+                            <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-2">
+                              {project.tags.join(" · ")}
+                            </p>
+                          </div>
+                        </>
+                      )}
                     </motion.div>
                   ))}
                 </AnimatePresence>
