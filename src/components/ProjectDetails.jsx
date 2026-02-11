@@ -202,11 +202,11 @@ function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
   return (
-    <div className="group flex items-center gap-3 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 backdrop-blur-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-      <div className="transition-all duration-300 group-hover:scale-110">
+    <div className="flex items-center gap-3 p-3 rounded-lg border border-stone-200 dark:border-stone-700">
+      <div>
         {technologyIcon}
       </div>
-      <span className="text-sm font-light text-gray-600 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-gray-200 transition-colors">
+      <span className="text-sm font-light text-stone-600 dark:text-stone-400">
         {technology}
       </span>
     </div>
@@ -263,15 +263,15 @@ function AptitudeItem({ aptitud }) {
   };
 
   return (
-    <div className="group flex items-center gap-4 p-4 rounded-xl bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800 backdrop-blur-sm border border-gray-100 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5">
-      <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-indigo-100/50 dark:bg-indigo-900/30 text-indigo-500 dark:text-indigo-400 group-hover:scale-110 transition-all duration-300">
+    <div className="flex items-center gap-4 p-4 rounded-lg border border-stone-200 dark:border-stone-700">
+      <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-stone-100 dark:bg-neutral-800 text-stone-500 dark:text-stone-400">
         {getIcon(aptitud)}
       </div>
       <div className="flex-1">
-        <h3 className="text-base font-light text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+        <h3 className="text-base font-light text-stone-800 dark:text-white">
           {aptitud}
         </h3>
-        <p className="mt-1 text-xs sm:text-sm text-gray-500 dark:text-gray-400 font-light text-justify">
+        <p className="mt-1 text-xs sm:text-sm text-stone-500 dark:text-stone-400 font-light">
           {getAptitudeDescription(aptitud)}
         </p>
       </div>
@@ -298,31 +298,21 @@ export default function ProjectDetails() {
   const splideRef = useRef(null);
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-stone-50 dark:bg-neutral-900">
       <ScrollToTop />
       
       {/* Hero Section */}
       <section className="relative pb-32">
-        {/* Imagen de fondo con overlay */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src={project.background}
-            alt=""
-            className="w-full h-full object-cover filter blur-sm"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/95 via-white/90 to-white/95 dark:from-gray-900/95 dark:via-gray-900/90 dark:to-gray-900/95 backdrop-blur-sm" />
-        </div>
-
         {/* Navegación */}
-        <div className="absolute top-0 left-0 right-0 z-10">
+        <div className="relative z-10">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <Link
               to="/"
-              className="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+              className="inline-flex items-center gap-2 text-sm font-light text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white transition-colors"
               aria-label="Volver a la página principal"
             >
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Volver
             </Link>
@@ -330,30 +320,18 @@ export default function ProjectDetails() {
         </div>
 
         {/* Contenido Hero */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
           <div className="max-w-3xl mx-auto text-center">
-            <div className="inline-flex items-center justify-center p-1 mb-8 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm ring-1 ring-gray-200 dark:ring-gray-700">
-              <div className="px-6 py-2 flex items-center gap-8">
-                {project.technologiesDestacadas.map((tech, index) => {
-                  const techKey = tech.toLowerCase().replace(/\s/g, "");
-                  return (
-                    <div key={index} className="text-gray-600 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
-                      {React.cloneElement(technologiesName[techKey].icon, {
-                        color: 'currentColor',
-                        size: 20
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-6">
+              {project.technologiesDestacadas.join(" · ")}
+            </p>
             
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extralight tracking-tight text-gray-900 dark:text-white mb-8
+            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-stone-800 dark:text-white mb-8
               animate-fade-up animate-once animate-duration-[1200ms] animate-delay-300">
               {project.name}
             </h1>
             
-            <p className="max-w-2xl mx-auto text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed text-justify">
+            <p className="max-w-2xl mx-auto text-base sm:text-lg text-stone-500 dark:text-stone-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed font-light text-justify">
               {project.description}
             </p>
             
@@ -362,18 +340,18 @@ export default function ProjectDetails() {
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-light text-white bg-stone-800 dark:bg-white dark:text-stone-900 hover:bg-stone-700 dark:hover:bg-stone-100 rounded-full transition-colors duration-300"
               >
                 <span>Ver sitio web</span>
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>
               </a>
               <a
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-medium text-gray-700 dark:text-white bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ring-1 ring-gray-200 dark:ring-gray-700"
+                className="inline-flex items-center gap-2 px-8 py-3 text-sm font-light text-stone-700 dark:text-white border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 rounded-full transition-colors duration-300"
               >
                 <SiGithub className="w-4 h-4" />
                 <span>Ver código</span>
@@ -384,13 +362,13 @@ export default function ProjectDetails() {
       </section>
 
       {/* Contenido Principal */}
-      <main className="relative -mt-20 pb-32">
+      <main className="relative pb-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Tecnologías y Aptitudes */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
             {/* Tecnologías */}
-            <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
-              <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Tecnologías</h2>
+            <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
+              <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Tecnologías</h2>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 {project.technologies.sort().map((technology, index) => (
                   <TechnologyItem key={index} technology={technology} />
@@ -399,8 +377,8 @@ export default function ProjectDetails() {
             </div>
 
             {/* Aptitudes */}
-            <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
-              <h2 className="text-lg sm:text-xl font-light text-gray-900 dark:text-white mb-6">Aptitudes clave</h2>
+            <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
+              <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Aptitudes clave</h2>
               <div className="space-y-4">
                 {project.aptitudes.map((aptitud, index) => (
                   <AptitudeItem key={index} aptitud={aptitud} />
@@ -410,7 +388,7 @@ export default function ProjectDetails() {
           </div>
 
           {/* Galería */}
-          <div className="bg-white/50 dark:bg-gray-800/30 backdrop-blur-sm rounded-2xl p-8 shadow-sm">
+          <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
             {/* Vista Principal */}
             <div className="relative mb-12">
               <Splide
@@ -430,13 +408,12 @@ export default function ProjectDetails() {
               >
                 {project.images.map((image, index) => (
                   <SplideSlide key={index}>
-                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm">
+                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden bg-stone-100 dark:bg-neutral-800">
                       <img
                         src={image}
                         alt={`Vista ${index + 1} del proyecto ${project.name}`}
-                        className="w-full h-full object-contain p-4 transform hover:scale-[1.02] transition-all duration-1000 ease-out"
+                        className="w-full h-full object-contain p-4"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 ease-out" />
                     </div>
                   </SplideSlide>
                 ))}
@@ -444,41 +421,31 @@ export default function ProjectDetails() {
             </div>
 
             {/* Grid de Vistas */}
-            <div className="grid grid-cols-4 gap-6">
+            <div className="grid grid-cols-4 gap-4">
               {project.images.map((image, index) => (
                 <button
                   key={index}
                   onClick={() => splideRef.current?.go(index)}
-                  className="group relative aspect-[4/3] rounded-xl overflow-hidden bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5"
+                  className="relative aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 transition-colors duration-300"
                 >
                   <img
                     src={image}
                     alt={`Vista ${index + 1}`}
-                    className="w-full h-full object-contain p-2 transform group-hover:scale-[1.03] transition-all duration-700 ease-out"
+                    className="w-full h-full object-contain p-2"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 ease-out" />
-                  <div className="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-out">
-                    <span className="block text-xs text-center font-light text-white backdrop-blur-sm bg-black/20 rounded-full py-1 px-3">
-                      {index === 0 ? 'Vista Tablet' :
-                       index === 1 ? 'Vista Tablet Alt' :
-                       index === 2 ? 'Vista Desktop' : 'Vista Mobile'}
-                    </span>
-                  </div>
                 </button>
               ))}
             </div>
 
             {/* Indicadores de Dispositivo */}
-            <div className="mt-10 flex flex-wrap gap-3 justify-center">
+            <div className="mt-8 flex flex-wrap gap-2 justify-center">
               {['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'].map((device, index) => (
                 <button
                   key={device}
                   onClick={() => splideRef.current?.go(index)}
-                  className="px-5 py-2 text-xs font-light tracking-wide rounded-full transition-all duration-500 ease-out
-                    bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-800
-                    text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white
-                    ring-1 ring-gray-200 dark:ring-gray-700 hover:ring-gray-300 dark:hover:ring-gray-600
-                    hover:shadow-md transform hover:-translate-y-0.5"
+                  className="px-4 py-1.5 text-xs font-light tracking-wide rounded-full transition-colors duration-300
+                    text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white
+                    border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
                 >
                   {device}
                 </button>
@@ -489,8 +456,8 @@ export default function ProjectDetails() {
           {/* Video demo */}
           {project.video && (
             <div className="mt-8">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-                <h2 className="text-xl font-light text-gray-900 dark:text-white mb-6">Demo del proyecto</h2>
+              <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
+                <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Demo del proyecto</h2>
                 <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' }}>
                   <ReactPlayer
                     url="https://vimeo.com/803296822"

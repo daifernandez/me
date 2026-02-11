@@ -20,18 +20,6 @@ const techIcons = {
   "Next.js": <SiNextdotjs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
 };
 
-const techIconsCard = {
-  "React": <FaReact className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "Node.js": <FaNodeJs className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "CSS": <FaCss3Alt className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "PostgreSQL": <SiPostgresql className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "Sequelize": <SiSequelize className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "Express": <SiExpress className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "TailwindCSS": <SiTailwindcss className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "Firebase": <SiFirebase className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-  "Next.js": <SiNextdotjs className="w-4 h-4 sm:w-3.5 sm:h-3.5" />,
-};
-
 const categories = [
   {
     id: 1,
@@ -112,48 +100,42 @@ export default function Projects() {
   }));
 
   return (
-    <div className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out bg-gradient-to-b from-white via-gray-50 to-white dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 py-24 sm:py-32">
+    <div className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out bg-stone-50 dark:bg-neutral-900 py-32 sm:py-40">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Encabezado principal */}
         <div className="relative mx-auto max-w-2xl text-center mb-24">
-          <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-40 h-40 bg-indigo-500/5 rounded-full blur-3xl" />
-          
-          <h2 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-extralight tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-          Mis Proyectos
+          <h2 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-stone-800 dark:text-white">
+            Mis Proyectos
           </h2>
           <div className="mt-4 flex justify-center">
-            <div className="h-px w-24 bg-gradient-to-r from-transparent via-indigo-400 to-transparent opacity-70"></div>
+            <div className="h-px w-16 bg-stone-300 dark:bg-stone-600"></div>
           </div>
          
           {/* Subtítulo y descripción */}
-          <div className="mt-12 space-y-8">
-            <div className="flex items-center justify-center gap-3">
-              <span className="h-[1px] w-12 bg-gradient-to-r from-transparent to-gray-300 dark:to-gray-600"></span>
-              <span className="text-xs xs:text-sm font-light tracking-widest uppercase text-gray-500 dark:text-gray-400">
-                {categories[0].title}
-              </span>
-              <span className="h-[1px] w-12 bg-gradient-to-l from-transparent to-gray-300 dark:to-gray-600"></span>
-            </div>
+          <div className="mt-10 space-y-6">
+            <p className="text-xs xs:text-sm font-light tracking-widest uppercase text-stone-400 dark:text-stone-500">
+              {categories[0].title}
+            </p>
             
-            <p className="text-sm xs:text-base sm:text-lg text-gray-500 dark:text-gray-400 font-light leading-relaxed">
+            <p className="text-sm xs:text-base sm:text-lg text-stone-500 dark:text-stone-400 font-light leading-relaxed">
               Explora mi portafolio de desarrollo web, donde cada proyecto refleja mi pasión por crear experiencias digitales excepcionales
             </p>
           </div>
 
           {/* Filtros por tecnología */}
-          <div className="mt-12 flex flex-wrap justify-center gap-3">
+          <div className="mt-12 flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setSelectedTag(null)}
-              className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-all duration-300 ${
+              className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-colors duration-300 ${
                 !selectedTag
-                  ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800"
-                  : "bg-gray-50 dark:bg-slate-800/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
+                  ? "bg-stone-800 dark:bg-white text-white dark:text-stone-900"
+                  : "text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
               }`}
             >
               <span className="hidden sm:inline">Todos</span>
               <span className="sm:hidden">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16m-7 6h7" />
                 </svg>
               </span>
             </button>
@@ -161,10 +143,10 @@ export default function Projects() {
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
-                className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-all duration-300 ${
+                className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-colors duration-300 ${
                   selectedTag === tag
-                    ? "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800"
-                    : "bg-gray-50 dark:bg-slate-800/50 text-gray-600 dark:text-gray-400 border border-gray-100 dark:border-gray-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20"
+                    ? "bg-stone-800 dark:bg-white text-white dark:text-stone-900"
+                    : "text-stone-500 dark:text-stone-400 border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
                 }`}
               >
                 <span className="flex items-center gap-2">
@@ -184,7 +166,7 @@ export default function Projects() {
                 {category.projects.map((project) => (
                   <div
                     key={project.id}
-                    className="group relative bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm rounded-2xl transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:shadow-indigo-500/10 overflow-hidden cursor-pointer border border-gray-100/10 dark:border-gray-700/10"
+                    className="group relative bg-white dark:bg-neutral-800 rounded-2xl transition-colors duration-300 overflow-hidden cursor-pointer border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
                     onClick={() => handleClick(project.title)}
                     tabIndex={0}
                     role="button"
@@ -196,50 +178,35 @@ export default function Projects() {
                       <img
                         src={project.imageUrl}
                         alt={project.title}
-                        className="w-full h-full object-cover object-center transition-all duration-500 group-hover:scale-105 group-focus:scale-105 filter brightness-95 group-hover:brightness-100"
+                        className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-90"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-300" />
                     </div>
 
                     {/* Contenido */}
                     <div className="p-6 space-y-4">
                       <div>
-                        <h3 className="text-lg xs:text-xl font-light tracking-wide text-gray-900 dark:text-white group-hover:text-indigo-500 dark:group-hover:text-indigo-400 transition-colors duration-300">
+                        <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
                           {project.title}
                         </h3>
                         <div className="mt-2 flex items-center gap-3">
-                          <time className="text-xs xs:text-sm font-light text-gray-500 dark:text-gray-400">
+                          <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
                             {project.date}
                           </time>
-                          <span className="h-1 w-1 rounded-full bg-gray-300 dark:bg-gray-600" />
-                          <span className="text-xs xs:text-sm font-light text-gray-500 dark:text-gray-400">
+                          <span className="text-stone-300 dark:text-stone-600">·</span>
+                          <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
                             {project.author.name}
                           </span>
                         </div>
                       </div>
 
-                      <p className="text-xs xs:text-sm text-gray-600 dark:text-gray-300 font-light line-clamp-2 group-hover:text-gray-900 dark:group-hover:text-gray-100 transition-colors duration-300">
+                      <p className="text-xs xs:text-sm text-stone-500 dark:text-stone-400 font-light line-clamp-2">
                         {project.description}
                       </p>
 
-                      {/* Tags con iconos */}
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {project.tags.slice(0, 6).map((tag) => (
-                          <span
-                            key={tag}
-                            className="inline-flex items-center justify-center w-8 h-8 sm:w-8 sm:h-8 rounded-full bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm transition-all duration-300 hover:bg-white/80 dark:hover:bg-slate-700/80 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100"
-                          >
-                            {techIconsCard[tag]}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Indicador de acción */}
-                    <div className="absolute top-4 right-4 bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                      <svg className="w-4 h-4 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                      </svg>
+                      {/* Tags como texto con separadores */}
+                      <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-2">
+                        {project.tags.join(" · ")}
+                      </p>
                     </div>
                   </div>
                 ))}

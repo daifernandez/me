@@ -2,21 +2,21 @@ import { Link } from "react-router-dom";
 
 export default function Social() {
   return (
-    <div className="flex flex-row mt-5">
+    <div className="flex flex-row gap-4 mt-4">
       <a
         href="https://github.com/daifernandez"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row mt-5 transform transition duration-500 ease-in-out hover:scale-110"
+        className="text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 transition-colors duration-300"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-github mr-3"
-          width="40"
-          height="40"
+          className="icon icon-tabler icon-tabler-brand-github"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           strokeWidth="1"
-          stroke="#9e9e9e"
+          stroke="currentColor"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -29,16 +29,16 @@ export default function Social() {
         href="https://www.linkedin.com/in/daifernandez/"
         target="_blank"
         rel="noopener noreferrer"
-        className="flex flex-row mt-5 transform transition duration-500 ease-in-out hover:scale-110"
+        className="text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 transition-colors duration-300"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-brand-linkedin mr-3"
-          width="40"
-          height="40"
+          className="icon icon-tabler icon-tabler-brand-linkedin"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           strokeWidth="1"
-          stroke="#9e9e9e"
+          stroke="currentColor"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -53,7 +53,7 @@ export default function Social() {
       </a>
       <Link
         to="#"
-        className="flex flex-row mt-5 transform transition duration-500 ease-in-out hover:scale-110"
+        className="text-stone-400 hover:text-stone-600 dark:text-stone-500 dark:hover:text-stone-300 transition-colors duration-300"
         onClick={(e) => {
           e.preventDefault();
           window.location.href = "mailto:dtama.fernandez@gmail.com";
@@ -61,12 +61,12 @@ export default function Social() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="icon icon-tabler icon-tabler-mail mr-3"
-          width="40"
-          height="40"
+          className="icon icon-tabler icon-tabler-mail"
+          width="28"
+          height="28"
           viewBox="0 0 24 24"
           strokeWidth="1"
-          stroke="#9e9e9e"
+          stroke="currentColor"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
