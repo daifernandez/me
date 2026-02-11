@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  <img src="public/logo512.png" alt="Portfolio Preview" width="200px">
+  <img src="public/readme-preview.png" alt="Portfolio Preview" width="600px">
  
 </div>
 
