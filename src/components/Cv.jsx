@@ -251,6 +251,7 @@ export default function Cv() {
               <select 
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
+                aria-label="Filtrar experiencias"
                 className="w-full bg-transparent border-none text-sm text-stone-600 dark:text-stone-300 focus:ring-0"
               >
                 <option value="all">Todos</option>
@@ -261,6 +262,7 @@ export default function Cv() {
 
             <button
               onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
+              aria-label={`Ordenar: ${sortOrder === 'desc' ? 'más reciente primero' : 'más antiguo primero'}`}
               className="flex-1 max-w-[200px] flex items-center justify-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5 hover:border-stone-400 dark:hover:border-stone-500 transition-colors"
             >
               <BarsArrowUpIcon className={`w-5 h-5 text-stone-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} strokeWidth={1.5} />

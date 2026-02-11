@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Redirect } from "react-router-dom";
 import { useRef } from 'react';
 import React from 'react';
 import Footer from "./Footer";
@@ -268,10 +268,23 @@ function getAptitudeDescription(aptitud) {
   return descriptions[aptitud.toLowerCase()] || 'Competencia clave para el desarrollo del proyecto';
 }
 
+const deviceLabels = {
+  pawcare: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
+  gamestream: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
+  capellari: ['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'],
+};
+
 export default function ProjectDetails() {
   const { name } = useParams();
   const project = projects[name];
   const splideRef = useRef(null);
+
+  // Si el proyecto no existe, redirigir a 404
+  if (!project) {
+    return <Redirect to="/404" />;
+  }
+
+  const devices = deviceLabels[name] || ['Vista 1', 'Vista 2', 'Vista 3', 'Vista 4'];
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900">
@@ -398,11 +411,12 @@ export default function ProjectDetails() {
                 <button
                   key={index}
                   onClick={() => splideRef.current?.go(index)}
+                  aria-label={`Ver ${devices[index] || `vista ${index + 1}`} de ${project.name}`}
                   className="relative aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 transition-colors duration-300"
                 >
                   <img
                     src={image}
-                    alt={`Vista ${index + 1}`}
+                    alt={`${devices[index] || `Vista ${index + 1}`} — ${project.name}`}
                     className="w-full h-full object-contain p-2"
                   />
                 </button>
@@ -411,10 +425,11 @@ export default function ProjectDetails() {
 
             {/* Indicadores de Dispositivo */}
             <div className="mt-8 flex flex-wrap gap-2 justify-center">
-              {['Tablet', 'Tablet Alt', 'Desktop', 'Mobile'].map((device, index) => (
+              {devices.map((device, index) => (
                 <button
                   key={device}
                   onClick={() => splideRef.current?.go(index)}
+                  aria-label={`Ver vista ${device} de ${project.name}`}
                   className="px-4 py-1.5 text-xs font-light tracking-wide rounded-full transition-colors duration-300
                     text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white
                     border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"

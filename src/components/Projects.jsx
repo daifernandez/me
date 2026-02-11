@@ -128,6 +128,8 @@ export default function Projects() {
           <div className="mt-12 flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setSelectedTag(null)}
+              aria-pressed={!selectedTag}
+              aria-label="Mostrar todos los proyectos"
               className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-colors duration-300 ${
                 !selectedTag
                   ? "bg-stone-800 dark:bg-white text-white dark:text-stone-900"
@@ -136,13 +138,15 @@ export default function Projects() {
             >
               <span className="hidden sm:inline">Todos</span>
               <span className="sm:hidden">
-                <Bars3Icon className="w-5 h-5" strokeWidth={1.5} />
+                <Bars3Icon className="w-5 h-5" strokeWidth={1.5} aria-hidden="true" />
               </span>
             </button>
             {allTags.map((tag) => (
               <button
                 key={tag}
                 onClick={() => setSelectedTag(tag)}
+                aria-pressed={selectedTag === tag}
+                aria-label={`Filtrar por ${tag}`}
                 className={`px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-light transition-colors duration-300 ${
                   selectedTag === tag
                     ? "bg-stone-800 dark:bg-white text-white dark:text-stone-900"
@@ -171,7 +175,7 @@ export default function Projects() {
                     tabIndex={0}
                     role="button"
                     aria-label={`Ver detalles de ${project.title}`}
-                    onKeyDown={(e) => e.key === 'Enter' && handleClick(project.title)}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleClick(project.title))}
                   >
                     {/* Contenedor de la imagen */}
                     <div className="relative h-52 overflow-hidden">

@@ -72,7 +72,7 @@ export default function DarkModeToggle() {
   ];
 
   return (
-    <div className="fixed top-4 right-4 z-50">
+    <div className="fixed top-4 right-4 z-50" role="group" aria-label="Selector de tema">
       <div className="p-1.5 flex gap-1 
         bg-white dark:bg-neutral-800 
         border border-stone-200 dark:border-stone-700
@@ -90,9 +90,10 @@ export default function DarkModeToggle() {
                 : 'text-stone-400 dark:text-stone-500 hover:text-stone-600 dark:hover:text-stone-300'
               }
             `}
-            title={option.tooltip}
+            aria-label={option.tooltip}
+            aria-pressed={theme === option.text}
           >
-            <option.icon className="w-4 h-4" strokeWidth={1.5} />
+            <option.icon className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
           </button>
         ))}
       </div>
