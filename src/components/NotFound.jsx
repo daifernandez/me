@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeftIcon } from "@heroicons/react/24/outline";
 
 export default function NotFound() {
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 flex items-center justify-center px-6">
+      <Helmet>
+        <title>404 — Dai Fernández</title>
+        <meta name="description" content="Página no encontrada." />
+      </Helmet>
       <div className="text-center max-w-md">
         <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-4">
           Error 404

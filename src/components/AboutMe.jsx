@@ -1,6 +1,7 @@
 import avatar from "../img/profile.jpg";
 import Social from "./Social";
 import ScrollToTop from "./ScrollToTop";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import { CodeBracketIcon, HeartIcon, LightBulbIcon } from "@heroicons/react/24/outline";
 import { 
@@ -47,6 +48,12 @@ export default function AboutMe() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 py-16 sm:py-24">
+      <Helmet>
+        <title>Sobre Mí — Dai Fernández</title>
+        <meta name="description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
+        <meta property="og:title" content="Sobre Mí — Dai Fernández" />
+        <meta property="og:description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
+      </Helmet>
       <ScrollToTop />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Hero Section */}

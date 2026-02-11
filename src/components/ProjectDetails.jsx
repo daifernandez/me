@@ -1,6 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { useRef } from 'react';
 import React from 'react';
+import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
 import GSipad from "./ImgProjects/GSipad.png";
 import GSipad2 from "./ImgProjects/GSipad1.png";
@@ -288,6 +289,13 @@ export default function ProjectDetails() {
 
   return (
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900">
+      <Helmet>
+        <title>{project.name} — Dai Fernández</title>
+        <meta name="description" content={project.description.substring(0, 160)} />
+        <meta property="og:title" content={`${project.name} — Dai Fernández`} />
+        <meta property="og:description" content={project.description.substring(0, 160)} />
+        <meta property="og:type" content="article" />
+      </Helmet>
       <ScrollToTop />
       
       {/* Hero Section */}
