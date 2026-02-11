@@ -2,7 +2,7 @@ import avatarHenry from "../img/avatarHenry.jpeg";
 import avatarCoder from "../img/avatarCoder.png";
 import avatarPlatzi from "../img/avatarPlatzi.png";
 import avatarGA from "../img/avatarGA.png";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useMemo, useEffect } from "react";
 import { 
@@ -167,7 +167,7 @@ const AptitudesList = ({ aptitudes }) => {
 };
 
 export default function Cv() {
-  const redirect = useHistory();
+  const navigate = useNavigate();
   const [filter, setFilter] = useState('all');
   const [sortOrder, setSortOrder] = useState('desc');
   const [isLoading, setIsLoading] = useState(true);
@@ -201,7 +201,7 @@ export default function Cv() {
 
   const handleClick = (title) => {
     const path = routes[title] || "/projects/pawcare";
-    redirect.push(path);
+    navigate(path);
   };
 
   const filteredAndSortedActivity = useMemo(() => {

@@ -1,4 +1,4 @@
-import { useParams, Link, Redirect } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { useRef } from 'react';
 import React from 'react';
 import Footer from "./Footer";
@@ -281,7 +281,7 @@ export default function ProjectDetails() {
 
   // Si el proyecto no existe, redirigir a 404
   if (!project) {
-    return <Redirect to="/404" />;
+    return <Navigate to="/404" replace />;
   }
 
   const devices = deviceLabels[name] || ['Vista 1', 'Vista 2', 'Vista 3', 'Vista 4'];

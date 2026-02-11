@@ -1,10 +1,10 @@
 import React from "react";
 import Social from "./Social";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 
 export default function Intro() {
-  const redirect = useHistory();
+  const navigate = useNavigate();
   
   const fadeInUp = {
     initial: { opacity: 0, y: 10 },
@@ -83,7 +83,7 @@ export default function Intro() {
                     <div className="flex items-center justify-between mb-10">
                       <button
                         type="button"
-                        onClick={() => redirect.push("/me")}
+                        onClick={() => navigate("/me")}
                         className="inline-flex items-center gap-2 xs:gap-2.5 px-5 xs:px-6 sm:px-7 py-2.5 xs:py-3 rounded-full bg-stone-800 dark:bg-white text-white dark:text-stone-900 text-xs xs:text-sm font-light tracking-wide hover:bg-stone-700 dark:hover:bg-stone-100 transition-colors duration-300"
                         aria-label="Ir a la página Sobre Mi"
                       >

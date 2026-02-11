@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./components/Home";
 import AboutMe from "./components/AboutMe";
@@ -64,28 +64,12 @@ function App() {
       <DarkModeToggle />
       <main id="main-content" tabIndex={-1} className="outline-none">
         <AnimatePresence mode="wait">
-          <Switch location={location} key={location.pathname}>
-            <Route exact path="/">
-              <motion.div {...pageTransition}>
-                <Home />
-              </motion.div>
-            </Route>
-            <Route exact path="/me">
-              <motion.div {...pageTransition}>
-                <AboutMe />
-              </motion.div>
-            </Route>
-            <Route exact path="/projects/:name">
-              <motion.div {...pageTransition}>
-                <ProjectDetails />
-              </motion.div>
-            </Route>
-            <Route>
-              <motion.div {...pageTransition}>
-                <NotFound />
-              </motion.div>
-            </Route>
-          </Switch>
+          <Routes location={location} key={location.pathname}>
+            <Route path="/" element={<motion.div {...pageTransition}><Home /></motion.div>} />
+            <Route path="/me" element={<motion.div {...pageTransition}><AboutMe /></motion.div>} />
+            <Route path="/projects/:name" element={<motion.div {...pageTransition}><ProjectDetails /></motion.div>} />
+            <Route path="*" element={<motion.div {...pageTransition}><NotFound /></motion.div>} />
+          </Routes>
         </AnimatePresence>
       </main>
     </ErrorBoundary>

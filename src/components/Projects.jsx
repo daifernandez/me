@@ -5,7 +5,7 @@ import pawcare from "../img/PawCare.png";
 import avatarPC from "../img/avatarPC.png";
 import avatarGS from "../img/avatarGS.png";
 import capellari from "../img/capellari.jpeg";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { SiReact, SiNodedotjs, SiCss3, SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 
@@ -72,7 +72,7 @@ const categories = [
 ];
 
 export default function Projects() {
-  const redirect = useHistory()
+  const navigate = useNavigate();
   const [selectedTag, setSelectedTag] = useState(null);
 
   const routes = {
@@ -83,7 +83,7 @@ export default function Projects() {
 
   const handleClick = (title) => {
     const path = routes[title];
-    redirect.push(path);
+    navigate(path);
   };
 
   // Obtener todos los tags únicos
