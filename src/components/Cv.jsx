@@ -5,8 +5,6 @@ import avatarGA from "../img/avatarGA.png";
 import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useState, useMemo, useEffect } from "react";
-import { HiOutlineEmojiSad, HiOutlineSparkles } from 'react-icons/hi';
-
 import { 
   SiJavascript, 
   SiReact, 
@@ -17,19 +15,22 @@ import {
   SiSequelize,
   SiNextdotjs,
   SiTailwindcss,
-  SiFirebase,
-  SiPetsathome
+  SiFirebase
 } from 'react-icons/si';
 
 import { 
-  HiOutlineVideoCamera,
-  HiOutlineShoppingBag,
-  HiOutlinePuzzle,
-  HiOutlineCalendar,
-  HiOutlineOfficeBuilding,
-  HiOutlineAdjustments,
-  HiOutlineSortAscending
-} from 'react-icons/hi';
+  FaceFrownIcon,
+  SparklesIcon,
+  VideoCameraIcon,
+  ShoppingBagIcon,
+  PuzzlePieceIcon,
+  CalendarIcon,
+  BuildingOfficeIcon,
+  AdjustmentsHorizontalIcon,
+  BarsArrowUpIcon,
+  ChevronRightIcon,
+  HeartIcon
+} from '@heroicons/react/24/outline';
 
 const activity = [
   {
@@ -121,19 +122,19 @@ const techIcons = {
 
 const projectIcons = {
   'GameStream': { 
-    icon: HiOutlineVideoCamera, 
-    color: 'text-purple-500',
-    bgColor: 'bg-purple-100 dark:bg-purple-900/30' 
+    icon: VideoCameraIcon, 
+    color: 'text-stone-500 dark:text-stone-400',
+    bgColor: 'bg-stone-100 dark:bg-neutral-800' 
   },
   'PawCare': { 
-    icon: SiPetsathome, 
-    color: 'text-emerald-500',
-    bgColor: 'bg-emerald-100 dark:bg-emerald-900/30' 
+    icon: HeartIcon, 
+    color: 'text-stone-500 dark:text-stone-400',
+    bgColor: 'bg-stone-100 dark:bg-neutral-800' 
   },
   'Capellari': { 
-    icon: HiOutlineShoppingBag, 
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-100 dark:bg-blue-900/30' 
+    icon: ShoppingBagIcon, 
+    color: 'text-stone-500 dark:text-stone-400',
+    bgColor: 'bg-stone-100 dark:bg-neutral-800' 
   }
 };
 
@@ -154,7 +155,7 @@ const AptitudesList = ({ aptitudes }) => {
             key={idx}
             className="flex items-center gap-2 p-2 rounded-lg"
           >
-            <HiOutlineSparkles className="w-4 h-4 text-stone-400 dark:text-stone-500" />
+            <SparklesIcon className="w-4 h-4 text-stone-400 dark:text-stone-500" strokeWidth={1.5} />
             <span className="text-sm font-light text-stone-600 dark:text-stone-400">
               {aptitud}
             </span>
@@ -246,7 +247,7 @@ export default function Cv() {
 
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-center gap-2 px-4">
             <div className="flex-1 max-w-[200px] flex items-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5">
-              <HiOutlineAdjustments className="w-5 h-5 text-stone-400 flex-shrink-0" />
+              <AdjustmentsHorizontalIcon className="w-5 h-5 text-stone-400 flex-shrink-0" strokeWidth={1.5} />
               <select 
                 value={filter}
                 onChange={(e) => setFilter(e.target.value)}
@@ -262,7 +263,7 @@ export default function Cv() {
               onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
               className="flex-1 max-w-[200px] flex items-center justify-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5 hover:border-stone-400 dark:hover:border-stone-500 transition-colors"
             >
-              <HiOutlineSortAscending className={`w-5 h-5 text-stone-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} />
+              <BarsArrowUpIcon className={`w-5 h-5 text-stone-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
               <span className="text-sm text-stone-600 dark:text-stone-300">
                 {sortOrder === 'desc' ? 'Más reciente' : 'Más antiguo'}
               </span>
@@ -293,7 +294,7 @@ export default function Cv() {
               animate={{ opacity: 1 }}
               className="text-center py-20"
             >
-              <HiOutlineEmojiSad className="w-16 h-16 mx-auto text-stone-300 dark:text-stone-600 mb-4" />
+              <FaceFrownIcon className="w-16 h-16 mx-auto text-stone-300 dark:text-stone-600 mb-4" strokeWidth={1} />
               <h3 className="text-lg font-light text-stone-600 dark:text-stone-400">
                 No se encontraron resultados
               </h3>
@@ -340,7 +341,7 @@ export default function Cv() {
                         </h3>
                         <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-400 dark:text-stone-500 mt-1">
                           <div className="flex items-center gap-1 min-w-0">
-                            <HiOutlineOfficeBuilding className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                            <BuildingOfficeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" strokeWidth={1.5} />
                             <span className="font-light block sm:hidden">
                               {item.experience.where.includes("Universidad Computense") 
                                 ? "UCM - Google Actívate"
@@ -352,7 +353,7 @@ export default function Cv() {
                           </div>
                           <span className="text-gray-300 dark:text-gray-600">•</span>
                           <div className="flex items-center gap-1 flex-shrink-0">
-                            <HiOutlineCalendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" />
+                            <CalendarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" strokeWidth={1.5} />
                             <span className="font-light">{item.date}</span>
                           </div>
                         </div>
@@ -376,9 +377,9 @@ export default function Cv() {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                           {item.project.map((proj, idx) => {
                             const projectIcon = projectIcons[proj.title] || {
-                              icon: HiOutlinePuzzle,
-                              color: 'text-gray-400',
-                              bgColor: 'bg-gray-50/10 dark:bg-gray-800/5'
+                              icon: PuzzlePieceIcon,
+                              color: 'text-stone-400 dark:text-stone-500',
+                              bgColor: 'bg-stone-100 dark:bg-neutral-800'
                             };
                             const IconComponent = projectIcon.icon;
                             
@@ -400,9 +401,7 @@ export default function Cv() {
                                   </h3>
                                 </div>
                                 <div className="flex-shrink-0 text-stone-300 dark:text-stone-700 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors duration-200">
-                                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
-                                  </svg>
+                                  <ChevronRightIcon className="w-3.5 h-3.5" strokeWidth={1.5} />
                                 </div>
                               </button>
                             );

@@ -2,7 +2,7 @@ import avatar from "../img/profile.jpg";
 import Social from "./Social";
 import ScrollToTop from "./ScrollToTop";
 import { motion } from "framer-motion";
-import { HiOutlineCode, HiOutlineHeart, HiOutlineLightBulb } from "react-icons/hi";
+import { CodeBracketIcon, HeartIcon, LightBulbIcon } from "@heroicons/react/24/outline";
 import { 
   SiReact, 
   SiJavascript, 
@@ -12,23 +12,22 @@ import {
   SiGit,
   SiPostgresql
 } from "react-icons/si";
-// import { DocumentArrowDownIcon } from "@heroicons/react/24/outline";
 
 export default function AboutMe() {
   const skills = [
-    { icon: HiOutlineCode, title: "Desarrollo Web FullStack", description: "Frontend y Backend" },
-    { icon: HiOutlineHeart, title: "Pasión por el Código", description: "Aprendizaje continuo" },
-    { icon: HiOutlineLightBulb, title: "Soluciones Creativas", description: "Enfoque innovador" }
+    { icon: CodeBracketIcon, title: "Desarrollo Web FullStack", description: "Frontend y Backend" },
+    { icon: HeartIcon, title: "Pasión por el Código", description: "Aprendizaje continuo" },
+    { icon: LightBulbIcon, title: "Soluciones Creativas", description: "Enfoque innovador" }
   ];
 
   const technologies = [
-    { icon: SiJavascript, name: "JavaScript", color: "text-yellow-400" },
-    { icon: SiReact, name: "React", color: "text-blue-400" }, 
-    { icon: SiTailwindcss, name: "Tailwind", color: "text-cyan-400" },
-    { icon: SiNodedotjs, name: "Node.js", color: "text-green-500" },
-    { icon: SiNextdotjs, name: "Next.js", color: "text-gray-700 dark:text-gray-300" },
-    { icon: SiGit, name: "Git", color: "text-orange-500" },
-    { icon: SiPostgresql, name: "PostgreSQL", color: "text-blue-500" }
+    { icon: SiJavascript, name: "JavaScript", color: "text-stone-500 dark:text-stone-400" },
+    { icon: SiReact, name: "React", color: "text-stone-500 dark:text-stone-400" }, 
+    { icon: SiTailwindcss, name: "Tailwind", color: "text-stone-500 dark:text-stone-400" },
+    { icon: SiNodedotjs, name: "Node.js", color: "text-stone-500 dark:text-stone-400" },
+    { icon: SiNextdotjs, name: "Next.js", color: "text-stone-500 dark:text-stone-400" },
+    { icon: SiGit, name: "Git", color: "text-stone-500 dark:text-stone-400" },
+    { icon: SiPostgresql, name: "PostgreSQL", color: "text-stone-500 dark:text-stone-400" }
   ];
 
   const container = {

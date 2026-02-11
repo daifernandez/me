@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
 
 export default function DarkModeToggle() {
   const [theme, setTheme] = useState(
@@ -54,17 +55,17 @@ export default function DarkModeToggle() {
 
   const options = [
     {
-      icon: "sunny",
+      icon: SunIcon,
       text: "light",
       tooltip: "Modo claro"
     },
     {
-      icon: "moon",
+      icon: MoonIcon,
       text: "dark",
       tooltip: "Modo oscuro"
     },
     {
-      icon: "desktop-outline",
+      icon: ComputerDesktopIcon,
       text: "system",
       tooltip: "Usar configuración del sistema"
     }
@@ -91,7 +92,7 @@ export default function DarkModeToggle() {
             `}
             title={option.tooltip}
           >
-            <ion-icon name={option.icon} className="text-xl"></ion-icon>
+            <option.icon className="w-4 h-4" strokeWidth={1.5} />
           </button>
         ))}
       </div>

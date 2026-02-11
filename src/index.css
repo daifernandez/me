@@ -8,6 +8,11 @@
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='6' fill='none' stroke='%2378716c' stroke-width='1'/%3E%3Ccircle cx='10' cy='10' r='1' fill='%2378716c'/%3E%3C/svg%3E") 10 10, auto;
+  }
+
+  a, button, [role="button"], select, input[type="submit"], input[type="button"] {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%2378716c' opacity='0.7'/%3E%3C/svg%3E") 10 10, pointer;
   }
 
   h1, h2, h3 {

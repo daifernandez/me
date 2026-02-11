@@ -32,7 +32,18 @@ import {
   SiCloudinary,
   SiGithub,
   SiTailwindcss,
-} from "@icons-pack/react-simple-icons";
+} from "react-icons/si";
+import {
+  ArrowLeftIcon,
+  ArrowTopRightOnSquareIcon,
+  UserGroupIcon,
+  ChatBubbleLeftRightIcon,
+  ClipboardDocumentListIcon,
+  BoltIcon,
+  Cog6ToothIcon,
+  MagnifyingGlassIcon,
+  ShieldCheckIcon,
+} from "@heroicons/react/24/outline";
 import ReactPlayer from "react-player";
 import ScrollToTop from "./ScrollToTop";
 import pawcareBackground from "../img/PawCare.png";
@@ -127,74 +138,76 @@ const projects = {
   },
 };
 
+const techIconClass = "w-5 h-5 text-stone-500 dark:text-stone-400";
+
 const technologiesName = {
   javascript: {
     name: "JavaScript",
-    icon: <SiJavascript title="JavaScript" color="#F7DF1E" size={20} />,
+    icon: <SiJavascript title="JavaScript" className={techIconClass} />,
   },
   nextjs: {
     name: "NextJS",
-    icon: <SiNextdotjs title="NextJS" color="#000000" size={20} />,
+    icon: <SiNextdotjs title="NextJS" className={techIconClass} />,
   },
   react: {
     name: "React",
-    icon: <SiReact title="React" color="#61DAFB" size={20} />,
+    icon: <SiReact title="React" className={techIconClass} />,
   },
   redux: {
     name: "Redux",
-    icon: <SiRedux title="Redux" color="#764ABC" size={20} />,
+    icon: <SiRedux title="Redux" className={techIconClass} />,
   },
   css: {
     name: "CSS",
-    icon: <SiCss3 title="CSS" color="#1572B6" size={20} />,
+    icon: <SiCss3 title="CSS" className={techIconClass} />,
   },
   nodejs: {
     name: "NodeJS",
-    icon: <SiNodedotjs title="NodeJS" color="#339933" size={20} />,
+    icon: <SiNodedotjs title="NodeJS" className={techIconClass} />,
   },
   express: {
     name: "Express",
-    icon: <SiExpress title="Express" color="#000000" size={20} />,
+    icon: <SiExpress title="Express" className={techIconClass} />,
   },
   sequelize: {
     name: "Sequelize",
-    icon: <SiSequelize title="Sequelize" color="#52B0E7" size={20} />,
+    icon: <SiSequelize title="Sequelize" className={techIconClass} />,
   },
   postgresql: {
     name: "PostgreSQL",
-    icon: <SiPostgresql title="PostgreSQL" color="#4169E1" size={20} />,
+    icon: <SiPostgresql title="PostgreSQL" className={techIconClass} />,
   },
   bootstrap: {
     name: "Bootstrap",
-    icon: <SiBootstrap title="Bootstrap" color="#7952B3" size={20} />,
+    icon: <SiBootstrap title="Bootstrap" className={techIconClass} />,
   },
   googlelogin: {
     name: "Google login",
-    icon: <SiGoogle title="Google login" color="#4285F4" size={20} />,
+    icon: <SiGoogle title="Google login" className={techIconClass} />,
   },
   mercadopago: {
     name: "MercadoPago",
-    icon: <SiMercadopago title="MercadoPago" color="#00B1EA" size={20} />,
+    icon: <SiMercadopago title="MercadoPago" className={techIconClass} />,
   },
   auth0: {
     name: "Auth0",
-    icon: <SiAuth0 title="Auth0" color="#EB5424" size={20} />,
+    icon: <SiAuth0 title="Auth0" className={techIconClass} />,
   },
   cloudinary: {
     name: "Cloudinary",
-    icon: <SiCloudinary title="Cloudinary" color="#3448C5" size={20} />,
+    icon: <SiCloudinary title="Cloudinary" className={techIconClass} />,
   },
   firebase: {
     name: "Firebase",
-    icon: <SiFirebase title="Firebase" color="#FFCA28" size={20} />,
+    icon: <SiFirebase title="Firebase" className={techIconClass} />,
   },
   github: {
     name: "GitHub",
-    icon: <SiGithub title="GitHub" color="#181717" size={20} />,
+    icon: <SiGithub title="GitHub" className={techIconClass} />,
   },
   tailwindcss: {
     name: "TailwindCSS",
-    icon: <SiTailwindcss title="TailwindCSS" color="#06B6D4" size={20} />,
+    icon: <SiTailwindcss title="TailwindCSS" className={techIconClass} />,
   },
 };
 
@@ -213,59 +226,22 @@ function TechnologyItem({ technology }) {
   );
 }
 
+const aptitudeIcons = {
+  'trabajo en equipo': UserGroupIcon,
+  'comunicación': ChatBubbleLeftRightIcon,
+  'organización': ClipboardDocumentListIcon,
+  'autonomía': BoltIcon,
+  'resolución de problemas': Cog6ToothIcon,
+  'investigación': MagnifyingGlassIcon,
+};
+
 function AptitudeItem({ aptitud }) {
-  const getIcon = (aptitud) => {
-    switch(aptitud.toLowerCase()) {
-      case 'trabajo en equipo':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-          </svg>
-        );
-      case 'comunicación':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-          </svg>
-        );
-      case 'organización':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
-          </svg>
-        );
-      case 'autonomía':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        );
-      case 'resolución de problemas':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-          </svg>
-        );
-      case 'investigación':
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-          </svg>
-        );
-      default:
-        return (
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-          </svg>
-        );
-    }
-  };
+  const IconComponent = aptitudeIcons[aptitud.toLowerCase()] || ShieldCheckIcon;
 
   return (
     <div className="flex items-center gap-4 p-4 rounded-lg border border-stone-200 dark:border-stone-700">
       <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-stone-100 dark:bg-neutral-800 text-stone-500 dark:text-stone-400">
-        {getIcon(aptitud)}
+        <IconComponent className="w-6 h-6" strokeWidth={1.5} />
       </div>
       <div className="flex-1">
         <h3 className="text-base font-light text-stone-800 dark:text-white">
@@ -311,9 +287,7 @@ export default function ProjectDetails() {
               className="inline-flex items-center gap-2 text-sm font-light text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white transition-colors"
               aria-label="Volver a la página principal"
             >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
+              <ArrowLeftIcon className="w-4 h-4" strokeWidth={1.5} />
               Volver
             </Link>
           </div>
@@ -343,9 +317,7 @@ export default function ProjectDetails() {
                 className="inline-flex items-center gap-2 px-8 py-3 text-sm font-light text-white bg-stone-800 dark:bg-white dark:text-stone-900 hover:bg-stone-700 dark:hover:bg-stone-100 rounded-full transition-colors duration-300"
               >
                 <span>Ver sitio web</span>
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
+                <ArrowTopRightOnSquareIcon className="w-4 h-4" strokeWidth={1.5} />
               </a>
               <a
                 href={project.github}

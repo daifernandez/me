@@ -14,71 +14,73 @@ import {
   SiGithub,
   SiNpm,
   SiNextdotjs,
-} from "@icons-pack/react-simple-icons";
+} from "react-icons/si";
+
+const techIconClass = "w-6 h-6 text-stone-500 dark:text-stone-400";
 
 // Objeto con las tecnologías
 const technologiesTypes = {
   lenguajes: {
     javascript: {
-      icon: <SiJavascript title="JavaScript" color="default" size={24} />,
+      icon: <SiJavascript title="JavaScript" className={techIconClass} />,
       title: "JavaScript",
     },
   },
   tools: {
     git: {
-      icon: <SiGit title="Git" color="default" size={24} />,
+      icon: <SiGit title="Git" className={techIconClass} />,
       title: "Git",
     },
     github: {
-      icon: <SiGithub title="Github" color="default" size={24} />,
+      icon: <SiGithub title="Github" className={techIconClass} />,
       title: "GitHub",
     },
     npm: {
-      icon: <SiNpm title="Npm" color="default" size={24} />,
+      icon: <SiNpm title="Npm" className={techIconClass} />,
       title: "Npm",
     },
   },
   frontend: {
     nextjs: {
-      icon: <SiNextdotjs title="NextJS" color="default" size={24} />,
+      icon: <SiNextdotjs title="NextJS" className={techIconClass} />,
       title: "Next.js",
     },
     react: {
-      icon: <SiReact title="React" color="default" size={24} />,
+      icon: <SiReact title="React" className={techIconClass} />,
       title: "React",
     },
     redux: {
-      icon: <SiRedux title="Redux" color="default" size={24} />,
+      icon: <SiRedux title="Redux" className={techIconClass} />,
       title: "Redux",
     },
     css: {
-      icon: <SiCss3 title="CSS" color="default" size={24} />,
+      icon: <SiCss3 title="CSS" className={techIconClass} />,
       title: "CSS",
     },
     bootstrap: {
-      icon: <SiBootstrap title="Bootstrap" color="default" size={24} />,
+      icon: <SiBootstrap title="Bootstrap" className={techIconClass} />,
       title: "Bootstrap",
     },
     tailwindcss: {
-      icon: <SiTailwindcss title="TailwindCSS" color="default" size={24} />,
+      icon: <SiTailwindcss title="TailwindCSS" className={techIconClass} />,
       title: "TailwindCSS",
     },
   },
   backend: {
     nodejs: {
-      icon: <SiNodedotjs title="Auth0" color="default" size={24} />,
+      icon: <SiNodedotjs title="NodeJS" className={techIconClass} />,
       title: "NodeJS",
     },
     express: {
-      icon: <SiExpress title="Express" color="default" size={24} />,
+      icon: <SiExpress title="Express" className={techIconClass} />,
       title: "Express",
     },
     sequelize: {
-      icon: <SiSequelize title="Sequelize" color="default" size={24} />,
+      icon: <SiSequelize title="Sequelize" className={techIconClass} />,
       title: "Sequelize",
     },
     postgresql: {
-      icon: <SiPostgresql title="PostgreSQL" color="default" size={24} />,
+      icon: <SiPostgresql title="PostgreSQL" className={techIconClass} />,
       title: "PostgreSQL",
     },
   },

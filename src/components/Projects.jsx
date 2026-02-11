@@ -5,19 +5,21 @@ import avatarPC from "../img/avatarPC.png";
 import avatarGS from "../img/avatarGS.png";
 import capellari from "../img/capellari.jpeg";
 import { useHistory } from "react-router-dom";
-import { FaReact, FaNodeJs, FaCss3Alt } from "react-icons/fa";
-import { SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
+import { SiReact, SiNodedotjs, SiCss3, SiPostgresql, SiSequelize, SiExpress, SiTailwindcss, SiFirebase, SiNextdotjs } from "react-icons/si";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+
+const techIconClass = "w-5 h-5 sm:w-3.5 sm:h-3.5 text-stone-500 dark:text-stone-400";
 
 const techIcons = {
-  "React": <FaReact className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#61DAFB]" />,
-  "Node.js": <FaNodeJs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#339933]" />,
-  "CSS": <FaCss3Alt className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#1572B6]" />,
-  "PostgreSQL": <SiPostgresql className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#4169E1]" />,
-  "Sequelize": <SiSequelize className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#52B0E7]" />,
-  "Express": <SiExpress className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
-  "TailwindCSS": <SiTailwindcss className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#06B6D4]" />,
-  "Firebase": <SiFirebase className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-[#FFCA28]" />,
-  "Next.js": <SiNextdotjs className="w-5 h-5 sm:w-3.5 sm:h-3.5 text-black dark:text-white" />,
+  "React": <SiReact className={techIconClass} />,
+  "Node.js": <SiNodedotjs className={techIconClass} />,
+  "CSS": <SiCss3 className={techIconClass} />,
+  "PostgreSQL": <SiPostgresql className={techIconClass} />,
+  "Sequelize": <SiSequelize className={techIconClass} />,
+  "Express": <SiExpress className={techIconClass} />,
+  "TailwindCSS": <SiTailwindcss className={techIconClass} />,
+  "Firebase": <SiFirebase className={techIconClass} />,
+  "Next.js": <SiNextdotjs className={techIconClass} />,
 };
 
 const categories = [
@@ -134,9 +136,7 @@ export default function Projects() {
             >
               <span className="hidden sm:inline">Todos</span>
               <span className="sm:hidden">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16m-7 6h7" />
-                </svg>
+                <Bars3Icon className="w-5 h-5" strokeWidth={1.5} />
               </span>
             </button>
             {allTags.map((tag) => (
