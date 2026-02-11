@@ -69,8 +69,9 @@ export default function Intro() {
                     Hola, soy Daiana
                   </h2>
                   <p className="text-sm xs:text-base sm:text-lg text-stone-500 dark:text-stone-400 leading-loose sm:leading-relaxed font-light">
-                    Desarrolladora web fullstack apasionada por crear experiencias digitales únicas. 
-                    Aquí encontrarás algunos de mis proyectos más recientes.
+                    Como desarrolladora web full stack, me apasiona crear experiencias digitales
+                    que aporten valor y resuelvan problemas reales. Acá vas a encontrar algunos
+                    de mis proyectos más recientes.
                   </p>
                   <button
                     type="button"

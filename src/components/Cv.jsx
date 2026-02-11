@@ -26,7 +26,6 @@ import {
   PuzzlePieceIcon,
   BuildingOfficeIcon,
   AdjustmentsHorizontalIcon,
-  BarsArrowUpIcon,
   ChevronRightIcon,
   HeartIcon
 } from '@heroicons/react/24/outline';
@@ -168,7 +167,6 @@ const AptitudesList = ({ aptitudes }) => {
 export default function Cv() {
   const navigate = useNavigate();
   const [filter, setFilter] = useState('all');
-  const [sortOrder, setSortOrder] = useState('desc');
   const [isLoading, setIsLoading] = useState(true);
   const [scrollProgress, setScrollProgress] = useState(0);
 
@@ -219,11 +217,13 @@ export default function Cv() {
     }
 
     return filtered.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return sortOrder === 'desc' ? dateB - dateA : dateA - dateB;
+      const yearA = Number.parseInt(a.date, 10) || 0;
+      const yearB = Number.parseInt(b.date, 10) || 0;
+
+      if (yearB !== yearA) return yearB - yearA;
+      return b.id - a.id;
     });
-  }, [filter, sortOrder]);
+  }, [filter]);
 
   return (
     <section className="bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-24 md:py-32">
@@ -232,7 +232,7 @@ export default function Cv() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="mx-auto max-w-2xl text-center mb-10 xs:mb-14 sm:mb-20 md:mb-24 px-4"
+          className="mx-auto max-w-2xl text-center mb-10 xs:mb-14 sm:mb-20 md:mb-24 px-2 xs:px-4"
         >
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-stone-800 dark:text-white">
             Experiencia Profesional
@@ -244,8 +244,8 @@ export default function Cv() {
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
 
-          <div className="mt-6 xs:mt-8 sm:mt-10 flex flex-row items-center justify-center gap-2 px-4">
-            <div className="flex-1 max-w-[200px] flex items-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5">
+          <div className="mt-6 xs:mt-8 sm:mt-10 w-full max-w-xs mx-auto px-2 xs:px-4">
+            <div className="w-full flex items-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5">
               <AdjustmentsHorizontalIcon className="w-5 h-5 text-stone-400 flex-shrink-0" strokeWidth={1.5} />
               <select 
                 value={filter}
@@ -258,23 +258,12 @@ export default function Cv() {
                 <option value="courses">Cursos</option>
               </select>
             </div>
-
-            <button
-              onClick={() => setSortOrder(prev => prev === 'desc' ? 'asc' : 'desc')}
-              aria-label={`Ordenar: ${sortOrder === 'desc' ? 'más reciente primero' : 'más antiguo primero'}`}
-              className="flex-1 max-w-[200px] flex items-center justify-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5 hover:border-stone-400 dark:hover:border-stone-500 transition-colors"
-            >
-              <BarsArrowUpIcon className={`w-5 h-5 text-stone-400 transition-transform ${sortOrder === 'asc' ? 'rotate-180' : ''}`} strokeWidth={1.5} />
-              <span className="text-sm text-stone-600 dark:text-stone-300">
-                {sortOrder === 'desc' ? 'Más reciente' : 'Más antiguo'}
-              </span>
-            </button>
           </div>
         </motion.header>
 
         <div className="relative" id="cv-timeline">
           {/* Timeline line */}
-          <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-[2px] bg-stone-200 dark:bg-stone-700/50">
+          <div className="hidden xs:block absolute left-3.5 xs:left-4 sm:left-6 top-0 bottom-0 w-[2px] bg-stone-200 dark:bg-stone-700/50">
             <div 
               className="absolute left-0 top-0 w-full bg-stone-400 dark:bg-stone-500 transition-all duration-300"
               style={{ height: `${scrollProgress * 100}%` }}
@@ -286,7 +275,7 @@ export default function Cv() {
           </div>
           
           {isLoading ? (
-            <div className="space-y-6 xs:space-y-8 pl-14 sm:pl-16">
+            <div className="space-y-6 xs:space-y-8 pl-0 xs:pl-11 sm:pl-16">
               {[1, 2, 3].map((_, index) => (
                 <div key={index} className="animate-pulse rounded-2xl border border-stone-200 dark:border-stone-700 p-6">
                   <div className="flex items-center gap-4 mb-4">
@@ -331,16 +320,16 @@ export default function Cv() {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="relative pl-14 sm:pl-16"
+                  className="relative pl-0 xs:pl-11 sm:pl-16"
                   role="listitem"
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-[14px] sm:left-[17px] top-7 w-2.5 h-2.5 rounded-full border-2 border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-neutral-900 z-10" />
+                  <div className="hidden xs:block absolute left-[8px] xs:left-[10px] sm:left-[17px] top-7 w-2.5 h-2.5 rounded-full border-2 border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-neutral-900 z-10" />
 
                   {/* Card */}
                   <div className="group rounded-xl xs:rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-800/50 p-4 xs:p-5 sm:p-6 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-300">
                     {/* Header: logo + title + meta */}
-                    <div className="flex items-start gap-3.5 sm:gap-4">
+                    <div className="flex items-start gap-3 sm:gap-4">
                       <div className="flex-shrink-0 rounded-full p-0.5 border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-900">
                         <img
                           src={item.imageUrl}
@@ -349,11 +338,11 @@ export default function Cv() {
                         />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="flex items-start justify-between gap-2">
+                        <div className="flex flex-col xs:flex-row xs:items-start xs:justify-between gap-1.5 xs:gap-2">
                           <h3 className="font-display text-base sm:text-lg font-light text-stone-800 dark:text-white leading-snug">
                             {item.experience.title}
                           </h3>
-                          <span className="flex-shrink-0 text-[11px] sm:text-xs font-light text-stone-400 dark:text-stone-500 bg-stone-100 dark:bg-neutral-700/50 px-2.5 py-1 rounded-full">
+                          <span className="inline-flex w-fit flex-shrink-0 text-[11px] sm:text-xs font-light text-stone-400 dark:text-stone-500 bg-stone-100 dark:bg-neutral-700/50 px-2.5 py-1 rounded-full">
                             {item.date}
                           </span>
                         </div>
