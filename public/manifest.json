@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Dai Fernández",
+  "name": "Portfolio — Dai Fernández",
   "icons": [
     {
       "src": "favicon.png",
@@ -20,6 +20,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fafaf9",
+  "background_color": "#fafaf9"
 }

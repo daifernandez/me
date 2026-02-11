@@ -85,9 +85,9 @@ export default function Intro() {
                         type="button"
                         onClick={() => navigate("/me")}
                         className="inline-flex items-center gap-2 xs:gap-2.5 px-5 xs:px-6 sm:px-7 py-2.5 xs:py-3 rounded-full bg-stone-800 dark:bg-white text-white dark:text-stone-900 text-xs xs:text-sm font-light tracking-wide hover:bg-stone-700 dark:hover:bg-stone-100 transition-colors duration-300"
-                        aria-label="Ir a la página Sobre Mi"
+                        aria-label="Ir a la página Sobre mí"
                       >
-                          <span>Más sobre Mi</span>
+                          <span>Más sobre mí</span>
                         <span aria-hidden="true" className="text-sm">
                             →
                         </span>

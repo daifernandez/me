@@ -1,12 +1,13 @@
 import "./App.css";
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Home from "./components/Home";
-import AboutMe from "./components/AboutMe";
-import ProjectDetails from "./components/ProjectDetails";
-import NotFound from "./components/NotFound";
 import DarkModeToggle from "./components/DarkModeToggle";
+
+const AboutMe = lazy(() => import("./components/AboutMe"));
+const ProjectDetails = lazy(() => import("./components/ProjectDetails"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 const pageTransition = {
   initial: { opacity: 0 },
@@ -63,14 +64,20 @@ function App() {
 
       <DarkModeToggle />
       <main id="main-content" tabIndex={-1} className="outline-none">
-        <AnimatePresence mode="wait">
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<motion.div {...pageTransition}><Home /></motion.div>} />
-            <Route path="/me" element={<motion.div {...pageTransition}><AboutMe /></motion.div>} />
-            <Route path="/projects/:name" element={<motion.div {...pageTransition}><ProjectDetails /></motion.div>} />
-            <Route path="*" element={<motion.div {...pageTransition}><NotFound /></motion.div>} />
-          </Routes>
-        </AnimatePresence>
+        <Suspense fallback={
+          <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 flex items-center justify-center" aria-live="polite" aria-busy="true">
+            <div className="h-8 w-8 animate-spin rounded-full border-2 border-stone-200 dark:border-stone-700 border-t-stone-600 dark:border-t-stone-400" />
+          </div>
+        }>
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<motion.div {...pageTransition}><Home /></motion.div>} />
+              <Route path="/me" element={<motion.div {...pageTransition}><AboutMe /></motion.div>} />
+              <Route path="/projects/:name" element={<motion.div {...pageTransition}><ProjectDetails /></motion.div>} />
+              <Route path="*" element={<motion.div {...pageTransition}><NotFound /></motion.div>} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
       </main>
     </ErrorBoundary>
   );

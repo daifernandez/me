@@ -2,7 +2,7 @@
 
 <div align="center">
   
-  <img src="src/img/mac.png" alt="Portfolio Preview" width="200px">
+  <img src="public/logo512.png" alt="Portfolio Preview" width="200px">
  
 </div>
 
