@@ -397,6 +397,7 @@ export default function ProjectDetails() {
                       <img
                         src={image}
                         alt={`Vista ${index + 1} del proyecto ${project.name}`}
+                        loading="lazy"
                         className="w-full h-full object-contain p-4"
                       />
                     </div>
@@ -417,6 +418,7 @@ export default function ProjectDetails() {
                   <img
                     src={image}
                     alt={`${devices[index] || `Vista ${index + 1}`} — ${project.name}`}
+                    loading="lazy"
                     className="w-full h-full object-contain p-2"
                   />
                 </button>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import gamestream from "../img/GameStream.png";
 import pawcare from "../img/PawCare.png";
 import avatarPC from "../img/avatarPC.png";
@@ -166,55 +167,66 @@ export default function Projects() {
         {filteredProjects.map((category) => (
           <div key={category.id} className="space-y-16">
             <div className="relative">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                {category.projects.map((project) => (
-                  <div
-                    key={project.id}
-                    className="group relative bg-white dark:bg-neutral-800 rounded-2xl transition-colors duration-300 overflow-hidden cursor-pointer border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
-                    onClick={() => handleClick(project.title)}
-                    tabIndex={0}
-                    role="button"
-                    aria-label={`Ver detalles de ${project.title}`}
-                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleClick(project.title))}
-                  >
-                    {/* Contenedor de la imagen */}
-                    <div className="relative h-52 overflow-hidden">
-                      <img
-                        src={project.imageUrl}
-                        alt={project.title}
-                        className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-90"
-                      />
-                    </div>
-
-                    {/* Contenido */}
-                    <div className="p-6 space-y-4">
-                      <div>
-                        <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
-                          {project.title}
-                        </h3>
-                        <div className="mt-2 flex items-center gap-3">
-                          <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
-                            {project.date}
-                          </time>
-                          <span className="text-stone-300 dark:text-stone-600">·</span>
-                          <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
-                            {project.author.name}
-                          </span>
-                        </div>
+              <motion.div 
+                layout
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+              >
+                <AnimatePresence mode="popLayout">
+                  {category.projects.map((project) => (
+                    <motion.div
+                      key={project.id}
+                      layout
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      exit={{ opacity: 0, scale: 0.95 }}
+                      transition={{ duration: 0.3, ease: "easeOut" }}
+                      className="group relative bg-white dark:bg-neutral-800 rounded-2xl transition-colors duration-300 overflow-hidden cursor-pointer border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
+                      onClick={() => handleClick(project.title)}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Ver detalles de ${project.title}`}
+                      onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleClick(project.title))}
+                    >
+                      {/* Contenedor de la imagen */}
+                      <div className="relative h-52 overflow-hidden">
+                        <img
+                          src={project.imageUrl}
+                          alt={project.title}
+                          loading="lazy"
+                          className="w-full h-full object-cover object-center transition-opacity duration-500 group-hover:opacity-90"
+                        />
                       </div>
 
-                      <p className="text-xs xs:text-sm text-stone-500 dark:text-stone-400 font-light line-clamp-2">
-                        {project.description}
-                      </p>
+                      {/* Contenido */}
+                      <div className="p-6 space-y-4">
+                        <div>
+                          <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
+                            {project.title}
+                          </h3>
+                          <div className="mt-2 flex items-center gap-3">
+                            <time className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                              {project.date}
+                            </time>
+                            <span className="text-stone-300 dark:text-stone-600">·</span>
+                            <span className="text-xs xs:text-sm font-light text-stone-400 dark:text-stone-500">
+                              {project.author.name}
+                            </span>
+                          </div>
+                        </div>
 
-                      {/* Tags como texto con separadores */}
-                      <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-2">
-                        {project.tags.join(" · ")}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                        <p className="text-xs xs:text-sm text-stone-500 dark:text-stone-400 font-light line-clamp-2">
+                          {project.description}
+                        </p>
+
+                        {/* Tags como texto con separadores */}
+                        <p className="text-xs text-stone-400 dark:text-stone-500 font-light pt-2">
+                          {project.tags.join(" · ")}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
             </div>
           </div>
         ))}
