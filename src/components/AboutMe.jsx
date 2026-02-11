@@ -50,9 +50,9 @@ export default function AboutMe() {
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-20 md:py-24">
       <Helmet>
         <title>Sobre Mí — Dai Fernández</title>
-        <meta name="description" content="Daiana Fernández — Desarrolladora FullStack con foco en UX. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
+        <meta name="description" content="Daiana Fernández — Desarrolladora FullStack. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
         <meta property="og:title" content="Sobre Mí — Dai Fernández" />
-        <meta property="og:description" content="Daiana Fernández — Desarrolladora FullStack con foco en UX. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
+        <meta property="og:description" content="Daiana Fernández — Desarrolladora FullStack. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
       </Helmet>
       <ScrollToTop />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function AboutMe() {
                   Soy Daiana Fernandez
                 </h1>
                 <p className="text-base sm:text-lg text-stone-500 dark:text-stone-400 font-light">
-                  Desarrolladora FullStack con foco en UX · Buenos Aires
+                  Desarrolladora FullStack · Buenos Aires
                 </p>
                 <div className="mt-6 flex justify-center md:justify-start">
                   <Social />
