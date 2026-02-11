@@ -336,7 +336,7 @@ export default function ProjectDetails() {
         {/* Contenido Hero */}
         <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 pt-6 xs:pt-8 pb-8 xs:pb-10 sm:pb-12">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-4 xs:mb-5 sm:mb-6">
+            <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-6 xs:mb-7 sm:mb-8">
               {project.technologiesDestacadas.join(" · ")}
             </p>
             

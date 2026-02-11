@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export default function Header() {
   return (
     <header className="relative bg-stone-50 dark:bg-neutral-900" role="banner">
-      <div className="mx-auto max-w-7xl px-5 sm:px-6 pt-6 sm:pt-8 pb-5 sm:pb-6 lg:pt-12 lg:pb-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 pt-7 pb-6 sm:pt-8 sm:pb-6 lg:pt-12 lg:pb-8">
         <div className="mx-auto max-w-2xl lg:max-w-7xl">
           <div className="flex items-center justify-between">
             <motion.div 

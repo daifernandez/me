@@ -17,7 +17,7 @@ import {
 export default function AboutMe() {
   const skills = [
     { icon: CodeBracketIcon, title: "Desarrollo Web FullStack", description: "Frontend y Backend" },
-    { icon: HeartIcon, title: "Pasión por el Código", description: "Aprendizaje continuo" },
+    { icon: HeartIcon, title: "Cuidado por el detalle", description: "Código limpio y mantenible" },
     { icon: LightBulbIcon, title: "Soluciones Creativas", description: "Enfoque innovador" }
   ];
 
@@ -50,9 +50,9 @@ export default function AboutMe() {
     <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-20 md:py-24">
       <Helmet>
         <title>Sobre Mí — Dai Fernández</title>
-        <meta name="description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
+        <meta name="description" content="Daiana Fernández — Desarrolladora FullStack con foco en UX. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
         <meta property="og:title" content="Sobre Mí — Dai Fernández" />
-        <meta property="og:description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
+        <meta property="og:description" content="Daiana Fernández — Desarrolladora FullStack con foco en UX. Formación en salud, atención al detalle y empatía aplicadas al código. Buenos Aires." />
       </Helmet>
       <ScrollToTop />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
@@ -90,7 +90,7 @@ export default function AboutMe() {
                   Soy Daiana Fernandez
                 </h1>
                 <p className="text-base sm:text-lg text-stone-500 dark:text-stone-400 font-light">
-                  Desarrolladora Web FullStack enfocada en crear experiencias digitales · Buenos Aires
+                  Desarrolladora FullStack con foco en UX · Buenos Aires
                 </p>
                 <div className="mt-6 flex justify-center md:justify-start">
                   <Social />
@@ -111,16 +111,16 @@ export default function AboutMe() {
             <h2 className="font-display text-2xl font-light text-stone-800 dark:text-white mb-6">Sobre mí</h2>
             <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
               <p className="text-justify">
-                Como desarrolladora web fullstack, combino mi pasión por la programación con 
-                creatividad para construir soluciones digitales efectivas. Mi experiencia en 
-                frontend y backend me permite desarrollar aplicaciones web completas con 
-                énfasis en la experiencia del usuario.
+                Desarrollo aplicaciones web completas, de principio a fin, con foco en la experiencia 
+                del usuario. Creo que la tecnología cobra sentido cuando se piensa en quién la usa.
               </p>
               <p className="text-justify">
-                Mi experiencia previa en el campo de la salud me aportó habilidades valiosas 
-                como la atención al detalle, la empatía y una buena comunicación. Esta 
-                combinación de habilidades técnicas y personales me ayuda a entender mejor 
-                las necesidades de cada proyecto y trabajar eficientemente en equipo.
+                Mi experiencia en el ámbito de la salud me dejó atención al detalle y empatía —eso se 
+                traduce en código más cuidado y mejor trabajo en equipo.
+              </p>
+              <p className="text-justify">
+                Me mantengo en constante aprendizaje y busco proyectos donde pueda aportar. 
+                Si querés conectar, escribime.
               </p>
             </div>
           </motion.div>
@@ -172,28 +172,6 @@ export default function AboutMe() {
           </div>
         </motion.div>
 
-        {/* Additional Info */}
-        <motion.div 
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.6 }}
-          className="mt-8 xs:mt-10 sm:mt-12 rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-8 border border-stone-200 dark:border-stone-700"
-        >
-          <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
-            <p className="text-justify">
-              Me gusta mantenerme actualizada con las nuevas tecnologías y metodologías 
-              del desarrollo web. Disfruto aprendiendo constantemente y aplicando estos 
-              conocimientos para mejorar la calidad de mi código y los proyectos en 
-              los que trabajo.
-            </p>
-            <p className="text-justify">
-              Busco oportunidades para colaborar en proyectos interesantes donde pueda 
-              aportar mis conocimientos y seguir creciendo profesionalmente. Si buscas 
-              una desarrolladora comprometida y con ganas de aprender, me encantaría 
-              conectar contigo.
-            </p>
-          </div>
-        </motion.div>
       </div>
     </div>
   );
