@@ -1,5 +1,5 @@
 import { useParams, Link, Navigate } from "react-router-dom";
-import { useRef } from 'react';
+import { useRef, useState, useEffect, useCallback } from 'react';
 import React from 'react';
 import { Helmet } from "react-helmet-async";
 import Footer from "./Footer";
@@ -279,6 +279,25 @@ export default function ProjectDetails() {
   const { name } = useParams();
   const project = projects[name];
   const splideRef = useRef(null);
+  const [activeSlide, setActiveSlide] = useState(0);
+  const [autoplayProgress, setAutoplayProgress] = useState(0);
+  const progressInterval = useRef(null);
+
+  const startProgress = useCallback(() => {
+    setAutoplayProgress(0);
+    clearInterval(progressInterval.current);
+    progressInterval.current = setInterval(() => {
+      setAutoplayProgress(prev => {
+        if (prev >= 100) return 100;
+        return prev + 2; // 50 steps * 100ms = 5000ms (matches autoplay interval)
+      });
+    }, 100);
+  }, []);
+
+  useEffect(() => {
+    startProgress();
+    return () => clearInterval(progressInterval.current);
+  }, [activeSlide, startProgress]);
 
   // Si el proyecto no existe, redirigir a 404
   if (!project) {
@@ -397,6 +416,7 @@ export default function ProjectDetails() {
                   pauseOnHover: true,
                   resetProgress: false,
                 }}
+                onMoved={(_, newIndex) => setActiveSlide(newIndex)}
                 className="splide-custom"
               >
                 {project.images.map((image, index) => (
@@ -412,6 +432,27 @@ export default function ProjectDetails() {
                   </SplideSlide>
                 ))}
               </Splide>
+
+              {/* Barra de progreso del autoplay */}
+              <div className="mt-4 flex gap-1.5 justify-center">
+                {project.images.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => { splideRef.current?.go(index); setActiveSlide(index); }}
+                    aria-label={`Ir a slide ${index + 1}`}
+                    className="relative h-0.5 rounded-full overflow-hidden transition-all duration-300"
+                    style={{ width: activeSlide === index ? '2rem' : '1rem' }}
+                  >
+                    <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700" />
+                    {activeSlide === index && (
+                      <div
+                        className="absolute inset-y-0 left-0 bg-stone-500 dark:bg-stone-400 rounded-full transition-none"
+                        style={{ width: `${autoplayProgress}%` }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* Grid de Vistas */}
@@ -419,9 +460,13 @@ export default function ProjectDetails() {
               {project.images.map((image, index) => (
                 <button
                   key={index}
-                  onClick={() => splideRef.current?.go(index)}
+                  onClick={() => { splideRef.current?.go(index); setActiveSlide(index); }}
                   aria-label={`Ver ${devices[index] || `vista ${index + 1}`} de ${project.name}`}
-                  className="relative aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500 transition-colors duration-300"
+                  className={`relative aspect-[4/3] rounded-lg overflow-hidden bg-stone-100 dark:bg-neutral-800 border transition-colors duration-300
+                    ${activeSlide === index 
+                      ? 'border-stone-500 dark:border-stone-400' 
+                      : 'border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500'
+                    }`}
                 >
                   <img
                     src={image}
@@ -438,11 +483,13 @@ export default function ProjectDetails() {
               {devices.map((device, index) => (
                 <button
                   key={device}
-                  onClick={() => splideRef.current?.go(index)}
+                  onClick={() => { splideRef.current?.go(index); setActiveSlide(index); }}
                   aria-label={`Ver vista ${device} de ${project.name}`}
-                  className="px-4 py-1.5 text-xs font-light tracking-wide rounded-full transition-colors duration-300
-                    text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white
-                    border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500"
+                  className={`px-4 py-1.5 text-xs font-light tracking-wide rounded-full transition-colors duration-300
+                    ${activeSlide === index
+                      ? 'bg-stone-800 dark:bg-white text-white dark:text-stone-900'
+                      : 'text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white border border-stone-200 dark:border-stone-700 hover:border-stone-400 dark:hover:border-stone-500'
+                    }`}
                 >
                   {device}
                 </button>

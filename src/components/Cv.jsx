@@ -276,8 +276,13 @@ export default function Cv() {
         <div className="relative" id="cv-timeline">
           <div className="absolute left-0 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-700">
             <div 
-              className="absolute left-0 top-0 w-full bg-stone-400 dark:bg-stone-500 transition-all duration-300"
+              className="absolute left-0 top-0 w-full bg-stone-500 dark:bg-stone-400 transition-all duration-300"
               style={{ height: `${scrollProgress * 100}%` }}
+            />
+            {/* Punto indicador de progreso */}
+            <div 
+              className="absolute -left-[3px] w-[7px] h-[7px] rounded-full bg-stone-500 dark:bg-stone-400 transition-all duration-300 shadow-sm"
+              style={{ top: `${scrollProgress * 100}%` }}
             />
           </div>
           
