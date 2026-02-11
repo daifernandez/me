@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import gamestream from "../img/GameStream.png";
 import pawcare from "../img/PawCare.png";
@@ -71,9 +71,34 @@ const categories = [
   },
 ];
 
+function ProjectSkeleton() {
+  return (
+    <div className="animate-pulse bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700">
+      <div className="h-52 bg-stone-200 dark:bg-neutral-700" />
+      <div className="p-6 space-y-4">
+        <div>
+          <div className="h-6 w-32 bg-stone-200 dark:bg-neutral-700 rounded" />
+          <div className="mt-2 h-4 w-48 bg-stone-100 dark:bg-neutral-700/50 rounded" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-3 w-full bg-stone-100 dark:bg-neutral-700/50 rounded" />
+          <div className="h-3 w-3/4 bg-stone-100 dark:bg-neutral-700/50 rounded" />
+        </div>
+        <div className="h-3 w-2/3 bg-stone-100 dark:bg-neutral-700/50 rounded pt-2" />
+      </div>
+    </div>
+  );
+}
+
 export default function Projects() {
   const navigate = useNavigate();
   const [selectedTag, setSelectedTag] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 800);
+    return () => clearTimeout(timer);
+  }, []);
 
   const routes = {
     GameStream: "/projects/gamestream",
@@ -164,7 +189,11 @@ export default function Projects() {
         </div>
 
         {/* Grid de proyectos */}
-        {filteredProjects.map((category) => (
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+            {[1, 2, 3].map((i) => <ProjectSkeleton key={i} />)}
+          </div>
+        ) : filteredProjects.map((category) => (
           <div key={category.id} className="space-y-16">
             <div className="relative">
               <motion.div 

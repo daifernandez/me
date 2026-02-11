@@ -24,7 +24,6 @@ import {
   VideoCameraIcon,
   ShoppingBagIcon,
   PuzzlePieceIcon,
-  CalendarIcon,
   BuildingOfficeIcon,
   AdjustmentsHorizontalIcon,
   BarsArrowUpIcon,
@@ -274,24 +273,33 @@ export default function Cv() {
         </motion.header>
 
         <div className="relative" id="cv-timeline">
-          <div className="absolute left-0 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-700">
+          {/* Timeline line */}
+          <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-[2px] bg-stone-200 dark:bg-stone-700/50">
             <div 
-              className="absolute left-0 top-0 w-full bg-stone-500 dark:bg-stone-400 transition-all duration-300"
+              className="absolute left-0 top-0 w-full bg-stone-400 dark:bg-stone-500 transition-all duration-300"
               style={{ height: `${scrollProgress * 100}%` }}
             />
-            {/* Punto indicador de progreso */}
             <div 
-              className="absolute -left-[3px] w-[7px] h-[7px] rounded-full bg-stone-500 dark:bg-stone-400 transition-all duration-300 shadow-sm"
+              className="absolute -left-[3px] w-2 h-2 rounded-full bg-stone-400 dark:bg-stone-500 transition-all duration-300 shadow-sm"
               style={{ top: `${scrollProgress * 100}%` }}
             />
           </div>
           
           {isLoading ? (
-            <div className="space-y-20">
+            <div className="space-y-8 pl-14 sm:pl-16">
               {[1, 2, 3].map((_, index) => (
-                <div key={index} className="animate-pulse">
-                  <div className="h-20 bg-gray-200 dark:bg-gray-800 rounded-lg mb-4"></div>
-                  <div className="h-10 bg-gray-100 dark:bg-gray-700 rounded-lg w-3/4"></div>
+                <div key={index} className="animate-pulse rounded-2xl border border-stone-200 dark:border-stone-700 p-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-11 h-11 rounded-full bg-stone-200 dark:bg-neutral-700" />
+                    <div className="flex-1 space-y-2">
+                      <div className="h-5 w-48 bg-stone-200 dark:bg-neutral-700 rounded" />
+                      <div className="h-3 w-32 bg-stone-100 dark:bg-neutral-700/50 rounded" />
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="h-3 w-full bg-stone-100 dark:bg-neutral-700/50 rounded" />
+                    <div className="h-3 w-3/4 bg-stone-100 dark:bg-neutral-700/50 rounded" />
+                  </div>
                 </div>
               ))}
             </div>
@@ -316,77 +324,79 @@ export default function Cv() {
               </button>
             </motion.div>
           ) : (
-            <div className="space-y-20" role="list">
+            <div className="space-y-8" role="list">
               {filteredAndSortedActivity.map((item, index) => (
                 <motion.article 
                   key={item.id}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 1, delay: index * 0.1 }}
-                  className="relative pl-12 sm:pl-16 group"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  className="relative pl-14 sm:pl-16"
                   role="listitem"
                 >
-                  <div className="absolute -left-4 top-0 flex items-center justify-center">
-                      <div className="absolute left-1 w-1.5 h-1.5 rounded-full bg-stone-300 dark:bg-stone-600"></div>
-                        
-                      <div className="relative ml-4 sm:ml-6">
-                          <div className="rounded-full p-0.5 bg-white dark:bg-neutral-900 border border-stone-200 dark:border-stone-700">
-                            <img
-                              src={item.imageUrl}
-                              alt={`Logo de ${item.experience.where}`}
-                              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full object-cover"
-                            />
-                          </div>
-                        </div>
-                      </div>
+                  {/* Timeline dot */}
+                  <div className="absolute left-[14px] sm:left-[17px] top-7 w-2.5 h-2.5 rounded-full border-2 border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-neutral-900 z-10" />
 
-                  <div className="space-y-4 sm:space-y-5">
-                    <div className="flex items-start sm:items-center gap-3 sm:gap-4">
-                      <div className="flex-1">
-                        <h3 className="font-display text-lg sm:text-xl font-light text-stone-800 dark:text-white">
-                          {item.experience.title}
-                        </h3>
-                        <div className="flex items-center gap-2 text-xs sm:text-sm text-stone-400 dark:text-stone-500 mt-1">
-                          <div className="flex items-center gap-1 min-w-0">
-                            <BuildingOfficeIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" strokeWidth={1.5} />
-                            <span className="font-light block sm:hidden">
-                              {item.experience.where.includes("Universidad Computense") 
-                                ? "UCM - Google Actívate"
-                                : item.experience.where.includes("Ateneo Argentino")
-                                ? "AAO - UF"
-                                : item.experience.where}
-                            </span>
-                            <span className="font-light hidden sm:block">{item.experience.where}</span>
-                          </div>
-                          <span className="text-gray-300 dark:text-gray-600">•</span>
-                          <div className="flex items-center gap-1 flex-shrink-0">
-                            <CalendarIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" strokeWidth={1.5} />
-                            <span className="font-light">{item.date}</span>
-                          </div>
+                  {/* Card */}
+                  <div className="group rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-800/50 p-5 sm:p-6 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-300">
+                    {/* Header: logo + title + meta */}
+                    <div className="flex items-start gap-3.5 sm:gap-4">
+                      <div className="flex-shrink-0 rounded-full p-0.5 border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-900">
+                        <img
+                          src={item.imageUrl}
+                          alt={`Logo de ${item.experience.where}`}
+                          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover"
+                        />
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between gap-2">
+                          <h3 className="font-display text-base sm:text-lg font-light text-stone-800 dark:text-white leading-snug">
+                            {item.experience.title}
+                          </h3>
+                          <span className="flex-shrink-0 text-[11px] sm:text-xs font-light text-stone-400 dark:text-stone-500 bg-stone-100 dark:bg-neutral-700/50 px-2.5 py-1 rounded-full">
+                            {item.date}
+                          </span>
+                        </div>
+                        <div className="flex items-center gap-1 mt-1 text-xs sm:text-sm text-stone-400 dark:text-stone-500">
+                          <BuildingOfficeIcon className="w-3.5 h-3.5 flex-shrink-0" strokeWidth={1.5} />
+                          <span className="font-light truncate block sm:hidden">
+                            {item.experience.where.includes("Universidad Computense") 
+                              ? "UCM - Google Actívate"
+                              : item.experience.where.includes("Ateneo Argentino")
+                              ? "AAO - UF"
+                              : item.experience.where}
+                          </span>
+                          <span className="font-light truncate hidden sm:block">{item.experience.where}</span>
                         </div>
                       </div>
                     </div>
 
+                    {/* Description */}
                     {item.description && (
-                      <p className="text-stone-500 dark:text-stone-400 leading-relaxed font-light text-sm text-justify">
+                      <p className="mt-4 text-stone-500 dark:text-stone-400 leading-relaxed font-light text-sm">
                         {item.description}
                       </p>
                     )}
 
-                    {item.aptitudes && <AptitudesList aptitudes={item.aptitudes} />}
+                    {/* Aptitudes */}
+                    {item.aptitudes && (
+                      <div className="mt-4">
+                        <AptitudesList aptitudes={item.aptitudes} />
+                      </div>
+                    )}
 
+                    {/* Projects */}
                     {item.project && item.project.length > 0 && (
-                      <div>
-                        <h4 className="text-xs font-light text-stone-500 dark:text-stone-400 mb-3 flex items-center gap-3">
-                          <span className="sm:inline">Proyectos destacados</span>
-                          <div className="h-px flex-1 bg-stone-200 dark:bg-stone-700"></div>
+                      <div className="mt-5">
+                        <h4 className="text-[11px] font-light text-stone-400 dark:text-stone-500 uppercase tracking-wider mb-2.5">
+                          Proyectos destacados
                         </h4>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                           {item.project.map((proj, idx) => {
                             const projectIcon = projectIcons[proj.title] || {
                               icon: PuzzlePieceIcon,
                               color: 'text-stone-400 dark:text-stone-500',
-                              bgColor: 'bg-stone-100 dark:bg-neutral-800'
+                              bgColor: 'bg-stone-100 dark:bg-neutral-700/50'
                             };
                             const IconComponent = projectIcon.icon;
                             
@@ -394,22 +404,16 @@ export default function Cv() {
                               <button
                                 key={idx}
                                 onClick={() => handleClick(proj.title)}
-                                className="group relative flex items-center gap-3 py-2 px-2.5 -mx-2.5 rounded-lg hover:bg-stone-100 dark:hover:bg-neutral-800 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-300"
+                                className="group/proj flex items-center gap-2.5 py-2 px-3 rounded-lg bg-stone-50 dark:bg-neutral-800 border border-stone-100 dark:border-stone-700/50 hover:border-stone-300 dark:hover:border-stone-600 transition-all duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-stone-300"
                                 aria-label={`Ver proyecto ${proj.title}`}
                               >
                                 <div className={`flex-shrink-0 h-7 w-7 flex items-center justify-center rounded-md ${projectIcon.bgColor}`}>
-                                  <IconComponent 
-                                    className={`h-3.5 w-3.5 ${projectIcon.color}`}
-                                  />
+                                  <IconComponent className={`h-3.5 w-3.5 ${projectIcon.color}`} />
                                 </div>
-                                <div className="flex-1 min-w-0 text-left">
-                                  <h3 className="text-sm font-light text-stone-600 dark:text-stone-300 group-hover:text-stone-800 dark:group-hover:text-white transition-colors">
-                                    {proj.title}
-                                  </h3>
-                                </div>
-                                <div className="flex-shrink-0 text-stone-300 dark:text-stone-700 group-hover:text-stone-500 dark:group-hover:text-stone-400 transition-colors duration-200">
-                                  <ChevronRightIcon className="w-3.5 h-3.5" strokeWidth={1.5} />
-                                </div>
+                                <span className="flex-1 text-left text-sm font-light text-stone-600 dark:text-stone-300 group-hover/proj:text-stone-800 dark:group-hover/proj:text-white transition-colors">
+                                  {proj.title}
+                                </span>
+                                <ChevronRightIcon className="w-3.5 h-3.5 text-stone-300 dark:text-stone-600 group-hover/proj:text-stone-500 dark:group-hover/proj:text-stone-400 transition-colors" strokeWidth={1.5} />
                               </button>
                             );
                           })}
@@ -417,13 +421,13 @@ export default function Cv() {
                       </div>
                     )}
 
+                    {/* Tech stack */}
                     {item.tecnologies && (
-                      <div className="pt-3 border-t border-stone-200 dark:border-stone-700">
-                        <h4 className="text-xs font-light text-stone-500 dark:text-stone-400 mb-3 flex items-center gap-3">
-                          <span>Stack tecnológico</span>
-                          <div className="h-px flex-1 bg-stone-200 dark:bg-stone-700"></div>
+                      <div className="mt-5 pt-4 border-t border-stone-100 dark:border-stone-700/50">
+                        <h4 className="text-[11px] font-light text-stone-400 dark:text-stone-500 uppercase tracking-wider mb-3">
+                          Stack tecnológico
                         </h4>
-                        <div className="flex flex-wrap justify-center sm:justify-start gap-2">
+                        <div className="flex flex-wrap gap-1.5">
                           {item.tecnologies.split(',').map((tech, idx) => {
                             const techKey = tech.trim();
                             const techData = techIcons[techKey];
@@ -434,16 +438,16 @@ export default function Cv() {
                             return (
                               <div 
                                 key={idx}
-                                className="inline-flex items-center gap-1.5 py-1.5 px-2 sm:px-2.5 rounded-md"
+                                className="inline-flex items-center gap-1.5 py-1 px-2.5 rounded-full bg-stone-100 dark:bg-neutral-700/40 border border-stone-200/60 dark:border-stone-600/30"
                                 role="listitem"
                                 aria-label={`Tecnología: ${techKey}`}
                                 title={techKey}
                               >
                                 <Icon 
-                                  className={`w-4 h-4 ${techData.color}`}
+                                  className={`w-3 h-3 sm:w-3.5 sm:h-3.5 ${techData.color}`}
                                   aria-hidden="true"
                                 />
-                                <span className="hidden sm:inline text-xs font-light text-stone-500 dark:text-stone-400">
+                                <span className="text-[11px] sm:text-xs font-light text-stone-500 dark:text-stone-400">
                                   {techKey}
                                 </span>
                               </div>

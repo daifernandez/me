@@ -72,17 +72,17 @@ export default function DarkModeToggle() {
   ];
 
   return (
-    <div className="fixed top-4 right-4 z-50" role="group" aria-label="Selector de tema">
-      <div className="p-1.5 flex gap-1 
+    <div className="fixed top-2 right-2 sm:top-4 sm:right-4 z-50" role="group" aria-label="Selector de tema">
+      <div className="p-1 sm:p-1.5 flex gap-0.5 sm:gap-1 
         bg-white dark:bg-neutral-800 
         border border-stone-200 dark:border-stone-700
-        rounded-lg">
+        rounded-lg shadow-sm">
         {options?.map((option) => (
           <button
             key={option.text}
             onClick={() => setTheme(option.text)}
             className={`
-              w-8 h-8 
+              w-7 h-7 sm:w-8 sm:h-8 
               flex items-center justify-center
               rounded-md transition-colors duration-200
               ${theme === option.text 
@@ -93,7 +93,7 @@ export default function DarkModeToggle() {
             aria-label={option.tooltip}
             aria-pressed={theme === option.text}
           >
-            <option.icon className="w-4 h-4" strokeWidth={1.5} aria-hidden="true" />
+            <option.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" strokeWidth={1.5} aria-hidden="true" />
           </button>
         ))}
       </div>
