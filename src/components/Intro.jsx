@@ -13,9 +13,9 @@ export default function Intro() {
   };
 
   return (
-    <div className="bg-stone-50 dark:bg-neutral-900 py-16 xs:py-24 sm:py-32 min-h-screen flex items-center">
-      <div className="mx-auto max-w-6xl px-3 xs:px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 xs:gap-12 lg:gap-24">
+    <div className="bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-24 lg:py-32 min-h-screen flex items-center">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 xs:gap-8 sm:gap-12 lg:gap-24">
           {/* Título principal a la izquierda */}
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
@@ -46,7 +46,7 @@ export default function Intro() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="mt-8 h-px w-full bg-stone-200 dark:bg-stone-700 origin-left">
+                className="mt-6 xs:mt-8 h-px w-full bg-stone-200 dark:bg-stone-700 origin-left">
               </motion.div>
             </div>
           </motion.div>
@@ -56,7 +56,7 @@ export default function Intro() {
             initial={{ opacity: 0, x: 10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1.2, delay: 0.3 }}
-            className="relative pl-2 xs:pl-4 sm:pl-8 md:pl-16">
+            className="relative pl-3 xs:pl-4 sm:pl-8 md:pl-16">
             <div className="absolute left-0 top-0 bottom-0 w-px bg-stone-200 dark:bg-stone-700"></div>
 
             <div className="space-y-12 sm:space-y-20">
@@ -64,7 +64,7 @@ export default function Intro() {
               <motion.div 
                 {...fadeInUp}
                 className="relative">
-                <div className="space-y-2 xs:space-y-3 sm:space-y-4 pl-4 xs:pl-6 sm:pl-8">
+                <div className="space-y-2 xs:space-y-3 sm:space-y-4 pl-4 xs:pl-5 sm:pl-8">
                   <h2 className="font-display text-xl xs:text-2xl sm:text-3xl font-light text-stone-800 dark:text-white">
                     Hola, soy Daiana
                   </h2>
@@ -79,8 +79,8 @@ export default function Intro() {
               <motion.div 
                 {...fadeInUp}
                 className="relative">
-                <div className="space-y-6 pl-4 xs:pl-6 sm:pl-8">
-                    <div className="flex items-center justify-between mb-10">
+                <div className="space-y-5 xs:space-y-6 pl-4 xs:pl-5 sm:pl-8">
+                    <div className="flex items-center justify-between mb-8 xs:mb-10">
                       <button
                         type="button"
                         onClick={() => navigate("/me")}

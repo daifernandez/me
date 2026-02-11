@@ -216,7 +216,7 @@ function TechnologyItem({ technology }) {
   const technologyName = technology.toLowerCase().replace(/\s/g, "");
   const technologyIcon = technologiesName[technologyName].icon;
   return (
-    <div className="flex items-center gap-3 p-3 rounded-lg border border-stone-200 dark:border-stone-700">
+    <div className="flex items-center gap-2 xs:gap-3 p-2.5 xs:p-3 rounded-lg border border-stone-200 dark:border-stone-700">
       <div>
         {technologyIcon}
       </div>
@@ -240,7 +240,7 @@ function AptitudeItem({ aptitud }) {
   const IconComponent = aptitudeIcons[aptitud.toLowerCase()] || ShieldCheckIcon;
 
   return (
-    <div className="flex items-center gap-4 p-4 rounded-lg border border-stone-200 dark:border-stone-700">
+    <div className="flex items-center gap-3 xs:gap-4 p-3 xs:p-4 rounded-lg border border-stone-200 dark:border-stone-700">
       <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-lg bg-stone-100 dark:bg-neutral-800 text-stone-500 dark:text-stone-400">
         <IconComponent className="w-6 h-6" strokeWidth={1.5} />
       </div>
@@ -318,10 +318,10 @@ export default function ProjectDetails() {
       <ScrollToTop />
       
       {/* Hero Section */}
-      <section className="relative pb-32">
+      <section className="relative pb-8 xs:pb-10 sm:pb-14 md:pb-20">
         {/* Navegación */}
         <div className="relative z-10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 py-4 sm:py-5">
             <Link
               to="/"
               className="inline-flex items-center gap-2 text-sm font-light text-stone-500 dark:text-stone-400 hover:text-stone-800 dark:hover:text-white transition-colors"
@@ -334,22 +334,22 @@ export default function ProjectDetails() {
         </div>
 
         {/* Contenido Hero */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 pt-6 xs:pt-8 pb-8 xs:pb-10 sm:pb-12">
           <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-6">
+            <p className="text-xs font-light tracking-widest uppercase text-stone-400 dark:text-stone-500 mb-4 xs:mb-5 sm:mb-6">
               {project.technologiesDestacadas.join(" · ")}
             </p>
             
-            <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-stone-800 dark:text-white mb-8
+            <h1 className="font-display text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light tracking-tight text-stone-800 dark:text-white mb-5 xs:mb-6 sm:mb-8
               animate-fade-up animate-once animate-duration-[1200ms] animate-delay-300">
               {project.name}
             </h1>
             
-            <p className="max-w-2xl mx-auto text-base sm:text-lg text-stone-500 dark:text-stone-400 mb-12 animate-fade-up animate-delay-500 leading-relaxed font-light text-justify">
+            <p className="max-w-2xl mx-auto px-2 text-sm xs:text-base sm:text-lg text-stone-500 dark:text-stone-400 mb-6 xs:mb-8 sm:mb-10 animate-fade-up animate-delay-500 leading-relaxed font-light text-justify sm:px-0">
               {project.description}
             </p>
             
-            <div className="flex flex-wrap items-center justify-center gap-4 animate-fade-up animate-delay-700">
+            <div className="flex flex-wrap items-center justify-center gap-3 xs:gap-4 animate-fade-up animate-delay-700">
               <a
                 href={project.link}
                 target="_blank"
@@ -374,14 +374,14 @@ export default function ProjectDetails() {
       </section>
 
       {/* Contenido Principal */}
-      <main className="relative pb-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="relative pb-12 xs:pb-14 sm:pb-16 md:pb-24">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-8">
           {/* Tecnologías y Aptitudes */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 xs:gap-8 sm:gap-8 mb-10 xs:mb-12 sm:mb-14">
             {/* Tecnologías */}
-            <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
-              <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Tecnologías</h2>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            <div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-6 border border-stone-200 dark:border-stone-700">
+              <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-4 xs:mb-5 sm:mb-6">Tecnologías</h2>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 xs:gap-3">
                 {project.technologies.sort().map((technology, index) => (
                   <TechnologyItem key={index} technology={technology} />
                 ))}
@@ -389,9 +389,9 @@ export default function ProjectDetails() {
             </div>
 
             {/* Aptitudes */}
-            <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
-              <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Aptitudes clave</h2>
-              <div className="space-y-4">
+<div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-6 border border-stone-200 dark:border-stone-700">
+            <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-4 xs:mb-5 sm:mb-6">Aptitudes clave</h2>
+              <div className="space-y-3 xs:space-y-4">
                 {project.aptitudes.map((aptitud, index) => (
                   <AptitudeItem key={index} aptitud={aptitud} />
                 ))}
@@ -400,9 +400,9 @@ export default function ProjectDetails() {
           </div>
 
           {/* Galería */}
-          <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
+          <div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-6 border border-stone-200 dark:border-stone-700">
             {/* Vista Principal */}
-            <div className="relative mb-12">
+            <div className="relative mb-6 xs:mb-8 sm:mb-10">
               <Splide
                 ref={splideRef}
                 options={{
@@ -456,7 +456,7 @@ export default function ProjectDetails() {
             </div>
 
             {/* Grid de Vistas */}
-            <div className="grid grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 xs:grid-cols-4 gap-3 xs:gap-4">
               {project.images.map((image, index) => (
                 <button
                   key={index}
@@ -479,7 +479,7 @@ export default function ProjectDetails() {
             </div>
 
             {/* Indicadores de Dispositivo */}
-            <div className="mt-8 flex flex-wrap gap-2 justify-center">
+            <div className="mt-6 xs:mt-8 flex flex-wrap gap-2 justify-center">
               {devices.map((device, index) => (
                 <button
                   key={device}
@@ -499,9 +499,9 @@ export default function ProjectDetails() {
 
           {/* Video demo */}
           {project.video && (
-            <div className="mt-8">
-              <div className="rounded-2xl p-8 border border-stone-200 dark:border-stone-700">
-                <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-6">Demo del proyecto</h2>
+            <div className="mt-6 xs:mt-8">
+              <div className="rounded-xl xs:rounded-2xl p-5 xs:p-6 border border-stone-200 dark:border-stone-700">
+                <h2 className="font-display text-xl sm:text-2xl font-light text-stone-800 dark:text-white mb-3 xs:mb-4 sm:mb-6">Demo del proyecto</h2>
                 <div className="relative w-full rounded-xl overflow-hidden" style={{ paddingTop: '56.25%' }}>
                   <ReactPlayer
                     url="https://vimeo.com/803296822"

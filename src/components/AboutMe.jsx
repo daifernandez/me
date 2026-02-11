@@ -47,7 +47,7 @@ export default function AboutMe() {
   };
 
   return (
-    <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 py-16 sm:py-24">
+    <div className="min-h-screen bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-20 md:py-24">
       <Helmet>
         <title>Sobre Mí — Dai Fernández</title>
         <meta name="description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
@@ -55,13 +55,13 @@ export default function AboutMe() {
         <meta property="og:description" content="Conocé más sobre Daiana Fernández — Desarrolladora FullStack Web apasionada por crear experiencias digitales únicas." />
       </Helmet>
       <ScrollToTop />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Hero Section */}
         <motion.div 
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.2 }}
-          className="relative p-8 mb-16"
+          className="relative p-5 xs:p-6 sm:p-8 mb-10 xs:mb-14 sm:mb-16"
         >
           <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-12">
             <motion.div 
@@ -100,13 +100,13 @@ export default function AboutMe() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 xs:gap-8">
           {/* About Section */}
           <motion.div 
             initial={{ opacity: 0, x: -10 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className="lg:col-span-2 rounded-2xl p-8 border border-stone-200 dark:border-stone-700"
+            className="lg:col-span-2 rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-8 border border-stone-200 dark:border-stone-700"
           >
             <h2 className="font-display text-2xl font-light text-stone-800 dark:text-white mb-6">Sobre mí</h2>
             <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
@@ -135,7 +135,7 @@ export default function AboutMe() {
             {skills.map((skill, index) => (
               <div 
                 key={index}
-                className="p-6 rounded-xl border border-stone-200 dark:border-stone-700 text-center"
+                className="p-4 xs:p-5 sm:p-6 rounded-xl border border-stone-200 dark:border-stone-700 text-center"
               >
                 <div className="flex justify-center">
                   <skill.icon className="w-7 h-7 text-stone-400 dark:text-stone-500 mb-3" />
@@ -152,7 +152,7 @@ export default function AboutMe() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="mt-12 rounded-2xl p-8 border border-stone-200 dark:border-stone-700"
+          className="mt-8 xs:mt-10 sm:mt-12 rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-8 border border-stone-200 dark:border-stone-700"
         >
           <div className="flex items-center gap-4 mb-8">
             <h2 className="font-display text-2xl font-light text-stone-800 dark:text-white">Stack Tecnológico</h2>
@@ -177,7 +177,7 @@ export default function AboutMe() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.6 }}
-          className="mt-12 rounded-2xl p-8 border border-stone-200 dark:border-stone-700"
+          className="mt-8 xs:mt-10 sm:mt-12 rounded-xl xs:rounded-2xl p-5 xs:p-6 sm:p-8 border border-stone-200 dark:border-stone-700"
         >
           <div className="space-y-6 text-base sm:text-lg leading-7 sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
             <p className="text-justify">

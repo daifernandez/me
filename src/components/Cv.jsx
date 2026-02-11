@@ -226,25 +226,25 @@ export default function Cv() {
   }, [filter, sortOrder]);
 
   return (
-    <section className="bg-stone-50 dark:bg-neutral-900 py-16 sm:py-32">
-      <div className="mx-auto max-w-4xl px-3 sm:px-6 lg:px-8">
+    <section className="bg-stone-50 dark:bg-neutral-900 py-12 xs:py-16 sm:py-24 md:py-32">
+      <div className="mx-auto max-w-4xl px-5 sm:px-6 lg:px-8">
         <motion.header 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2 }}
-          className="mx-auto max-w-2xl text-center mb-16 sm:mb-24 px-4"
+          className="mx-auto max-w-2xl text-center mb-10 xs:mb-14 sm:mb-20 md:mb-24 px-4"
         >
           <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight text-stone-800 dark:text-white">
             Experiencia Profesional
           </h2>
-          <div className="mt-4 flex justify-center">
-            <div className="h-px w-16 bg-stone-300 dark:bg-stone-600"></div>
+          <div className="mt-4 xs:mt-6 flex justify-center">
+            <div className="h-px w-12 xs:w-16 bg-stone-300 dark:bg-stone-600"></div>
           </div>
-          <p className="mt-6 text-base sm:text-lg leading-7 sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
+          <p className="mt-4 xs:mt-6 text-sm xs:text-base sm:text-lg leading-relaxed sm:leading-8 text-stone-500 dark:text-stone-400 font-light">
             Mi trayectoria en desarrollo web y tecnologías digitales
           </p>
 
-          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-center gap-2 px-4">
+          <div className="mt-6 xs:mt-8 sm:mt-10 flex flex-row items-center justify-center gap-2 px-4">
             <div className="flex-1 max-w-[200px] flex items-center gap-2 bg-white dark:bg-neutral-800 border border-stone-200 dark:border-stone-700 rounded-lg p-2.5">
               <AdjustmentsHorizontalIcon className="w-5 h-5 text-stone-400 flex-shrink-0" strokeWidth={1.5} />
               <select 
@@ -286,7 +286,7 @@ export default function Cv() {
           </div>
           
           {isLoading ? (
-            <div className="space-y-8 pl-14 sm:pl-16">
+            <div className="space-y-6 xs:space-y-8 pl-14 sm:pl-16">
               {[1, 2, 3].map((_, index) => (
                 <div key={index} className="animate-pulse rounded-2xl border border-stone-200 dark:border-stone-700 p-6">
                   <div className="flex items-center gap-4 mb-4">
@@ -324,7 +324,7 @@ export default function Cv() {
               </button>
             </motion.div>
           ) : (
-            <div className="space-y-8" role="list">
+            <div className="space-y-6 xs:space-y-8" role="list">
               {filteredAndSortedActivity.map((item, index) => (
                 <motion.article 
                   key={item.id}
@@ -338,7 +338,7 @@ export default function Cv() {
                   <div className="absolute left-[14px] sm:left-[17px] top-7 w-2.5 h-2.5 rounded-full border-2 border-stone-300 dark:border-stone-600 bg-stone-50 dark:bg-neutral-900 z-10" />
 
                   {/* Card */}
-                  <div className="group rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-800/50 p-5 sm:p-6 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-300">
+                  <div className="group rounded-xl xs:rounded-2xl border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-800/50 p-4 xs:p-5 sm:p-6 hover:border-stone-300 dark:hover:border-stone-600 transition-colors duration-300">
                     {/* Header: logo + title + meta */}
                     <div className="flex items-start gap-3.5 sm:gap-4">
                       <div className="flex-shrink-0 rounded-full p-0.5 border border-stone-200 dark:border-stone-700 bg-white dark:bg-neutral-900">

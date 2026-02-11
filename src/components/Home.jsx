@@ -15,7 +15,7 @@ export default function Home() {
         <meta property="og:title" content="Dai Fernández — FullStack Web Developer" />
         <meta property="og:description" content="Portfolio de Daiana Fernández — Desarrolladora FullStack Web. React, Node.js, Next.js y más." />
       </Helmet>
-      <div className="bg-stone-50 dark:bg-neutral-900 px-4 sm:px-6 lg:px-8">
+      <div className="bg-stone-50 dark:bg-neutral-900 px-5 sm:px-6 lg:px-8">
         <Header />
         <Intro />
         <Cv />

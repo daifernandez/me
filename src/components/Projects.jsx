@@ -74,7 +74,7 @@ const categories = [
 function ProjectSkeleton() {
   return (
     <div className="animate-pulse bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-stone-200 dark:border-stone-700">
-      <div className="h-52 bg-stone-200 dark:bg-neutral-700" />
+      <div className="h-40 xs:h-44 sm:h-52 bg-stone-200 dark:bg-neutral-700" />
       <div className="p-6 space-y-4">
         <div>
           <div className="h-6 w-32 bg-stone-200 dark:bg-neutral-700 rounded" />
@@ -128,10 +128,10 @@ export default function Projects() {
   }));
 
   return (
-    <div className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out bg-stone-50 dark:bg-neutral-900 py-32 sm:py-40">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <div className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out bg-stone-50 dark:bg-neutral-900 py-16 xs:py-20 sm:py-28 md:py-36 lg:py-40">
+      <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         {/* Encabezado principal */}
-        <div className="relative mx-auto max-w-2xl text-center mb-24">
+        <div className="relative mx-auto max-w-2xl text-center mb-12 xs:mb-16 sm:mb-20 md:mb-24">
           <h2 className="font-display text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-stone-800 dark:text-white">
             Mis Proyectos
           </h2>
@@ -140,7 +140,7 @@ export default function Projects() {
           </div>
          
           {/* Subtítulo y descripción */}
-          <div className="mt-10 space-y-6">
+          <div className="mt-6 xs:mt-8 sm:mt-10 space-y-4 xs:space-y-5 sm:space-y-6">
             <p className="text-xs xs:text-sm font-light tracking-widest uppercase text-stone-400 dark:text-stone-500">
               {categories[0].title}
             </p>
@@ -151,7 +151,7 @@ export default function Projects() {
           </div>
 
           {/* Filtros por tecnología */}
-          <div className="mt-12 flex flex-wrap justify-center gap-2">
+          <div className="mt-8 xs:mt-10 sm:mt-12 flex flex-wrap justify-center gap-2">
             <button
               onClick={() => setSelectedTag(null)}
               aria-pressed={!selectedTag}
@@ -190,7 +190,7 @@ export default function Projects() {
 
         {/* Grid de proyectos */}
         {isLoading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8 max-w-7xl mx-auto">
             {[1, 2, 3].map((i) => <ProjectSkeleton key={i} />)}
           </div>
         ) : filteredProjects.map((category) => (
@@ -198,7 +198,7 @@ export default function Projects() {
             <div className="relative">
               <motion.div 
                 layout
-                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto"
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 xs:gap-6 sm:gap-8 max-w-7xl mx-auto"
               >
                 <AnimatePresence mode="popLayout">
                   {category.projects.map((project) => (
@@ -217,7 +217,7 @@ export default function Projects() {
                       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), handleClick(project.title))}
                     >
                       {/* Contenedor de la imagen */}
-                      <div className="relative h-52 overflow-hidden">
+                      <div className="relative h-40 xs:h-44 sm:h-52 overflow-hidden">
                         <img
                           src={project.imageUrl}
                           alt={project.title}
@@ -227,7 +227,7 @@ export default function Projects() {
                       </div>
 
                       {/* Contenido */}
-                      <div className="p-6 space-y-4">
+                      <div className="p-4 xs:p-5 sm:p-6 space-y-3 xs:space-y-4">
                         <div>
                           <h3 className="font-display text-xl xs:text-2xl font-light tracking-wide text-stone-800 dark:text-white">
                             {project.title}
